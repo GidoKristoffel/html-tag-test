@@ -1,0 +1,15 @@
+@import "colors";
+
+@mixin card-border {
+  border: 2px solid $lotion;
+}
+
+@mixin card-padding {
+  padding: 8px;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

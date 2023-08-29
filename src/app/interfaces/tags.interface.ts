@@ -1,5 +1,8 @@
 export enum ETag {
-  Comment = 'comment',
+  Comment = '<!--...-->',
+  Doctype = '<!DOCTYPE>',
+  A = '<a>',
+  Abbr = '<abbr>',
 };
 
 export type ITags = {

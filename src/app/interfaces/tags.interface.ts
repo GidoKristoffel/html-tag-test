@@ -3,6 +3,14 @@ export enum ETag {
   Doctype = '<!DOCTYPE>',
   A = '<a>',
   Abbr = '<abbr>',
+  Address = '<address>',
+  Applet = '<applet>',
+  Area = '<area>',
+  Article = '<article>',
+  Aside = '<aside>',
+  Audio = '<audio>',
+  B = '<b>',
+  Base = '<base>',
 };
 
 export type ITags = {

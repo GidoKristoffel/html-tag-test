@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ETag, ITag, ITags } from "../interfaces/tags.interface";
-import { TagsService } from "./tags.service";
+import { ETag } from "../interfaces/tags.interface";
+import { ShuffleService } from "./shuffle.service";
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +8,9 @@ import { TagsService } from "./tags.service";
 export class QuestionOrderService {
   private questionOrder: ArrayLike<ETag> = [];
 
-  constructor() {
+  constructor(
+    private shuffleService: ShuffleService,
+  ) {
     this.init();
   }
 
@@ -22,6 +24,7 @@ export class QuestionOrderService {
 
   private init(): void {
     const tagIds = Object.values(ETag);
-    this.set(tagIds);
+    const shuffledTagIds = this.shuffleService.runArray(tagIds);
+    this.set(shuffledTagIds);
   }
 }

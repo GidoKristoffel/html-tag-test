@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ITags } from "../../interfaces/tags.interface";
+import { tags } from "../../../assets/tags";
 
 @Component({
   selector: 'htt-main',
@@ -6,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent {
-
+  private tags: ITags = tags;
 }

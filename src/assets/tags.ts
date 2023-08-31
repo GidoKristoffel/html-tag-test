@@ -52,10 +52,18 @@ export const tags: ITags = {
   [ETag.Area]: {
     question: {
       en: 'A tag that designates an interactive area in the image map (the <map> element), so that when you click on the name, the image area is shown',
-      ua: 'Тег, який визначає інтерактивну область в зображенні-карті (елемент <map>), тобто при кліці на певну область зображення відбуваються ',
+      ua: 'Тег, який визначає інтерактивну область в зображенні-карті (елемент <map>), тобто при кліці на певну область зображення відбуваються',
       ru: 'Тег, определяющий интерактивную область в изображении-карте (элемент <map>), то есть при клике на определенную область изображения происходят',
     },
     answer: ETag.Area,
+  },
+  [ETag.Article]: {
+    question: {
+      en: 'Defines independent, self-sufficient content from the rest of the site',
+      ua: 'Визначає незалежний, самодостатній зміст від іншої частини сайту',
+      ru: 'Определение независимого, самодостаточного содержания от другой части сайта',
+    },
+    answer: ETag.Article,
   },
   [ETag.Aside]: {
     question: {
@@ -64,6 +72,14 @@ export const tags: ITags = {
       ru: 'Блок с дополнительной информацией',
     },
     answer: ETag.Aside,
+  },
+  [ETag.Audio]: {
+    question: {
+      en: 'Allows you to insert a playable audio file',
+      ua: 'Дозволяє вставити аудіо файл, що відтворюється',
+      ru: 'Позволяет вставить воспроизводимый аудио файл',
+    },
+    answer: ETag.Audio,
   },
   [ETag.B]: {
     question: {

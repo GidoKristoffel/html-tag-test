@@ -1,9 +1,11 @@
 <div class="main">
   <div class="card">
-    <div class="question"></div>
+    <div class="question">
+      {{ tags[questionOrder[questionNumber]].question.ru }}
+    </div>
     <div class="answer">
       <input type="text" placeholder="Write answer">
-      <button>Answer</button>
+      <button (click)="answer()">Answer</button>
     </div>
   </div>
 </div>

@@ -97,5 +97,124 @@ export const tags: ITags = {
     },
     answer: ETag.Base,
   },
-
+  [ETag.Basefont]: {
+    question: {
+      en: 'Sets the default font',
+      ua: 'Задає шрифт за замовчуванням',
+      ru: 'Задает шрифт по умолчанию',
+    },
+    answer: ETag.Basefont,
+  },
+  [ETag.Bdo]: {
+    question: {
+      en: 'Changes the direction of the text',
+      ua: 'Змінює напрямок тексту',
+      ru: 'Изменет направление текста',
+    },
+    answer: ETag.Bdo,
+  },
+  [ETag.Big]: {
+    question: {
+      en: 'Makes the text bigger',
+      ua: 'Робить текст більшим',
+      ru: 'Делает текст больше',
+    },
+    answer: ETag.Big,
+  },
+  [ETag.Blockquote]: {
+    question: {
+      en: 'A long quote',
+      ua: 'Довга цитата',
+      ru: 'Длинная цитата',
+    },
+    answer: ETag.Blockquote,
+  },
+  [ETag.Body]: {
+    question: {
+      en: 'Defines the boundaries of the body of the web page',
+      ua: 'Визначає кордоти тіла веб-сторінки',
+      ru: 'Определение границ тела веб-страницы',
+    },
+    answer: ETag.Body,
+  },
+  [ETag.Br]: {
+    question: {
+      en: 'Creates a new line break',
+      ua: 'Створює перехід на новий рядок',
+      ru: 'Создает переход на новую строчку',
+    },
+    answer: ETag.Br,
+  },
+  [ETag.Button]: {
+    question: {
+      en: 'Defines a button',
+      ua: 'Визначає кнопку',
+      ru: 'Определяет кнопку',
+    },
+    answer: ETag.Button,
+  },
+  [ETag.Canvas]: {
+    question: {
+      en: 'Used as a container for graphics',
+      ua: 'Використовується як контейнер для графіки',
+      ru: 'Используется в качестве контейнера для графики',
+    },
+    answer: ETag.Canvas,
+  },
+  [ETag.Caption]: {
+    question: {
+      en: 'Defines the name of the table',
+      ua: 'Визначає назву таблиці',
+      ru: 'Определяет название таблицы',
+    },
+    answer: ETag.Caption,
+  },
+  [ETag.Center]: {
+    question: {
+      en: 'Aligns the text to the center',
+      ua: 'Вирівнює текст по центру',
+      ru: 'Выравнивает текст по центру',
+    },
+    answer: ETag.Center,
+  },
+  [ETag.Cite]: {
+    question: {
+      en: 'Defines the title of the work',
+      ua: 'Визначає назву твору',
+      ru: 'Определяет название произведения',
+    },
+    answer: ETag.Cite,
+  },
+  [ETag.Code]: {
+    question: {
+      en: 'Indicates that the content of the tag is program code',
+      ua: 'Вказує, що зміст теґа - програмний код',
+      ru: 'Указывает, что содержание тэга – программный код',
+    },
+    answer: ETag.Code,
+  },
+  [ETag.Col]: {
+    question: {
+      en: 'Sets general properties for one or more columns',
+      ua: 'Задає загальні властивості для однієї чи декількох колонок',
+      ru: 'Задает общие свойства для одной или нескольких колонок',
+    },
+    answer: ETag.Col,
+  },
+  [ETag.Colgroup]: {
+    question: {
+      en: 'Sets general properties for one or more columns',
+      ua: 'Задає загальні властивості для однієї чи декількох колонок',
+      ru: 'Задает общие свойства для одной или нескольких колонок',
+    },
+    answer: ETag.Colgroup,
+  },
+  // [ETag.]: {
+  //   question: {
+  //     en: '',
+  //     ua: '',
+  //     ru: '',
+  //   },
+  //   answer: ETag.,
+  // },
 };

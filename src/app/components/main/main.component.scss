@@ -5,6 +5,7 @@
 
   width: 100vw;
   height: 100vh;
+  font-family: monospace;
 
   & .question {
     border: 2px dashed white;
@@ -16,11 +17,16 @@
   }
 
   & .answer {
+    display: flex;
+    gap: 8px;
+
     & input {
+      flex: 1;
       background: black;
       border: 2px solid white;
       padding: 4px;
       color: white;
+      font-family: monospace;
 
       &:focus {
         outline: none;
@@ -32,6 +38,7 @@
       color: white;
       border: 2px solid white;
       padding: 4px;
+      font-family: monospace;
     }
   }
 }

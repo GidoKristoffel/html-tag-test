@@ -134,3 +134,7 @@ export interface ITag {
   };
   answer: ETag;
 }
+
+export enum ELocalStorage {
+  QuestionOrder = 'question-order',
+}

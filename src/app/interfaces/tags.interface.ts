@@ -138,4 +138,6 @@ export interface ITag {
 export enum ELocalStorage {
   QuestionOrder = 'question-order',
   QuestionNumber = 'question-number',
+  RightAnswers = 'right-answers',
+  WrongAnswers = 'wrong-answers',
 }

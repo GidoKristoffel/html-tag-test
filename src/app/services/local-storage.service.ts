@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { ELocalStorage, ETag } from "../interfaces/tags.interface";
 
 @Injectable({
   providedIn: 'root'

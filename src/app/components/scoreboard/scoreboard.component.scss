@@ -1,0 +1,35 @@
+.scoreboard {
+  color: white;
+  border: 2px solid white;
+  width: 435px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  font-family: monospace;
+  align-items: center;
+
+  & .score {
+    width: calc(50% - 1px);
+
+    & span {
+      color: white;
+    }
+
+    &:first-child {
+      padding-left: 16px;
+      color: green;
+    }
+
+    &:last-child {
+      padding-right: 16px;
+      text-align: right;
+      color: red;
+    }
+  }
+
+  & .delimiter {
+    border-left: 2px solid white;
+    width: 0;
+    height: 50px;
+  }
+}

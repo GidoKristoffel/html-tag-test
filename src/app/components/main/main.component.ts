@@ -3,6 +3,8 @@ import { ETag, ITags } from "../../interfaces/tags.interface";
 import { TagsService } from "../../services/tags.service";
 import { QuestionOrderService } from "../../services/question-order.service";
 import { QuestionNumberService } from "../../services/question-number.service";
+import { distinctUntilChanged } from "rxjs";
+import { AnswerService } from "../../services/answer.service";
 
 @Component({
   selector: 'htt-main',
@@ -13,11 +15,13 @@ export class MainComponent implements OnInit {
   public tags!: ITags;
   public questionOrder: ArrayLike<ETag> = [];
   public questionNumber: number = 0;
+  public answerInput: string = '';
 
   constructor(
     private tagsService: TagsService,
     private questionOrderService: QuestionOrderService,
     private questionNumberService: QuestionNumberService,
+    private answerService: AnswerService,
   ) {
   }
 
@@ -25,7 +29,8 @@ export class MainComponent implements OnInit {
     this.init();
   }
 
-  public answer(): void {
+  public answer(answer: string): void {
+    this.answerService.giveAnswer(answer, this.questionOrder[this.questionNumber]);
     this.nextQuestion();
   }
 
@@ -44,11 +49,20 @@ export class MainComponent implements OnInit {
   }
 
   private initQuestionNumber(): void {
-    this.questionNumber = this.questionNumberService.get();
+    this.questionNumberService
+      .watch()
+      .pipe(distinctUntilChanged())
+      .subscribe((questionNumber: number) => {
+        this.questionNumber = questionNumber;
+      });
   }
 
   private nextQuestion(): void {
-    this.questionNumber++;
-    this.questionNumberService.set(this.questionNumber);
+    this.clearAnswerInput();
+    this.questionNumberService.nextQuestion();
+  }
+
+  private clearAnswerInput(): void {
+    this.answerInput = '';
   }
 }

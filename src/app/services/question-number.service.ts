@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { LocalStorageService } from "./local-storage.service";
-import { ELocalStorage, ETag } from "../interfaces/tags.interface";
+import { ELocalStorage } from "../interfaces/tags.interface";
+import { BehaviorSubject, Observable } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class QuestionNumberService {
-  private questionNumber = 0;
+  private questionNumber: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
   constructor(
     private localStorageService: LocalStorageService
@@ -14,13 +15,17 @@ export class QuestionNumberService {
     this.init();
   }
 
-  public get(): number {
+  public watch(): Observable<number> {
     return this.questionNumber;
   }
 
   public set(questionNumber: number): void {
-    this.questionNumber = questionNumber;
-    this.save(this.questionNumber);
+    this.questionNumber.next(questionNumber);
+    this.save(this.questionNumber.value);
+  }
+
+  public nextQuestion(): void {
+    this.set(this.questionNumber.value + 1);
   }
 
   private getSaving(): number | null {

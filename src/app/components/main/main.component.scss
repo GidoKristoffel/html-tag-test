@@ -6,14 +6,17 @@
   width: 100vw;
   height: 100vh;
   font-family: monospace;
+  flex-direction: column;
+  gap: 16px;
 
   & .question {
     border: 2px dashed white;
     padding: 16px;
-    width: 400px;
-    height: 100px;
+    width: 435px;
+    height: 135px;
     margin-bottom: 16px;
     color: white;
+    box-sizing: border-box;
   }
 
   & .answer {

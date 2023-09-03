@@ -39,6 +39,10 @@
       border: 2px solid white;
       padding: 4px;
       font-family: monospace;
+
+      &:disabled {
+        opacity: 0.5;
+      }
     }
   }
 }

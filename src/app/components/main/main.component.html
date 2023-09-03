@@ -4,8 +4,8 @@
       {{ tags[questionOrder[questionNumber]].question.ru }}
     </div>
     <div class="answer">
-      <input type="text" placeholder="Write answer">
-      <button (click)="answer()">Answer</button>
+      <input type="text" [(ngModel)]="answerInput" placeholder="Write answer">
+      <button (click)="answer(answerInput)" [disabled]="!answerInput">Answer</button>
     </div>
   </div>
 </div>

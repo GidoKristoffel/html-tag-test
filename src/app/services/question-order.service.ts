@@ -37,15 +37,19 @@ export class QuestionOrderService {
     return null;
   }
 
+  public generate(): void {
+    const tagIds = Object.values(ETag);
+    const shuffledTagIds = this.shuffleService.runArray(tagIds);
+    this.set(shuffledTagIds);
+  }
+
   private init(): void {
     const saving = this.getSaving();
 
     if (saving) {
       this.set(saving);
     } else {
-      const tagIds = Object.values(ETag);
-      const shuffledTagIds = this.shuffleService.runArray(tagIds);
-      this.set(shuffledTagIds);
+      this.generate();
     }
   }
 }

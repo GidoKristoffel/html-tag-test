@@ -140,4 +140,5 @@ export enum ELocalStorage {
   QuestionNumber = 'question-number',
   RightAnswers = 'right-answers',
   WrongAnswers = 'wrong-answers',
+  ShowStatistics = 'show-statistics',
 }

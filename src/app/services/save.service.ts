@@ -10,7 +10,7 @@ export class SaveService {
     private localStorageService: LocalStorageService,
   ) {}
 
-  public saveLocalStorage(key: ELocalStorage, value: number): void {
+  public saveLocalStorage(key: ELocalStorage, value: any): void {
     this.localStorageService.setItem(key, value);
   }
 }

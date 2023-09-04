@@ -38,12 +38,12 @@ export class AnswerService {
     return this.wrongAnswers;
   }
 
-  private setRightAnswers(value: number): void {
+  public setRightAnswers(value: number): void {
     this.rightAnswers.next(value);
     this.saveService.saveLocalStorage(ELocalStorage.RightAnswers, value);
   }
 
-  private setWrongAnswers(value: number): void {
+  public setWrongAnswers(value: number): void {
     this.wrongAnswers.next(value);
     this.saveService.saveLocalStorage(ELocalStorage.WrongAnswers, value);
   }

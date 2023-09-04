@@ -5,6 +5,7 @@ import { QuestionOrderService } from "../../services/question-order.service";
 import { QuestionNumberService } from "../../services/question-number.service";
 import { distinctUntilChanged } from "rxjs";
 import { AnswerService } from "../../services/answer.service";
+import { SettingsService } from "../../services/settings.service";
 
 @Component({
   selector: 'htt-main',
@@ -16,12 +17,14 @@ export class MainComponent implements OnInit {
   public questionOrder: ArrayLike<ETag> = [];
   public questionNumber: number = 0;
   public answerInput: string = '';
+  public showStatistics: boolean = false;
 
   constructor(
     private tagsService: TagsService,
     private questionOrderService: QuestionOrderService,
     private questionNumberService: QuestionNumberService,
     private answerService: AnswerService,
+    private settingService: SettingsService,
   ) {
   }
 
@@ -38,6 +41,7 @@ export class MainComponent implements OnInit {
     this.initTags();
     this.initQuestionOrder();
     this.initQuestionNumber();
+    this.initShowStatistics();
   }
 
   private initTags(): void {
@@ -64,5 +68,14 @@ export class MainComponent implements OnInit {
 
   private clearAnswerInput(): void {
     this.answerInput = '';
+  }
+
+  private initShowStatistics(): void {
+    this.settingService
+      .watchShowStatistics()
+      .pipe(distinctUntilChanged())
+      .subscribe((showStatistics: boolean) => {
+        this.showStatistics = showStatistics;
+      });
   }
 }

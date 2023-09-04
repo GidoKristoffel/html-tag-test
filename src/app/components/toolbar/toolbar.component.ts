@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { SettingsService } from "../../services/settings.service";
+import { ResetService } from "../../services/reset.service";
 
 @Component({
   selector: 'htt-toolbar',
@@ -7,4 +9,16 @@ import { Component } from '@angular/core';
 })
 export class ToolbarComponent {
 
+  constructor(
+    private settingService: SettingsService,
+    private resetService: ResetService,
+  ) {}
+
+  public toggleShowStatistics(): void {
+    this.settingService.toggleShowStatistics();
+  }
+
+  public resetTest(): void {
+    this.resetService.run();
+  }
 }

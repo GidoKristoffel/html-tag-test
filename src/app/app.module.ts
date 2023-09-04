@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
 import { FormsModule } from "@angular/forms";
 import { ScoreboardComponent } from './components/scoreboard/scoreboard.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    ScoreboardComponent
+    ScoreboardComponent,
+    ToolbarComponent
   ],
     imports: [
         BrowserModule,

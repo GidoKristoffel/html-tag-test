@@ -1,0 +1,24 @@
+@import "src/app/shared/styles/mixins";
+
+.toolbar {
+  display: flex;
+  width: 435px;
+  justify-content: right;
+  gap: 8px;
+
+  & .btn {
+    @include flex-center;
+
+    border: 2px solid white;
+    width: 27px;
+    height: 27px;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    & img {
+      display: block;
+      width: 16px;
+      height: 16px;
+    }
+  }
+}

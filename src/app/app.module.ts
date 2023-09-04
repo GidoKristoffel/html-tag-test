@@ -7,13 +7,15 @@ import { MainComponent } from './components/main/main.component';
 import { FormsModule } from "@angular/forms";
 import { ScoreboardComponent } from './components/scoreboard/scoreboard.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     ScoreboardComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    DialogComponent
   ],
     imports: [
         BrowserModule,

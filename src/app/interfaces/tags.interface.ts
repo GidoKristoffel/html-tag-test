@@ -142,3 +142,17 @@ export enum ELocalStorage {
   WrongAnswers = 'wrong-answers',
   ShowStatistics = 'show-statistics',
 }
+
+export enum EDialog {
+  Reset = 'reset'
+}
+
+export interface IDialog {
+  answer: string;
+  agreeLabel: string;
+  disagreeLabel: string;
+}
+
+export type TDialogs =  {
+  [key in EDialog]: IDialog;
+}

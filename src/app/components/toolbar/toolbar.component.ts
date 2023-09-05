@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SettingsService } from "../../services/settings.service";
 import { ResetService } from "../../services/reset.service";
+import { DialogService } from "../../services/dialog.service";
 
 @Component({
   selector: 'htt-toolbar',
@@ -12,6 +13,7 @@ export class ToolbarComponent {
   constructor(
     private settingService: SettingsService,
     private resetService: ResetService,
+    private dialogService: DialogService
   ) {}
 
   public toggleShowStatistics(): void {
@@ -19,6 +21,6 @@ export class ToolbarComponent {
   }
 
   public resetTest(): void {
-    this.resetService.run();
+    this.dialogService.openReload(() => this.resetService.run());
   }
 }

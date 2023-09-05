@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ETag, ITags } from "../../interfaces/tags.interface";
+import { EDialog, ETag, IDialog, ITags } from "../../interfaces/tags.interface";
 import { TagsService } from "../../services/tags.service";
 import { QuestionOrderService } from "../../services/question-order.service";
 import { QuestionNumberService } from "../../services/question-number.service";
 import { distinctUntilChanged } from "rxjs";
 import { AnswerService } from "../../services/answer.service";
 import { SettingsService } from "../../services/settings.service";
+import { dialogs } from "../../../assets/tags";
 
 @Component({
   selector: 'htt-main',
@@ -18,6 +19,7 @@ export class MainComponent implements OnInit {
   public questionNumber: number = 0;
   public answerInput: string = '';
   public showStatistics: boolean = false;
+  public resetDialogs: IDialog = dialogs[EDialog.Reset];
 
   constructor(
     private tagsService: TagsService,

@@ -1,4 +1,4 @@
-import { ETag, ITags } from "../app/interfaces/tags.interface";
+import { EDialog, ETag, ITags, TDialogs } from "../app/interfaces/tags.interface";
 
 export const tags: ITags = {
   [ETag.Comment]: {
@@ -217,4 +217,12 @@ export const tags: ITags = {
   //   },
   //   answer: ETag.,
   // },
+};
+
+export const dialogs: TDialogs = {
+  [EDialog.Reset]: {
+    answer: 'Вы уверены что хотите начать тест заново?',
+    agreeLabel: 'Да',
+    disagreeLabel: 'Нет',
+  },
 };

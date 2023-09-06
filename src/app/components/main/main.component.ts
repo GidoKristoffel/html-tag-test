@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EDialog, ETag, IDialog, ITags } from "../../interfaces/tags.interface";
-import { TagsService } from "../../services/tags.service";
+import { TagsService } from "../../services/tags/tags.service";
 import { QuestionOrderService } from "../../services/question-order.service";
 import { QuestionNumberService } from "../../services/question-number.service";
 import { distinctUntilChanged } from "rxjs";

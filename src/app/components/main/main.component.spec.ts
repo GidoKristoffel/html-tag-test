@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MainComponent } from './main.component';
+import { ToolbarComponent } from "../toolbar/toolbar.component";
+import { MatDialog } from "@angular/material/dialog";
+import { FormsModule } from "@angular/forms";
 
 describe('MainComponent', () => {
   let component: MainComponent;
@@ -8,7 +11,19 @@ describe('MainComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MainComponent ]
+      imports: [
+        FormsModule,
+      ],
+      declarations: [
+        MainComponent,
+        ToolbarComponent,
+      ],
+      providers: [
+        {
+          provide: MatDialog,
+          useValue: {}
+        },
+      ],
     })
     .compileComponents();
 

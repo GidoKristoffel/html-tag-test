@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from "rxjs";
-import { ELocalStorage, ETag } from "../interfaces/tags.interface";
+import { ETag } from "../interfaces/tags.interface";
 import { TagsService } from "./tags/tags.service";
 import { LocalStorageService } from "./local-storage.service";
 import { SaveService } from "./save.service";

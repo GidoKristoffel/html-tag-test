@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { SettingsService } from "../../services/settings.service";
-import { ResetService } from "../../services/reset.service";
+import { ResetService } from "../../services/reset/reset.service";
 import { DialogService } from "../../services/dialog.service";
 
 @Component({

@@ -4,6 +4,7 @@ import { MainComponent } from './main.component';
 import { ToolbarComponent } from "../toolbar/toolbar.component";
 import { MatDialog } from "@angular/material/dialog";
 import { FormsModule } from "@angular/forms";
+import { ScoreboardComponent } from "../scoreboard/scoreboard.component";
 
 describe('MainComponent', () => {
   let component: MainComponent;
@@ -17,6 +18,7 @@ describe('MainComponent', () => {
       declarations: [
         MainComponent,
         ToolbarComponent,
+        ScoreboardComponent,
       ],
       providers: [
         {

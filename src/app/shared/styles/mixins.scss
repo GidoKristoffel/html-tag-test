@@ -1,7 +1,11 @@
 @import "colors";
 
-@mixin card-border {
+@mixin default-border {
   border: 2px solid $lotion;
+}
+
+@mixin dashed-border {
+  border: 2px dashed $lotion;
 }
 
 @mixin card-padding {

@@ -8,8 +8,8 @@
 
   & .btn {
     @include flex-center;
+    @include default-border;
 
-    border: 2px solid white;
     width: 27px;
     height: 27px;
     box-sizing: border-box;

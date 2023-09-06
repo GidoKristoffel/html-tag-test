@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
-import { ELocalStorage } from "../interfaces/tags.interface";
-import { LocalStorageService } from "./local-storage.service";
-import { AnswerService } from "./answer.service";
-import { QuestionNumberService } from "./question-number.service";
-import { QuestionOrderService } from "./question-order.service";
-import { RightAnswersService } from "./right-answers.service";
-import { WrongAnswersService } from "./wrong-answers.service";
+import { ELocalStorage } from "../../interfaces/tags.interface";
+import { LocalStorageService } from "../local-storage.service";
+import { AnswerService } from "../answer.service";
+import { QuestionNumberService } from "../question-number.service";
+import { QuestionOrderService } from "../question-order.service";
+import { RightAnswersService } from "../right-answers.service";
+import { WrongAnswersService } from "../wrong-answers.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ResetService {
+  private localStorageExceptions: ELocalStorage[] = [ELocalStorage.ShowStatistics];
   constructor(
     private localStorageService: LocalStorageService,
     private answerService: AnswerService,
@@ -28,8 +29,10 @@ export class ResetService {
   }
 
   private resetLocalStorage(): void {
-    Object.values(ELocalStorage).forEach((key: string) => {
-      this.localStorageService.removeItem(key);
+    Object.values(ELocalStorage).forEach((key: ELocalStorage) => {
+      if (!this.localStorageExceptions.includes(key)) {
+        this.localStorageService.removeItem(key);
+      }
     });
   }
 

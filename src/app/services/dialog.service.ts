@@ -13,7 +13,9 @@ export class DialogService {
   private readonly params: TDialogs = dialogs;
   private readonly config: MatDialogConfig = {
     backdropClass: 'dialog-backdrop',
-    disableClose: false,
+    panelClass: 'dialog-panel',
+    disableClose: true,
+    autoFocus: false,
   };
 
   constructor(

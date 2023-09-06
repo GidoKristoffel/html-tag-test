@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { tags } from "../../../assets/tags";
 import { BehaviorSubject, Observable } from "rxjs";
 import { SaveService } from "../save.service";
-import { ELocalStorage, ETag } from "../../interfaces/tags.interface";
+import { ETag } from "../../interfaces/tags.interface";
 import { RightAnswersService } from "../right-answers.service";
 import { UntilDestroy, untilDestroyed } from "@ngneat/until-destroy";
 import { WrongAnswersService } from "../wrong-answers.service";

@@ -8,8 +8,6 @@ import { FormsModule } from "@angular/forms";
 import { ScoreboardComponent } from './components/scoreboard/scoreboard.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { DialogComponent } from './components/dialog/dialog.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDialogModule } from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -22,9 +20,7 @@ import { MatDialogModule } from "@angular/material/dialog";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    NoopAnimationsModule,
-    MatDialogModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

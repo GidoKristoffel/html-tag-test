@@ -5,17 +5,16 @@
 
   width: 100vw;
   height: 100vh;
-  font-family: monospace;
   flex-direction: column;
   gap: 16px;
 
   & .question {
-    border: 2px dashed white;
+    @include dashed-border;
+
     padding: 16px;
     width: 435px;
     height: 135px;
     margin-bottom: 16px;
-    color: white;
     box-sizing: border-box;
   }
 
@@ -24,12 +23,11 @@
     gap: 8px;
 
     & input {
+      @include default-border;
+
       flex: 1;
       background: black;
-      border: 2px solid white;
       padding: 4px;
-      color: white;
-      font-family: monospace;
 
       &:focus {
         outline: none;
@@ -37,11 +35,10 @@
     }
 
     & button {
+      @include default-border;
+
       background: black;
-      color: white;
-      border: 2px solid white;
       padding: 4px;
-      font-family: monospace;
 
       &:disabled {
         opacity: 0.5;

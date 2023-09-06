@@ -4,6 +4,7 @@ import { DialogComponent } from "../components/dialog/dialog.component";
 import { dialogs } from "../../assets/tags";
 import { EDialog, TDialogs } from "../interfaces/tags.interface";
 import { UntilDestroy, untilDestroyed } from "@ngneat/until-destroy";
+import { ModalService } from "./modal.service";
 
 @UntilDestroy()
 @Injectable({
@@ -19,12 +20,14 @@ export class DialogService {
   };
 
   constructor(
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private modal: ModalService,
+
   ) {}
 
   public openReload(agree: () => void): void {
-    const dialogRef = this.dialog.open(DialogComponent, this.config);
-    const instance = dialogRef.componentInstance;
+    const dialogRef = this.modal.open(DialogComponent);
+    const instance = dialogRef.instance;
 
     instance.answer = this.params[EDialog.Reset].answer;
     instance.agreeLabel = this.params[EDialog.Reset].agreeLabel;
@@ -34,10 +37,10 @@ export class DialogService {
       .pipe(untilDestroyed(this))
       .subscribe(() => {
         agree();
-        dialogRef.close()
+        this.modal.close(dialogRef);
       });
     instance.disagree
       .pipe(untilDestroyed(this))
-      .subscribe(() => dialogRef.close());
+      .subscribe(() => this.modal.close(dialogRef));
   }
 }

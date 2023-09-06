@@ -19,5 +19,4 @@ export class DialogComponent {
   public disagreeEmit(): void {
     this.disagree.emit();
   }
-
 }

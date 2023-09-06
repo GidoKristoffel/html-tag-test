@@ -5,10 +5,8 @@ module.exports = {
   entry: {
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[hash].js'
+    path: path.resolve(__dirname, 'docs'),
+    filename: '[name].[fullhash].js'
   },
-  plugins: [
-    new CompressionPlugin()
-  ]
+  plugins: [new CompressionPlugin()],
 };

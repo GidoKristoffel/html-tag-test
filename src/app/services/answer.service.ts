@@ -4,62 +4,31 @@ import { ELocalStorage, ETag } from "../interfaces/tags.interface";
 import { TagsService } from "./tags/tags.service";
 import { LocalStorageService } from "./local-storage.service";
 import { SaveService } from "./save.service";
+import { RightAnswersService } from "./right-answers.service";
+import { WrongAnswersService } from "./wrong-answers.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AnswerService {
-  private rightAnswers: BehaviorSubject<number> = new BehaviorSubject<number>(0);
-  private wrongAnswers: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
   constructor(
     private tagsService: TagsService,
     private localStorageService: LocalStorageService,
     private saveService: SaveService,
-  ) {
-    this.init();
-  }
+    private rightAnswersService: RightAnswersService,
+    private wrongAnswersService: WrongAnswersService,
+  ) {}
 
   public giveAnswer(answer: string, questionIndex: ETag): void {
     const question = this.tagsService.get()[questionIndex];
 
     if (question.answer === answer) {
-      this.setRightAnswers(this.rightAnswers.getValue() + 1);
+      const rightAnswers: ETag[] = [...this.rightAnswersService.get(), questionIndex];
+      this.rightAnswersService.set(rightAnswers);
     } else {
-      this.setWrongAnswers(this.wrongAnswers.getValue() + 1);
+      const wrongAnswers: ETag[] = [...this.wrongAnswersService.get(), questionIndex];
+      this.wrongAnswersService.set(wrongAnswers);
     }
-  }
-
-  public watchRightAnswers(): Observable<number> {
-    return this.rightAnswers;
-  }
-
-  public watchWrongAnswers(): Observable<number> {
-    return this.wrongAnswers;
-  }
-
-  public setRightAnswers(value: number): void {
-    this.rightAnswers.next(value);
-    this.saveService.saveLocalStorage(ELocalStorage.RightAnswers, value);
-  }
-
-  public setWrongAnswers(value: number): void {
-    this.wrongAnswers.next(value);
-    this.saveService.saveLocalStorage(ELocalStorage.WrongAnswers, value);
-  }
-
-  private init(): void {
-    this.initRightAnswers();
-    this.initWrongAnswers();
-  }
-
-  private initRightAnswers(): void {
-    let rightAnswers: number | string | null = this.localStorageService.getItem(ELocalStorage.RightAnswers);
-    this.setRightAnswers(rightAnswers ? +rightAnswers : 0);
-  }
-
-  private initWrongAnswers(): void {
-    let wrongAnswers: number | string | null = this.localStorageService.getItem(ELocalStorage.WrongAnswers);
-    this.setWrongAnswers(wrongAnswers ? +wrongAnswers : 0);
   }
 }

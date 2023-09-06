@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DialogComponent } from "../components/dialog/dialog.component";
 import { dialogs } from "../../assets/tags";
 import { EDialog, TDialogs } from "../interfaces/tags.interface";
@@ -12,15 +11,8 @@ import { ModalService } from "./modal.service";
 })
 export class DialogService {
   private readonly params: TDialogs = dialogs;
-  private readonly config: MatDialogConfig = {
-    backdropClass: 'dialog-backdrop',
-    panelClass: 'dialog-panel',
-    disableClose: true,
-    autoFocus: false,
-  };
 
   constructor(
-    private dialog: MatDialog,
     private modal: ModalService,
 
   ) {}

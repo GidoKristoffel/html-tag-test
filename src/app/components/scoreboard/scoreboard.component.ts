@@ -1,18 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { AnswerService } from "../../services/answer.service";
-import { distinctUntilChanged } from "rxjs";
+import { UntilDestroy, untilDestroyed } from "@ngneat/until-destroy";
+import { ScoreService } from "../../services/score/score.service";
 
+@UntilDestroy()
 @Component({
   selector: 'htt-scoreboard',
   templateUrl: './scoreboard.component.html',
   styleUrls: ['./scoreboard.component.scss']
 })
 export class ScoreboardComponent implements OnInit {
-  public rightAnswers: number = 0;
   public wrongAnswers: number = 0;
+  public totalQuestions: number = 0;
+  public questionsLeft: number = 0;
+  public skippedQuestions: number = 0;
+  public correctAnswerCounter: number = 0;
+  public incorrecAnswerCounter: number = 0;
 
   constructor(
-    private answerService: AnswerService
+    private answerService: AnswerService,
+    private scoreService: ScoreService,
   ) {}
 
   ngOnInit() {
@@ -20,25 +27,25 @@ export class ScoreboardComponent implements OnInit {
   }
 
   private init(): void {
-    this.initRightAnswers();
+    this.initRightAnswersCounter();
     this.initWrongAnswers();
   }
 
-  private initRightAnswers(): void {
-    this.answerService
+  private initRightAnswersCounter(): void {
+    this.scoreService
       .watchRightAnswers()
-      .pipe(distinctUntilChanged())
+      .pipe(untilDestroyed(this))
       .subscribe((rightAnswers: number) => {
-        this.rightAnswers = rightAnswers;
+        this.correctAnswerCounter = rightAnswers;
       });
   }
 
   private initWrongAnswers(): void {
-    this.answerService
+    this.scoreService
       .watchWrongAnswers()
-      .pipe(distinctUntilChanged())
+      .pipe(untilDestroyed(this))
       .subscribe((wrongAnswers: number) => {
-        this.wrongAnswers = wrongAnswers;
+        this.incorrecAnswerCounter = wrongAnswers;
       });
   }
 }

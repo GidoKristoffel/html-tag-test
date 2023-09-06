@@ -4,6 +4,8 @@ import { LocalStorageService } from "./local-storage.service";
 import { AnswerService } from "./answer.service";
 import { QuestionNumberService } from "./question-number.service";
 import { QuestionOrderService } from "./question-order.service";
+import { RightAnswersService } from "./right-answers.service";
+import { WrongAnswersService } from "./wrong-answers.service";
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +16,8 @@ export class ResetService {
     private answerService: AnswerService,
     private questionNumberService: QuestionNumberService,
     private questionOrderService: QuestionOrderService,
+    private rightAnswersService: RightAnswersService,
+    private wrongAnswersService: WrongAnswersService,
   ) {}
 
   public run(): void {
@@ -35,11 +39,11 @@ export class ResetService {
   }
 
   private resetRightAnswers(): void {
-    this.answerService.setRightAnswers(0);
+    this.rightAnswersService.set([]);
   }
 
   private resetWrongAnswers(): void {
-    this.answerService.setWrongAnswers(0);
+    this.wrongAnswersService.set([]);
   }
 
   private resetQuestionNumber(): void {

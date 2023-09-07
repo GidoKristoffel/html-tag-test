@@ -10,12 +10,11 @@ import { ScoreService } from "../../services/score/score.service";
   styleUrls: ['./scoreboard.component.scss']
 })
 export class ScoreboardComponent implements OnInit {
-  public wrongAnswers: number = 0;
-  public totalQuestions: number = 0;
-  public questionsLeft: number = 0;
-  public skippedQuestions: number = 0;
+  public totalQuestionsCount: number = 0;
+  public questionsLeftCount: number = 0;
+  public skippedQuestionsCount: number = 0;
   public correctAnswerCounter: number = 0;
-  public incorrecAnswerCounter: number = 0;
+  public incorrectAnswerCounter: number = 0;
 
   constructor(
     private answerService: AnswerService,
@@ -28,7 +27,8 @@ export class ScoreboardComponent implements OnInit {
 
   private init(): void {
     this.initRightAnswersCounter();
-    this.initWrongAnswers();
+    this.initWrongAnswersCounter();
+    this.initTotalQuestions();
   }
 
   private initRightAnswersCounter(): void {
@@ -40,12 +40,21 @@ export class ScoreboardComponent implements OnInit {
       });
   }
 
-  private initWrongAnswers(): void {
+  private initWrongAnswersCounter(): void {
     this.scoreService
       .watchWrongAnswers()
       .pipe(untilDestroyed(this))
       .subscribe((wrongAnswers: number) => {
-        this.incorrecAnswerCounter = wrongAnswers;
+        this.incorrectAnswerCounter = wrongAnswers;
+      });
+  }
+
+  private initTotalQuestions(): void {
+    this.scoreService
+      .watchTotalQuestions()
+      .pipe(untilDestroyed(this))
+      .subscribe((totalQuestionsCount: number) => {
+        this.totalQuestionsCount = totalQuestionsCount;
       });
   }
 }

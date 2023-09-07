@@ -12,7 +12,7 @@ import { WrongAnswersService } from "../wrong-answers.service";
   providedIn: 'root'
 })
 export class ScoreService {
-  private totalQuestions: number = 0;
+  private totalQuestions: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   private rightAnswers: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   private wrongAnswers: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   private questionsLeft: BehaviorSubject<number> = new BehaviorSubject<number>(0);
@@ -36,7 +36,7 @@ export class ScoreService {
   // ---------------------------------------Init---------------------------------------
 
   private initTotalQuestions(): void {
-    this.totalQuestions = Object.keys(tags).length;
+    this.setTotalQuestions(Object.keys(tags).length);
   }
 
   private initRightAnswers(): void {
@@ -67,6 +67,10 @@ export class ScoreService {
 
   // ----------------------------------------Set----------------------------------------
 
+  private setTotalQuestions(value: number): void {
+    this.totalQuestions.next(value);
+  }
+
   private setRightAnswers(value: number): void {
     this.rightAnswers.next(value);
   }
@@ -84,6 +88,10 @@ export class ScoreService {
   }
 
   // --------------------------------------Watch--------------------------------------
+
+  public watchTotalQuestions(): Observable<number> {
+    return this.totalQuestions;
+  }
 
   public watchRightAnswers(): Observable<number> {
     return this.rightAnswers;

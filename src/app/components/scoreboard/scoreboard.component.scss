@@ -5,23 +5,14 @@
 
   width: 435px;
   box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 8px;
 
-  & .score {
-    width: calc(50% - 1px);
+  & .correct {
+    color: lightgreen;
+  }
 
-    &:first-child {
-      padding-left: 16px;
-      color: green;
-    }
-
-    &:last-child {
-      padding-right: 16px;
-      text-align: right;
-      color: red;
-    }
+  & .incorrect {
+    color: red;
   }
 
   & .delimiter {

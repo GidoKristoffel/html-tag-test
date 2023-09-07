@@ -1,11 +1,22 @@
 <div class="scoreboard">
   <div class="score">
-    <span>Верно</span>
+    <span>Всего вопросов: </span>
+    {{ totalQuestionsCount }}
+  </div>
+  <div class="score">
+    <span>Осталось вопросов: </span>
+    {{ questionsLeftCount }}
+  </div>
+  <div class="score correct">
+    <span>Верно: </span>
     {{ correctAnswerCounter }}
   </div>
-  <div class="delimiter"></div>
+  <div class="score incorrect">
+    <span>Не верно: </span>
+    {{ incorrectAnswerCounter }}
+  </div>
   <div class="score">
-    {{ incorrecAnswerCounter }}
-    <span>Не верно</span>
+    <span>Пропущено: </span>
+    {{ skippedQuestionsCount }}
   </div>
 </div>

@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { tags } from "../../../assets/tags";
-import { BehaviorSubject, Observable } from "rxjs";
+import { BehaviorSubject, merge, Observable } from "rxjs";
 import { SaveService } from "../save.service";
 import { ETag } from "../../interfaces/tags.interface";
 import { RightAnswersService } from "../right-answers.service";
 import { UntilDestroy, untilDestroyed } from "@ngneat/until-destroy";
 import { WrongAnswersService } from "../wrong-answers.service";
+import { SkippedQuestionService } from "../skipped-question.service";
 
 @UntilDestroy()
 @Injectable({
@@ -23,6 +24,7 @@ export class ScoreService {
     private saveService: SaveService,
     private rightAnswersService: RightAnswersService,
     private wrongAnswersService: WrongAnswersService,
+    private skippedQuestionService: SkippedQuestionService,
   ) {
     this.init();
   }
@@ -31,6 +33,8 @@ export class ScoreService {
     this.initTotalQuestions();
     this.initRightAnswers();
     this.initWrongAnswers();
+    this.initSkippedQuestions();
+    this.initQuestionsLeft();
   }
 
   // ---------------------------------------Init---------------------------------------
@@ -58,11 +62,25 @@ export class ScoreService {
   }
 
   private initQuestionsLeft(): void {
-
+    merge(
+      this.watchTotalQuestions().pipe(untilDestroyed(this)),
+      this.watchRightAnswers().pipe(untilDestroyed(this)),
+      this.watchWrongAnswers().pipe(untilDestroyed(this)),
+      this.watchSkippedQuestions().pipe(untilDestroyed(this)),
+    ).subscribe(() => {
+      const questionsLeft =
+        this.getTotalQuestions() - this.getRightAnswers() - this.getWrongAnswers() - this.getSkippedQuestions();
+      this.setQuestionsLeft(questionsLeft);
+    });
   }
 
   private initSkippedQuestions(): void {
-
+    this.skippedQuestionService
+      .watch()
+      .pipe(untilDestroyed(this))
+      .subscribe((skippedQuestion: ETag[]) => {
+        this.setSkippedQuestions(skippedQuestion.length);
+      });
   }
 
   // ----------------------------------------Set----------------------------------------
@@ -107,5 +125,27 @@ export class ScoreService {
 
   public watchSkippedQuestions(): Observable<number> {
     return this.skippedQuestions;
+  }
+
+  // -------------------------------------Get-------------------------------------
+
+  private getTotalQuestions(): number {
+    return this.totalQuestions.getValue();
+  }
+
+  private getRightAnswers(): number {
+    return this.rightAnswers.getValue();
+  }
+
+  private getWrongAnswers(): number {
+    return this.wrongAnswers.getValue();
+  }
+
+  private getQuestionsLeft(): number {
+    return this.questionsLeft.getValue();
+  }
+
+  private getSkippedQuestions(): number {
+    return this.skippedQuestions.getValue();
   }
 }

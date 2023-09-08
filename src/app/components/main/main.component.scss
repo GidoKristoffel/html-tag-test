@@ -7,42 +7,4 @@
   height: 100vh;
   flex-direction: column;
   gap: 16px;
-
-  & .question {
-    @include dashed-border;
-
-    padding: 16px;
-    width: 435px;
-    height: 135px;
-    margin-bottom: 16px;
-    box-sizing: border-box;
-  }
-
-  & .answer {
-    display: flex;
-    gap: 8px;
-
-    & input {
-      @include default-border;
-
-      flex: 1;
-      background: black;
-      padding: 4px;
-
-      &:focus {
-        outline: none;
-      }
-    }
-
-    & button {
-      @include default-border;
-
-      background: black;
-      padding: 4px;
-
-      &:disabled {
-        opacity: 0.5;
-      }
-    }
-  }
 }

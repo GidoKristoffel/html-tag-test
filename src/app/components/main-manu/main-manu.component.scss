@@ -1,0 +1,57 @@
+@import "src/app/shared/styles/mixins";
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 300px;
+
+  & .item {
+    @include default-border;
+
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+
+    & .icon {
+      @include flex-center;
+      @include default-border;
+
+      border-width: 0 2px 0 0;
+
+      & .svg {
+        display: block;
+        padding: 4px;
+
+        & svg {
+          display: block;
+        }
+      }
+    }
+
+    & .text {
+      @include flex-center;
+
+      width: 100%;
+      padding: 0 8px;
+    }
+
+    &:hover {
+      cursor: pointer;
+      user-select: none;
+      border-color: $crayola;
+      color: $crayola;
+
+      & .icon {
+        border-color: $crayola;
+
+        & .svg {
+          & g {
+            fill: $crayola;
+          }
+        }
+      }
+    }
+  }
+}

@@ -10,9 +10,9 @@ import { ScoreService } from "../../services/score/score.service";
   styleUrls: ['./scoreboard.component.scss']
 })
 export class ScoreboardComponent implements OnInit {
-  public totalQuestionsCount: number = 0;
-  public questionsLeftCount: number = 0;
-  public skippedQuestionsCount: number = 0;
+  public totalQuestionsCounter: number = 0;
+  public questionsLeftCounter: number = 0;
+  public skippedQuestionsCounter: number = 0;
   public correctAnswerCounter: number = 0;
   public incorrectAnswerCounter: number = 0;
 
@@ -28,7 +28,9 @@ export class ScoreboardComponent implements OnInit {
   private init(): void {
     this.initRightAnswersCounter();
     this.initWrongAnswersCounter();
-    this.initTotalQuestions();
+    this.initTotalQuestionsCounter();
+    this.initSkippedQuestions();
+    this.initQuestionsLeftCounter();
   }
 
   private initRightAnswersCounter(): void {
@@ -49,12 +51,30 @@ export class ScoreboardComponent implements OnInit {
       });
   }
 
-  private initTotalQuestions(): void {
+  private initTotalQuestionsCounter(): void {
     this.scoreService
       .watchTotalQuestions()
       .pipe(untilDestroyed(this))
       .subscribe((totalQuestionsCount: number) => {
-        this.totalQuestionsCount = totalQuestionsCount;
+        this.totalQuestionsCounter = totalQuestionsCount;
       });
+  }
+
+  private initSkippedQuestions(): void {
+    this.scoreService
+      .watchSkippedQuestions()
+      .pipe(untilDestroyed(this))
+      .subscribe((skippedQuestionsCount: number) => {
+        this.skippedQuestionsCounter = skippedQuestionsCount;
+      });
+  }
+
+  private initQuestionsLeftCounter(): void {
+    this.scoreService
+      .watchQuestionsLeft()
+      .pipe(untilDestroyed(this))
+      .subscribe((questionsLeftCounter: number) => {
+        this.questionsLeftCounter = questionsLeftCounter;
+    });
   }
 }

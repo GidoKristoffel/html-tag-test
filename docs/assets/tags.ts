@@ -225,4 +225,9 @@ export const dialogs: TDialogs = {
     agreeLabel: 'Да',
     disagreeLabel: 'Нет',
   },
+  [EDialog.BackToMainMenu]: {
+    answer: `Вы уверены что хотите вернутся в основное меню? \nТекущий результат будет сброшен`,
+    agreeLabel: 'Да',
+    disagreeLabel: 'Нет',
+  },
 };

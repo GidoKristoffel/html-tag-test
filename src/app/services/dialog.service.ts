@@ -35,4 +35,23 @@ export class DialogService {
       .pipe(untilDestroyed(this))
       .subscribe(() => this.modal.close(dialogRef));
   }
+
+  public openBackToMainMenu(agree: () => void): void {
+    const dialogRef = this.modal.open(DialogComponent);
+    const instance = dialogRef.instance;
+
+    instance.answer = this.params[EDialog.BackToMainMenu].answer;
+    instance.agreeLabel = this.params[EDialog.BackToMainMenu].agreeLabel;
+    instance.disagreeLabel = this.params[EDialog.BackToMainMenu].disagreeLabel;
+
+    instance.agree
+      .pipe(untilDestroyed(this))
+      .subscribe(() => {
+        agree();
+        this.modal.close(dialogRef);
+      });
+    instance.disagree
+      .pipe(untilDestroyed(this))
+      .subscribe(() => this.modal.close(dialogRef));
+  }
 }

@@ -1,0 +1,20 @@
+<div class="test">
+  <htt-toolbar></htt-toolbar>
+  <htt-scoreboard *ngIf="showStatistics"></htt-scoreboard>
+  <div class="card">
+    <div class="question">
+      {{ tags[questionOrder[questionNumber]].question.ru }}
+    </div>
+    <div class="answer">
+      <input type="text"
+             #input
+             [(ngModel)]="answerInput"
+             (keyup.enter)="answer(answerInput)"
+             placeholder="Write answer">
+      <button (click)="answer(answerInput)" [disabled]="!answerInput">Answer</button>
+      <div class="icon-btn" (click)="skipQuestion()">
+        <img src="./assets/images/skip.svg" alt="skip">
+      </div>
+    </div>
+  </div>
+</div>

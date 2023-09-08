@@ -1,4 +1,5 @@
 @import "src/app/shared/styles/colors";
+@import "src/app/shared/styles/mixins";
 
 body {
   background-color: $black;
@@ -15,5 +16,22 @@ body, button, span, input {
 input, button {
   &:focus, &:focus-visible {
     outline: none;
+  }
+}
+
+.icon-btn {
+  @include flex-center;
+  @include default-border;
+
+  width: 27px;
+  height: 27px;
+  box-sizing: border-box;
+  cursor: pointer;
+  user-select: none;
+
+  & img {
+    display: block;
+    width: 16px;
+    height: 16px;
   }
 }

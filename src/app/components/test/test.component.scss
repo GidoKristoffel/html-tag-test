@@ -1,0 +1,46 @@
+@import "src/app/shared/styles/mixins";
+
+.test {
+  flex-direction: column;
+  gap: 16px;
+  display: flex;
+
+  & .question {
+    @include dashed-border;
+
+    padding: 16px;
+    width: 435px;
+    height: 135px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+  }
+
+  & .answer {
+    display: flex;
+    gap: 8px;
+
+    & input {
+      @include default-border;
+
+      flex: 1;
+      background: black;
+      padding: 4px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    & button {
+      @include default-border;
+
+      background: black;
+      padding: 4px;
+      user-select: none;
+
+      &:disabled {
+        opacity: 0.5;
+      }
+    }
+  }
+}

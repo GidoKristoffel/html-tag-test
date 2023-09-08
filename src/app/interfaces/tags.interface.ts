@@ -141,10 +141,12 @@ export enum ELocalStorage {
   RightAnswers = 'right-answers',
   WrongAnswers = 'wrong-answers',
   ShowStatistics = 'show-statistics',
+  SkippedQuestions = 'skipped-questions',
 }
 
 export enum EDialog {
-  Reset = 'reset'
+  Reset = 'reset',
+  BackToMainMenu = 'back-to-main-menu',
 }
 
 export interface IDialog {

@@ -6,19 +6,7 @@
   justify-content: right;
   gap: 8px;
 
-  & .btn {
-    @include flex-center;
-    @include default-border;
-
-    width: 27px;
-    height: 27px;
-    box-sizing: border-box;
-    cursor: pointer;
-
-    & img {
-      display: block;
-      width: 16px;
-      height: 16px;
-    }
+  & .icon-btn:first-child {
+    margin-right: auto;
   }
 }

@@ -1,23 +1,4 @@
 <div class="main">
-  <htt-toolbar></htt-toolbar>
-  <htt-scoreboard *ngIf="showStatistics"></htt-scoreboard>
-  <div class="card">
-    <div class="question">
-      {{ tags[questionOrder[questionNumber]].question.ru }}
-    </div>
-    <div class="answer">
-      <input type="text" [(ngModel)]="answerInput" placeholder="Write answer">
-      <button (click)="answer(answerInput)" [disabled]="!answerInput">Answer</button>
-    </div>
-  </div>
+  <router-outlet></router-outlet>
 </div>
 
-
-<!--<ng-container #resetDialog>-->
-<!--  <htt-dialog-->
-<!--    *ngIf="resetDialogs"-->
-<!--    [answer]="resetDialogs.answer"-->
-<!--    [agreeLabel]="resetDialogs.agreeLabel"-->
-<!--    [disagreeLabel]="resetDialogs.disagreeLabel"-->
-<!--  ></htt-dialog>-->
-<!--</ng-container>-->

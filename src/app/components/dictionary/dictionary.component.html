@@ -8,8 +8,13 @@
       <svg-icon src="./assets/images/close.svg" [class]="'clear-icon'"></svg-icon>
     </div>
   </div>
-  <div class="tags">
-    <div class="tag" [class.selected]="tagName === selectedTag" *ngFor="let tagName of tagNames" (click)="selectTag(tagName)">{{ tagName }}</div>
+  <div class="tags" [httNotFound]="!tagNames.length">
+    <div class="tag"
+         [class.selected]="tagName === selectedTag"
+         *ngFor="let tagName of tagNames"
+         (click)="selectTag(tagName)">
+      {{ tagName }}
+    </div>
   </div>
   <div class="description"><span>{{ selectedTag }}</span>{{ description ? ' — ' : '' }}{{ description }}</div>
 </div>

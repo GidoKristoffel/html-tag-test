@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DictionaryComponent } from './dictionary.component';
+import { AngularSvgIconModule, SvgIconComponent } from "angular-svg-icon";
+import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from "@angular/forms";
 
 describe('DictionaryComponent', () => {
   let component: DictionaryComponent;
@@ -8,7 +11,15 @@ describe('DictionaryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DictionaryComponent ]
+      imports: [
+        FormsModule,
+        HttpClientModule,
+        AngularSvgIconModule.forRoot(),
+      ],
+      declarations: [
+        DictionaryComponent,
+        SvgIconComponent,
+      ]
     })
     .compileComponents();
 

@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TestComponent } from './test.component';
+import { ToolbarComponent } from "../toolbar/toolbar.component";
+import { ScoreboardComponent } from "../scoreboard/scoreboard.component";
+import { SvgIconComponent } from "angular-svg-icon";
+import { FormsModule } from "@angular/forms";
 
 describe('TestComponent', () => {
   let component: TestComponent;
@@ -8,7 +12,15 @@ describe('TestComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TestComponent ]
+      imports: [
+        FormsModule,
+      ],
+      declarations: [
+        TestComponent,
+        ToolbarComponent,
+        ScoreboardComponent,
+        SvgIconComponent,
+      ]
     })
     .compileComponents();
 

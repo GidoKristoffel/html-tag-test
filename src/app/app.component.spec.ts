@@ -3,7 +3,6 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { MainComponent } from "./components/main/main.component";
 import { ToolbarComponent } from "./components/toolbar/toolbar.component";
-import { MatDialog } from "@angular/material/dialog";
 import { FormsModule } from "@angular/forms";
 
 describe('AppComponent', () => {
@@ -17,12 +16,6 @@ describe('AppComponent', () => {
         AppComponent,
         MainComponent,
         ToolbarComponent,
-      ],
-      providers: [
-        {
-          provide: MatDialog,
-          useValue: {}
-        },
       ],
     }).compileComponents();
   });

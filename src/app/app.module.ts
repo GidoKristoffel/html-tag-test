@@ -14,6 +14,7 @@ import { TestComponent } from './components/test/test.component';
 import { ResultComponent } from './components/result/result.component';
 import { HttpClientModule } from "@angular/common/http";
 import { AngularSvgIconModule } from "angular-svg-icon";
+import { NotFoundDirective } from './directives/not-found.directive';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AngularSvgIconModule } from "angular-svg-icon";
     MainManuComponent,
     DictionaryComponent,
     TestComponent,
-    ResultComponent
+    ResultComponent,
+    NotFoundDirective
   ],
   imports: [
     BrowserModule,

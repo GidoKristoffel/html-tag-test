@@ -6,6 +6,7 @@ import { SaveService } from "./save.service";
 import { RightAnswersService } from "./right-answers.service";
 import { WrongAnswersService } from "./wrong-answers.service";
 import { SkippedQuestionService } from "./skipped-question.service";
+import { UserAnswerService } from "./user-answer.service";
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,7 @@ export class AnswerService {
     private rightAnswersService: RightAnswersService,
     private wrongAnswersService: WrongAnswersService,
     private skippedQuestionService: SkippedQuestionService,
+    private userAnswerService: UserAnswerService,
   ) {}
 
   public giveAnswer(answer: string, questionIndex: ETag): void {
@@ -31,6 +33,7 @@ export class AnswerService {
       const wrongAnswers: ETag[] = [...this.wrongAnswersService.get(), questionIndex];
       this.wrongAnswersService.set(wrongAnswers);
     }
+    this.userAnswerService.setByKey(questionIndex, answer);
   }
 
   public skipQuestion(questionIndex: ETag): void {

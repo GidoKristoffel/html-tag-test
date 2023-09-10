@@ -140,6 +140,7 @@ export enum ELocalStorage {
   QuestionNumber = 'question-number',
   RightAnswers = 'right-answers',
   WrongAnswers = 'wrong-answers',
+  UserAnswers = 'user-answers',
   ShowStatistics = 'show-statistics',
   SkippedQuestions = 'skipped-questions',
 }
@@ -158,3 +159,13 @@ export interface IDialog {
 export type TDialogs =  {
   [key in EDialog]: IDialog;
 }
+
+export interface ITestResultStatistics {
+  rightAnswers: number;
+  wrongAnswers: number;
+  skippedQuestions: number;
+}
+
+export type TUserAnswers = {
+  [key in ETag]: string;
+};

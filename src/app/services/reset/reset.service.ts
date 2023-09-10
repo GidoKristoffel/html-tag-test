@@ -6,6 +6,7 @@ import { QuestionNumberService } from "../question-number.service";
 import { QuestionOrderService } from "../question-order.service";
 import { RightAnswersService } from "../right-answers.service";
 import { WrongAnswersService } from "../wrong-answers.service";
+import { SkippedQuestionService } from "../skipped-question.service";
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,7 @@ export class ResetService {
     private questionOrderService: QuestionOrderService,
     private rightAnswersService: RightAnswersService,
     private wrongAnswersService: WrongAnswersService,
+    private skippedQuestionService: SkippedQuestionService,
   ) {}
 
   public run(): void {
@@ -39,6 +41,7 @@ export class ResetService {
   private resetScores(): void {
     this.resetRightAnswers();
     this.resetWrongAnswers();
+    this.resetSkippedQuestion();
   }
 
   private resetRightAnswers(): void {
@@ -47,6 +50,10 @@ export class ResetService {
 
   private resetWrongAnswers(): void {
     this.wrongAnswersService.set([]);
+  }
+
+  private resetSkippedQuestion(): void {
+    this.skippedQuestionService.set([]);
   }
 
   private resetQuestionNumber(): void {

@@ -141,7 +141,7 @@ export class ScoreService {
     return this.wrongAnswers.getValue();
   }
 
-  private getQuestionsLeft(): number {
+  public getQuestionsLeft(): number {
     return this.questionsLeft.getValue();
   }
 

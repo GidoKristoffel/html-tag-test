@@ -27,6 +27,6 @@ export class ToolbarComponent {
   }
 
   public backToMainMenu(): void {
-    this.dialogService.openBackToMainMenu(() => this.router.navigate(['main-menu']));
+    this.dialogService.openBackToMainMenu(() => this.router.navigate(['main-menu']).then(() => this.resetService.run()));
   }
 }

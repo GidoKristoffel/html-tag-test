@@ -51,7 +51,7 @@ export class UserAnswerService {
 
   private initializeObjectWithEmptyStrings<T>(keys: string[]): T {
     const obj: any = {};
-0
+
     keys.forEach((key: string) => {
       obj[key] = '';
     });

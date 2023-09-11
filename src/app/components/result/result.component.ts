@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TestResultsService } from "../../services/test-results.service";
 import {
-  ETag,
   ETestResultCategories,
+  ETestResultStatus,
   ITestResultsAnswers,
   ITestResultStatistics
 } from "../../interfaces/tags.interface";
@@ -16,6 +16,7 @@ export class ResultComponent implements OnInit {
   public statistics!: ITestResultStatistics;
   public answers: ITestResultsAnswers[] = [];
   public readonly testResultCategories = ETestResultCategories;
+  public readonly testResultStatus = ETestResultStatus;
   public selected: ETestResultCategories = ETestResultCategories.TotalQuestions;
   constructor(
     private testResultsService: TestResultsService,
@@ -35,102 +36,129 @@ export class ResultComponent implements OnInit {
   }
 
   private initAnswers(): void {
-    // this.answers = this.testResultsService.getAnswers();
-    this.answers = [
-      {
-        question: {
-          en: 'question question question question question question question 222 222',
-          ua: 'question question question question question question question 222 222',
-          ru: 'question question question question question question question 222 222',
-        },
-        trueAnswer: ETag.Big,
-        userAnswer: '<big>',
-      },
-      {
-        question: {
-          en: 'question question question question question question question 222 222',
-          ua: 'question question question question question question question 222 222',
-          ru: 'question question question question question question question 222 222',
-        },
-        trueAnswer: ETag.Colgroup,
-        userAnswer: 'userAnswer222',
-      },
-      {
-        question: {
-          en: 'question question question question question question question 222 222',
-          ua: 'question question question question question question question 222 222',
-          ru: 'question question question question question question question 222 222',
-        },
-        trueAnswer: ETag.Colgroup,
-        userAnswer: '',
-      },
-      {
-        question: {
-          en: 'question question question question question question question 222 222',
-          ua: 'question question question question question question question 222 222',
-          ru: 'question question question question question question question 222 222',
-        },
-        trueAnswer: ETag.Colgroup,
-        userAnswer: 'userAnswer222',
-      },
-      {
-        question: {
-          en: 'question question question question question question question 222 222',
-          ua: 'question question question question question question question 222 222',
-          ru: 'question question question question question question question 222 222',
-        },
-        trueAnswer: ETag.Colgroup,
-        userAnswer: 'userAnswer222',
-      },
-      {
-        question: {
-          en: 'question question question question question question question 222 222',
-          ua: 'question question question question question question question 222 222',
-          ru: 'question question question question question question question 222 222',
-        },
-        trueAnswer: ETag.Colgroup,
-        userAnswer: 'userAnswer222',
-      },
-      {
-        question: {
-          en: 'question question question question question question question 222 222',
-          ua: 'question question question question question question question 222 222',
-          ru: 'question question question question question question question 222 222',
-        },
-        trueAnswer: ETag.Colgroup,
-        userAnswer: 'userAnswer222',
-      },
-      {
-        question: {
-          en: 'question question question question question question question 222 222',
-          ua: 'question question question question question question question 222 222',
-          ru: 'question question question question question question question 222 222',
-        },
-        trueAnswer: ETag.Colgroup,
-        userAnswer: 'userAnswer222',
-      },
-      {
-        question: {
-          en: 'question question question question question question question 222 222',
-          ua: 'question question question question question question question 222 222',
-          ru: 'question question question question question question question 222 222',
-        },
-        trueAnswer: ETag.Colgroup,
-        userAnswer: 'userAnswer222',
-      },
-      {
-        question: {
-          en: 'question question question question question question question 222 222',
-          ua: 'question question question question question question question 222 222',
-          ru: 'question question question question question question question 222 222',
-        },
-        trueAnswer: ETag.Colgroup,
-        userAnswer: 'userAnswer222',
-      }
-    ];
+    this.answers = this.testResultsService.getAnswers();
+    // this.answers = [
+    //   {
+    //     question: {
+    //       en: 'question question question question question question question 222 222',
+    //       ua: 'question question question question question question question 222 222',
+    //       ru: 'question question question question question question question 222 222',
+    //     },
+    //     trueAnswer: ETag.Big,
+    //     userAnswer: '<big>',
+    //     status: ETestResultStatus.RightAnswer,
+    //   },
+    //   {
+    //     question: {
+    //       en: 'question question question question question question question 222 222',
+    //       ua: 'question question question question question question question 222 222',
+    //       ru: 'question question question question question question question 222 222',
+    //     },
+    //     trueAnswer: ETag.Colgroup,
+    //     userAnswer: 'userAnswer222',
+    //     status: ETestResultStatus.WrongAnswer,
+    //   },
+    //   {
+    //     question: {
+    //       en: 'question question question question question question question 222 222',
+    //       ua: 'question question question question question question question 222 222',
+    //       ru: 'question question question question question question question 222 222',
+    //     },
+    //     trueAnswer: ETag.Colgroup,
+    //     userAnswer: '',
+    //     status: ETestResultStatus.SkippedAnswer,
+    //   },
+    //   {
+    //     question: {
+    //       en: 'question question question question question question question 222 222',
+    //       ua: 'question question question question question question question 222 222',
+    //       ru: 'question question question question question question question 222 222',
+    //     },
+    //     trueAnswer: ETag.Colgroup,
+    //     userAnswer: 'userAnswer222',
+    //     status: ETestResultStatus.WrongAnswer,
+    //   },
+    //   {
+    //     question: {
+    //       en: 'question question question question question question question 222 222',
+    //       ua: 'question question question question question question question 222 222',
+    //       ru: 'question question question question question question question 222 222',
+    //     },
+    //     trueAnswer: ETag.Colgroup,
+    //     userAnswer: 'userAnswer222',
+    //     status: ETestResultStatus.WrongAnswer,
+    //   },
+    //   {
+    //     question: {
+    //       en: 'question question question question question question question 222 222',
+    //       ua: 'question question question question question question question 222 222',
+    //       ru: 'question question question question question question question 222 222',
+    //     },
+    //     trueAnswer: ETag.Colgroup,
+    //     userAnswer: 'userAnswer222',
+    //     status: ETestResultStatus.WrongAnswer,
+    //   },
+    //   {
+    //     question: {
+    //       en: 'question question question question question question question 222 222',
+    //       ua: 'question question question question question question question 222 222',
+    //       ru: 'question question question question question question question 222 222',
+    //     },
+    //     trueAnswer: ETag.Colgroup,
+    //     userAnswer: 'userAnswer222',
+    //     status: ETestResultStatus.WrongAnswer,
+    //   },
+    //   {
+    //     question: {
+    //       en: 'question question question question question question question 222 222',
+    //       ua: 'question question question question question question question 222 222',
+    //       ru: 'question question question question question question question 222 222',
+    //     },
+    //     trueAnswer: ETag.Colgroup,
+    //     userAnswer: 'userAnswer222',
+    //     status: ETestResultStatus.WrongAnswer,
+    //   },
+    //   {
+    //     question: {
+    //       en: 'question question question question question question question 222 222',
+    //       ua: 'question question question question question question question 222 222',
+    //       ru: 'question question question question question question question 222 222',
+    //     },
+    //     trueAnswer: ETag.Colgroup,
+    //     userAnswer: 'userAnswer222',
+    //     status: ETestResultStatus.WrongAnswer,
+    //   },
+    //   {
+    //     question: {
+    //       en: 'question question question question question question question 222 222',
+    //       ua: 'question question question question question question question 222 222',
+    //       ru: 'question question question question question question question 222 222',
+    //     },
+    //     trueAnswer: ETag.Colgroup,
+    //     userAnswer: 'userAnswer222',
+    //     status: ETestResultStatus.WrongAnswer,
+    //   }
+    // ];
   }
 
   public select(category: ETestResultCategories): void {
     this.selected = category;
+    this.filter(category);
+  }
+
+  private filter(category: ETestResultCategories): void {
+    const filterStatus: ETestResultStatus[] = [];
+
+    if (category === ETestResultCategories.RightAnswers) {
+      filterStatus.push(ETestResultStatus.RightAnswer);
+    } else if (category === ETestResultCategories.WrongAnswers) {
+      filterStatus.push(ETestResultStatus.WrongAnswer);
+    } else if (category === ETestResultCategories.SkippedAnswers) {
+      filterStatus.push(ETestResultStatus.SkippedAnswer);
+    } else {
+      filterStatus.push(ETestResultStatus.RightAnswer, ETestResultStatus.WrongAnswer, ETestResultStatus.SkippedAnswer);
+    }
+
+    this.answers = this.testResultsService.getAnswers().filter((answer: ITestResultsAnswers) => filterStatus.includes(answer.status));
   }
 }

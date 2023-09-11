@@ -12,7 +12,7 @@ import { SkippedQuestionService } from "../skipped-question.service";
   providedIn: 'root'
 })
 export class ResetService {
-  private localStorageExceptions: ELocalStorage[] = [ELocalStorage.ShowStatistics];
+  private localStorageExceptions: ELocalStorage[] = [ELocalStorage.ShowStatistics, ELocalStorage.TestResult];
   constructor(
     private localStorageService: LocalStorageService,
     private answerService: AnswerService,

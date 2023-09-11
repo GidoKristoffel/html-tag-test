@@ -101,7 +101,7 @@
       }
     }
 
-    & .right {
+    & .right-answer {
       border-color: green;
 
       & .icon-btn {
@@ -113,7 +113,7 @@
       }
     }
 
-    & .wrong {
+    & .wrong-answer {
       border-color: red;
 
       & .icon-btn {
@@ -125,7 +125,7 @@
       }
     }
 
-    & .skipped {
+    & .skipped-answer {
       border-color: mediumturquoise;
 
       & .icon-btn {

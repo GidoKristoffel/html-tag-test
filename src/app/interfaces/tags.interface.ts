@@ -143,6 +143,7 @@ export enum ELocalStorage {
   UserAnswers = 'user-answers',
   ShowStatistics = 'show-statistics',
   SkippedQuestions = 'skipped-questions',
+  TestResult = 'test-result',
 }
 
 export enum EDialog {
@@ -178,6 +179,12 @@ export enum ETestResultCategories {
   TotalQuestions = 'total-questions',
 }
 
+export enum ETestResultStatus {
+  RightAnswer = 'right-answer',
+  WrongAnswer = 'wrong-answer',
+  SkippedAnswer = 'skipped-answer',
+}
+
 export interface ITestResultsAnswers {
   question: {
     en: string;
@@ -186,4 +193,10 @@ export interface ITestResultsAnswers {
   },
   trueAnswer: ETag;
   userAnswer: string;
+  status: ETestResultStatus;
+}
+
+export interface ISavedResults {
+  statistics: ITestResultStatistics;
+  answers: ITestResultsAnswers[];
 }

@@ -46,9 +46,11 @@ export class TestComponent implements OnInit, AfterViewInit  {
   }
 
   public answer(answer: string): void {
-    this.answerService.giveAnswer(answer, this.questionOrder[this.questionNumber]);
-    this.nextQuestion();
-    this.inputFocus();
+    if (answer) {
+      this.answerService.giveAnswer(answer, this.questionOrder[this.questionNumber]);
+      this.nextQuestion();
+      this.inputFocus();
+    }
   }
 
   private init(): void {

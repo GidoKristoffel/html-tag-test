@@ -32,9 +32,7 @@
   <div class="answers">
     <div class="answer"
          *ngFor="let answer of answers"
-         [class.right]="answer.userAnswer === answer.trueAnswer"
-         [class.wrong]="answer.userAnswer !== answer.trueAnswer && answer.userAnswer !== ''"
-         [class.skipped]="answer.userAnswer === ''">
+         [class]="answer.status">
       <div class="question">
         <span>Вопрос:</span><br/>
         {{ answer.question['ru'] }}
@@ -48,9 +46,9 @@
         {{ answer.trueAnswer }}
       </div>
       <div class="indicator icon-btn">
-        <svg-icon src="./assets/images/check.svg" *ngIf="answer.userAnswer === answer.trueAnswer"></svg-icon>
-        <svg-icon src="./assets/images/close.svg" *ngIf="answer.userAnswer !== answer.trueAnswer && answer.userAnswer !== ''"></svg-icon>
-        <svg-icon src="./assets/images/skip.svg" *ngIf="answer.userAnswer === ''"></svg-icon>
+        <svg-icon src="./assets/images/check.svg" *ngIf="answer.status === testResultStatus.RightAnswer"></svg-icon>
+        <svg-icon src="./assets/images/close.svg" *ngIf="answer.status === testResultStatus.WrongAnswer"></svg-icon>
+        <svg-icon src="./assets/images/skip.svg" *ngIf="answer.status === testResultStatus.SkippedAnswer"></svg-icon>
       </div>
     </div>
   </div>

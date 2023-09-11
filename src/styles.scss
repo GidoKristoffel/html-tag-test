@@ -36,4 +36,8 @@ input, button {
     width: 16px;
     height: 16px;
   }
+
+  & svg {
+    display: block;
+  }
 }

@@ -164,8 +164,26 @@ export interface ITestResultStatistics {
   rightAnswers: number;
   wrongAnswers: number;
   skippedQuestions: number;
+  totalQuestions: number;
 }
 
 export type TUserAnswers = {
   [key in ETag]: string;
 };
+
+export enum ETestResultCategories {
+  RightAnswers = 'right-answers',
+  WrongAnswers = 'wrong-answers',
+  SkippedAnswers = 'skipped-answers',
+  TotalQuestions = 'total-questions',
+}
+
+export interface ITestResultsAnswers {
+  question: {
+    en: string;
+    ua: string;
+    ru: string;
+  },
+  trueAnswer: ETag;
+  userAnswer: string;
+}

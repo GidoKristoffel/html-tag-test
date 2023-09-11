@@ -7,7 +7,7 @@ import { LocalStorageService } from "./local-storage.service";
   providedIn: 'root'
 })
 export class QuestionOrderService {
-  private questionOrder: ArrayLike<ETag> = [];
+  private questionOrder: ETag[]= [];
 
   constructor(
     private shuffleService: ShuffleService,
@@ -16,23 +16,23 @@ export class QuestionOrderService {
     this.init();
   }
 
-  public get(): ArrayLike<ETag> {
+  public get(): ETag[] {
     return this.questionOrder;
   }
 
-  private set(value: ArrayLike<ETag>): void {
+  private set(value: ETag[]): void {
     this.questionOrder = value;
     this.save(this.questionOrder);
   }
 
-  private save(value: ArrayLike<ETag>): void {
+  private save(value: ETag[]): void {
     this.localStorageService.setItem(ELocalStorage.QuestionOrder, value);
   }
 
-  private getSaving(): ArrayLike<ETag> | null {
-    let questionOrder: ArrayLike<ETag> | string | null = this.localStorageService.getItem(ELocalStorage.QuestionOrder);
+  private getSaving(): ETag[] | null {
+    let questionOrder: ETag[] | string | null = this.localStorageService.getItem(ELocalStorage.QuestionOrder);
     if (questionOrder) {
-      return JSON.parse(this.localStorageService.getItem(ELocalStorage.QuestionOrder) as string) as ArrayLike<ETag>;
+      return JSON.parse(this.localStorageService.getItem(ELocalStorage.QuestionOrder) as string) as ETag[];
     }
     return null;
   }

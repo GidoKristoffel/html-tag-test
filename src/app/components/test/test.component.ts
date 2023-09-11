@@ -9,6 +9,7 @@ import { distinctUntilChanged } from "rxjs";
 import { ScoreService } from "../../services/score/score.service";
 import { Router } from "@angular/router";
 import { ResetService } from "../../services/reset/reset.service";
+import { TestResultsService } from "../../services/test-results.service";
 
 @Component({
   selector: 'htt-test',
@@ -33,6 +34,7 @@ export class TestComponent implements OnInit, AfterViewInit  {
     private scoreService: ScoreService,
     private router: Router,
     private resetService: ResetService,
+    private testResultsService: TestResultsService,
   ) {}
 
   ngOnInit() {
@@ -79,6 +81,7 @@ export class TestComponent implements OnInit, AfterViewInit  {
     if (this.scoreService.getQuestionsLeft()) {
       this.questionNumberService.nextQuestion();
     } else {
+      this.testResultsService.generate();
       this.router.navigate(['result']).then(() => this.resetService.run());
     }
   }

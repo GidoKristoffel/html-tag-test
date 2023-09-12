@@ -137,4 +137,13 @@ export class TestResultsService {
   private getStatus(trueAnswer: ETag, userAnswer: string): ETestResultStatus {
     return !userAnswer ? ETestResultStatus.SkippedAnswer : userAnswer === trueAnswer ? ETestResultStatus.RightAnswer : ETestResultStatus.WrongAnswer;
   }
+
+  public reset(): void {
+    this.answers = [];
+    this.rightAnswers = [];
+    this.wrongAnswers = [];
+    this.skippedQuestion = [];
+    this.questionOrder = [];
+    this.generateStatistics();
+  }
 }

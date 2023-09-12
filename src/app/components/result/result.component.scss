@@ -7,6 +7,10 @@
   align-items: center;
   gap: 16px;
 
+  & .toolbar {
+    width: 100%;
+  }
+
   & .statistics {
     @include flex-center;
 

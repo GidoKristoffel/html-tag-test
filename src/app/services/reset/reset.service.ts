@@ -7,6 +7,7 @@ import { QuestionOrderService } from "../question-order.service";
 import { RightAnswersService } from "../right-answers.service";
 import { WrongAnswersService } from "../wrong-answers.service";
 import { SkippedQuestionService } from "../skipped-question.service";
+import { TestResultsService } from "../test-results.service";
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,7 @@ export class ResetService {
     private rightAnswersService: RightAnswersService,
     private wrongAnswersService: WrongAnswersService,
     private skippedQuestionService: SkippedQuestionService,
+    private testResultsService: TestResultsService,
   ) {}
 
   public run(): void {
@@ -62,5 +64,11 @@ export class ResetService {
 
   private generateQuestionOrder(): void {
     this.questionOrderService.generate();
+  }
+
+  public resetTestResult(): void {
+    this.localStorageService.removeItem(ELocalStorage.TestResult);
+    this.localStorageService.removeItem(ELocalStorage.UserAnswers);
+    this.testResultsService.reset();
   }
 }

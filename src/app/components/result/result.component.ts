@@ -6,6 +6,8 @@ import {
   ITestResultsAnswers,
   ITestResultStatistics
 } from "../../interfaces/tags.interface";
+import { Router } from "@angular/router";
+import { ResetService } from "../../services/reset/reset.service";
 
 @Component({
   selector: 'htt-result',
@@ -20,6 +22,8 @@ export class ResultComponent implements OnInit {
   public selected: ETestResultCategories = ETestResultCategories.TotalQuestions;
   constructor(
     private testResultsService: TestResultsService,
+    private router: Router,
+    private resetService: ResetService,
   ) {}
 
   ngOnInit() {
@@ -160,5 +164,9 @@ export class ResultComponent implements OnInit {
     }
 
     this.answers = this.testResultsService.getAnswers().filter((answer: ITestResultsAnswers) => filterStatus.includes(answer.status));
+  }
+
+  public backToMainMenu(): void {
+    this.router.navigate(['main-menu']).then(() => this.resetService.resetTestResult());
   }
 }

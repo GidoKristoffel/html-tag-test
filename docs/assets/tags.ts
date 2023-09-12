@@ -1,4 +1,4 @@
-import { EDialog, ETag, ITags, TDialogs } from "../../src/app/interfaces/tags.interface";
+import { EDialog, ETag, ITags, TDialogs } from "../app/interfaces/tags.interface";
 
 export const tags: ITags = {
   [ETag.Comment]: {

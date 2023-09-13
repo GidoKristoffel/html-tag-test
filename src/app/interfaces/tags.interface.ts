@@ -200,3 +200,9 @@ export interface ISavedResults {
   statistics: ITestResultStatistics;
   answers: ITestResultsAnswers[];
 }
+
+export interface ICounter {
+  name: string;
+  value: number;
+  className: string;
+};

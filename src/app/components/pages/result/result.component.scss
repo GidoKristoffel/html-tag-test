@@ -87,10 +87,15 @@
 
       & .indicator {
         @include flex-center;
+        @include default-border;
 
+        width: 24px;
+        height: 24px;
+        border-width: 0 0 2px 2px;
+        box-sizing: border-box;
         position: absolute;
-        right: -1px;
-        top: -2px;
+        right: 0;
+        top: 0;
         background-color: $black;
 
         & svg-icon {

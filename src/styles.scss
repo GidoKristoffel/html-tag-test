@@ -20,26 +20,3 @@ input, button {
     outline: none;
   }
 }
-
-.icon-btn {
-  @include flex-center;
-  @include default-border;
-
-  width: 27px;
-  height: 27px;
-  min-width: 27px;
-  min-height: 27px;
-  box-sizing: border-box;
-  cursor: pointer;
-  user-select: none;
-
-  & img {
-    display: block;
-    width: 16px;
-    height: 16px;
-  }
-
-  & svg {
-    display: block;
-  }
-}

@@ -2,10 +2,11 @@
   <div class="icon-btn" (click)="backToMainMenu()">
     <img src="./assets/images/back.svg" alt="back">
   </div>
-  <div class="icon-btn" (click)="toggleShowStatistics()">
+  <ng-content></ng-content>
+  <div class="icon-btn" *ngIf="showStatisticsBtn" (click)="toggleShowStatistics()">
     <img src="./assets/images/statistics.svg" alt="statistics">
   </div>
-  <div class="icon-btn" (click)="resetTest()">
+  <div class="icon-btn" *ngIf="resetTestBtn" (click)="resetTest()">
     <img src="./assets/images/reboot.svg" alt="reboot">
   </div>
 </div>

@@ -8,13 +8,14 @@ import { FormsModule } from "@angular/forms";
 import { ScoreboardComponent } from './components/scoreboard/scoreboard.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { DialogComponent } from './components/dialog/dialog.component';
-import { MainManuComponent } from './components/main-manu/main-manu.component';
-import { DictionaryComponent } from './components/dictionary/dictionary.component';
-import { TestComponent } from './components/test/test.component';
-import { ResultComponent } from './components/result/result.component';
+import { MainManuComponent } from './components/pages/main-manu/main-manu.component';
+import { DictionaryComponent } from './components/pages/dictionary/dictionary.component';
+import { TestComponent } from './components/pages/test/test.component';
+import { ResultComponent } from './components/pages/result/result.component';
 import { HttpClientModule } from "@angular/common/http";
 import { AngularSvgIconModule } from "angular-svg-icon";
 import { NotFoundDirective } from './directives/not-found.directive';
+import { BackButtonDisableModule } from "angular-disable-browser-back-button";
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { NotFoundDirective } from './directives/not-found.directive';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    AngularSvgIconModule.forRoot()
+    AngularSvgIconModule.forRoot(),
+    BackButtonDisableModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

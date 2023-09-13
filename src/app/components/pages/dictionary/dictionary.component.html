@@ -1,12 +1,11 @@
 <div class="dictionary">
   <div class="search">
-    <div class="back" (click)="backToMainMenu()">
-      <svg-icon src="./assets/images/back.svg" [class]="'back'"></svg-icon>
-    </div>
-    <input type="text" placeholder="Filter" #filter [(ngModel)]="searchTag" (ngModelChange)="search()">
-    <div class="clear" (click)="clear()">
-      <svg-icon src="./assets/images/close.svg" [class]="'clear-icon'"></svg-icon>
-    </div>
+    <htt-toolbar (back)="backToMainMenu()">
+      <input type="text" placeholder="Filter" #filter [(ngModel)]="searchTag" (ngModelChange)="search()">
+      <div class="clear" (click)="clear()">
+        <svg-icon src="./assets/images/close.svg" [class]="'clear-icon'"></svg-icon>
+      </div>
+    </htt-toolbar>
   </div>
   <div class="tags" [httNotFound]="!tagNames.length">
     <div class="tag"

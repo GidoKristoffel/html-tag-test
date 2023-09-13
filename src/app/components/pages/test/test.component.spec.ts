@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TestComponent } from './test.component';
-import { ToolbarComponent } from "../toolbar/toolbar.component";
-import { ScoreboardComponent } from "../scoreboard/scoreboard.component";
+import { ToolbarComponent } from "../../toolbar/toolbar.component";
+import { ScoreboardComponent } from "../../scoreboard/scoreboard.component";
 import { SvgIconComponent } from "angular-svg-icon";
 import { FormsModule } from "@angular/forms";
 

@@ -1,8 +1,6 @@
 <div class="result">
   <div class="toolbar">
-    <div class="icon-btn" (click)="backToMainMenu()">
-      <img src="./assets/images/back.svg" alt="back">
-    </div>
+    <htt-toolbar (back)="backToMainMenu()"></htt-toolbar>
   </div>
   <div class="statistics" *ngIf="statistics">
     <div class="right-answers"

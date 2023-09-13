@@ -16,6 +16,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { AngularSvgIconModule } from "angular-svg-icon";
 import { NotFoundDirective } from './directives/not-found.directive';
 import { BackButtonDisableModule } from "angular-disable-browser-back-button";
+import { IconBtnComponent } from './shared/components/buttons/icon-btn/icon-btn.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { BackButtonDisableModule } from "angular-disable-browser-back-button";
     DictionaryComponent,
     TestComponent,
     ResultComponent,
-    NotFoundDirective
+    NotFoundDirective,
+    IconBtnComponent
   ],
   imports: [
     BrowserModule,

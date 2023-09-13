@@ -12,9 +12,7 @@
              (keyup.enter)="answer(answerInput)"
              placeholder="Write answer">
       <button (click)="answer(answerInput)" [disabled]="!answerInput">Answer</button>
-      <div class="icon-btn" (click)="skipQuestion()">
-        <img src="../../../../assets/images/skip.svg" alt="skip">
-      </div>
+      <htt-icon-btn src="../../../../assets/images/skip.svg" (click)="skipQuestion()"></htt-icon-btn>
     </div>
   </div>
 </div>

@@ -2,9 +2,7 @@
   <div class="search">
     <htt-toolbar (back)="backToMainMenu()">
       <input type="text" placeholder="Filter" #filter [(ngModel)]="searchTag" (ngModelChange)="search()">
-      <div class="clear" (click)="clear()">
-        <svg-icon src="./assets/images/close.svg" [class]="'clear-icon'"></svg-icon>
-      </div>
+      <htt-icon-btn src="./assets/images/close.svg" [hover]="true" (click)="clear()"></htt-icon-btn>
     </htt-toolbar>
   </div>
   <div class="tags" [httNotFound]="!tagNames.length">

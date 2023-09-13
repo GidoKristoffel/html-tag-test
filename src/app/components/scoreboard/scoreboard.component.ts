@@ -2,6 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { AnswerService } from "../../services/answer.service";
 import { UntilDestroy, untilDestroyed } from "@ngneat/until-destroy";
 import { ScoreService } from "../../services/score/score.service";
+import { ICounter } from "../../interfaces/tags.interface";
+import { Observable } from "rxjs";
+
+
+interface ICounters {
+  totalQuestions: ICounter;
+  questionsLeft: ICounter;
+  correctAnswer: ICounter;
+  incorrectAnswer: ICounter;
+  skippedQuestions: ICounter;
+}
 
 @UntilDestroy()
 @Component({
@@ -10,11 +21,34 @@ import { ScoreService } from "../../services/score/score.service";
   styleUrls: ['./scoreboard.component.scss']
 })
 export class ScoreboardComponent implements OnInit {
-  public totalQuestionsCounter: number = 0;
-  public questionsLeftCounter: number = 0;
-  public skippedQuestionsCounter: number = 0;
-  public correctAnswerCounter: number = 0;
-  public incorrectAnswerCounter: number = 0;
+  public counters: ICounters = {
+    totalQuestions: {
+      name: 'Всего вопросов',
+      value: 0,
+      className: '',
+    },
+    questionsLeft: {
+      name: 'Осталось вопросов',
+      value: 0,
+      className: '',
+    },
+    correctAnswer: {
+      name: 'Верно',
+      value: 0,
+      className: 'correct',
+    },
+    incorrectAnswer: {
+      name: 'Не верно',
+      value: 0,
+      className: 'incorrect',
+    },
+    skippedQuestions: {
+      name: 'Пропущено',
+      value: 0,
+      className: '',
+    }
+  };
+  public readonly counterKeys: (keyof ICounters)[] = Object.keys(this.counters) as (keyof ICounters)[];
 
   constructor(
     private answerService: AnswerService,
@@ -34,47 +68,30 @@ export class ScoreboardComponent implements OnInit {
   }
 
   private initRightAnswersCounter(): void {
-    this.scoreService
-      .watchRightAnswers()
-      .pipe(untilDestroyed(this))
-      .subscribe((rightAnswers: number) => {
-        this.correctAnswerCounter = rightAnswers;
-      });
+    this.initCounter(() => this.scoreService.watchRightAnswers(), 'correctAnswer');
   }
 
   private initWrongAnswersCounter(): void {
-    this.scoreService
-      .watchWrongAnswers()
-      .pipe(untilDestroyed(this))
-      .subscribe((wrongAnswers: number) => {
-        this.incorrectAnswerCounter = wrongAnswers;
-      });
+    this.initCounter(() => this.scoreService.watchWrongAnswers(), 'incorrectAnswer');
   }
 
   private initTotalQuestionsCounter(): void {
-    this.scoreService
-      .watchTotalQuestions()
-      .pipe(untilDestroyed(this))
-      .subscribe((totalQuestionsCount: number) => {
-        this.totalQuestionsCounter = totalQuestionsCount;
-      });
+    this.initCounter(() => this.scoreService.watchTotalQuestions(), 'totalQuestions');
   }
 
   private initSkippedQuestions(): void {
-    this.scoreService
-      .watchSkippedQuestions()
-      .pipe(untilDestroyed(this))
-      .subscribe((skippedQuestionsCount: number) => {
-        this.skippedQuestionsCounter = skippedQuestionsCount;
-      });
+    this.initCounter(() => this.scoreService.watchSkippedQuestions(), 'skippedQuestions');
   }
 
   private initQuestionsLeftCounter(): void {
-    this.scoreService
-      .watchQuestionsLeft()
+    this.initCounter(() => this.scoreService.watchQuestionsLeft(), 'questionsLeft');
+  }
+
+  private initCounter(watchFunction: () => Observable<number>, counterName: keyof ICounters): void {
+    watchFunction()
       .pipe(untilDestroyed(this))
       .subscribe((questionsLeftCounter: number) => {
-        this.questionsLeftCounter = questionsLeftCounter;
-    });
+        this.counters[counterName].value =  questionsLeftCounter;
+      });
   }
 }

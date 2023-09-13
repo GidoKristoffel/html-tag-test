@@ -1,15 +1,16 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ETag, ITags } from "../../interfaces/tags.interface";
-import { TagsService } from "../../services/tags/tags.service";
-import { QuestionOrderService } from "../../services/question-order.service";
-import { QuestionNumberService } from "../../services/question-number.service";
-import { AnswerService } from "../../services/answer.service";
-import { SettingsService } from "../../services/settings.service";
+import { ETag, ITags } from "../../../interfaces/tags.interface";
+import { TagsService } from "../../../services/tags/tags.service";
+import { QuestionOrderService } from "../../../services/question-order.service";
+import { QuestionNumberService } from "../../../services/question-number.service";
+import { AnswerService } from "../../../services/answer.service";
+import { SettingsService } from "../../../services/settings.service";
 import { distinctUntilChanged } from "rxjs";
-import { ScoreService } from "../../services/score/score.service";
+import { ScoreService } from "../../../services/score/score.service";
 import { Router } from "@angular/router";
-import { ResetService } from "../../services/reset/reset.service";
-import { TestResultsService } from "../../services/test-results.service";
+import { ResetService } from "../../../services/reset/reset.service";
+import { TestResultsService } from "../../../services/test-results.service";
+import { DialogService } from "../../../services/dialog.service";
 
 @Component({
   selector: 'htt-test',
@@ -35,6 +36,7 @@ export class TestComponent implements OnInit, AfterViewInit  {
     private router: Router,
     private resetService: ResetService,
     private testResultsService: TestResultsService,
+    private dialogService: DialogService,
   ) {}
 
   ngOnInit() {
@@ -111,5 +113,9 @@ export class TestComponent implements OnInit, AfterViewInit  {
     this.answerService.skipQuestion(this.questionOrder[this.questionNumber]);
     this.nextQuestion();
     this.inputFocus();
+  }
+
+  public backToMainMenu(): void {
+    this.dialogService.openBackToMainMenu(() => this.router.navigate(['main-menu']).then(() => this.resetService.run()));
   }
 }

@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ETag, ITags } from "../../interfaces/tags.interface";
-import { TagsService } from "../../services/tags/tags.service";
+import { ETag, ITags } from "../../../interfaces/tags.interface";
+import { TagsService } from "../../../services/tags/tags.service";
 import { Router } from "@angular/router";
 
 @Component({

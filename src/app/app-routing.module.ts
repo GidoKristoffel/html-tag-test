@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MainManuComponent } from "./components/main-manu/main-manu.component";
-import { ResultComponent } from "./components/result/result.component";
-import { TestComponent } from "./components/test/test.component";
-import { DictionaryComponent } from "./components/dictionary/dictionary.component";
+import { MainManuComponent } from "./components/pages/main-manu/main-manu.component";
+import { ResultComponent } from "./components/pages/result/result.component";
+import { TestComponent } from "./components/pages/test/test.component";
+import { DictionaryComponent } from "./components/pages/dictionary/dictionary.component";
 
 const routes: Routes = [
   {

@@ -1,5 +1,5 @@
 <div class="test">
-  <htt-toolbar></htt-toolbar>
+  <htt-toolbar [showStatisticsBtn]="true" [resetTestBtn]="true" (back)="backToMainMenu()"></htt-toolbar>
   <htt-scoreboard *ngIf="showStatistics"></htt-scoreboard>
   <div class="card">
     <div class="question">
@@ -13,7 +13,7 @@
              placeholder="Write answer">
       <button (click)="answer(answerInput)" [disabled]="!answerInput">Answer</button>
       <div class="icon-btn" (click)="skipQuestion()">
-        <img src="./assets/images/skip.svg" alt="skip">
+        <img src="../../../../assets/images/skip.svg" alt="skip">
       </div>
     </div>
   </div>

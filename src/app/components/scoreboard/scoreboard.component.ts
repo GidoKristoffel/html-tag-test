@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AnswerService } from "../../services/answer.service";
+import { AnswerService } from "../../services/answers/answer/answer.service";
 import { UntilDestroy, untilDestroyed } from "@ngneat/until-destroy";
-import { ScoreService } from "../../services/score.service";
+import { ScoreService } from "../../services/score/score.service";
 import { Observable } from "rxjs";
 import { ICounters } from "../../interfaces/tags.interface";
 import { counters } from "../../data-structures/scoreboard.structure";

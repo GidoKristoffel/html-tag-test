@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { ETag } from "../interfaces/tags.interface";
-import { TagsService } from "./tags/tags.service";
-import { LocalStorageService } from "./caching/storages/local-storage/local-storage.service";
-import { SaveService } from "./caching/save/save.service";
-import { RightAnswersService } from "./right-answers.service";
-import { WrongAnswersService } from "./wrong-answers.service";
-import { SkippedQuestionService } from "./skipped-question.service";
-import { UserAnswerService } from "./user-answer.service";
+import { ETag } from "../../../interfaces/tags.interface";
+import { TagsService } from "../../tags/tags.service";
+import { LocalStorageService } from "../../caching/storages/local-storage/local-storage.service";
+import { SaveService } from "../../caching/save/save.service";
+import { RightAnswersService } from "../right-answers/right-answers.service";
+import { WrongAnswersService } from "../wrong-answers/wrong-answers.service";
+import { SkippedAnswersService } from "../skipped-question/skipped-answers.service";
+import { UserAnswerService } from "../../user-answer.service";
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,7 @@ export class AnswerService {
     private saveService: SaveService,
     private rightAnswersService: RightAnswersService,
     private wrongAnswersService: WrongAnswersService,
-    private skippedQuestionService: SkippedQuestionService,
+    private skippedAnswersService: SkippedAnswersService,
     private userAnswerService: UserAnswerService,
   ) {}
 
@@ -37,7 +37,7 @@ export class AnswerService {
   }
 
   public skipQuestion(questionIndex: ETag): void {
-    const skippedQuestions: ETag[] = [...this.skippedQuestionService.get(), questionIndex];
-    this.skippedQuestionService.set(skippedQuestions);
+    const skippedQuestions: ETag[] = [...this.skippedAnswersService.get(), questionIndex];
+    this.skippedAnswersService.set(skippedQuestions);
   }
 }

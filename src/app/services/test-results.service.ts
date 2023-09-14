@@ -8,11 +8,11 @@ import {
   ITestResultStatistics,
   TUserAnswers
 } from "../interfaces/tags.interface";
-import { RightAnswersService } from "./right-answers.service";
-import { WrongAnswersService } from "./wrong-answers.service";
-import { SkippedQuestionService } from "./skipped-question.service";
+import { RightAnswersService } from "./answers/right-answers/right-answers.service";
+import { WrongAnswersService } from "./answers/wrong-answers/wrong-answers.service";
+import { SkippedAnswersService } from "./answers/skipped-question/skipped-answers.service";
 import { TagsService } from "./tags/tags.service";
-import { QuestionOrderService } from "./question-order.service";
+import { QuestionOrderService } from "./questions/question-order/question-order.service";
 import { UserAnswerService } from "./user-answer.service";
 import { SaveService } from "./caching/save/save.service";
 import { LocalStorageService } from "./caching/storages/local-storage/local-storage.service";
@@ -34,7 +34,7 @@ export class TestResultsService {
   constructor(
     private rightAnswersService: RightAnswersService,
     private wrongAnswersService: WrongAnswersService,
-    private skippedQuestionService: SkippedQuestionService,
+    private skippedAnswersService: SkippedAnswersService,
     private tagsService: TagsService,
     private questionOrderService: QuestionOrderService,
     private userAnswerService: UserAnswerService,
@@ -128,7 +128,7 @@ export class TestResultsService {
   private getAnswerStatistics(): void {
     this.rightAnswers = this.rightAnswersService.get();
     this.wrongAnswers = this.wrongAnswersService.get();
-    this.skippedQuestion = this.skippedQuestionService.get();
+    this.skippedQuestion = this.skippedAnswersService.get();
     this.questionOrder = this.questionOrderService.get();
     this.userAnswers = this.userAnswerService.get();
     this.tags = this.tagsService.get();

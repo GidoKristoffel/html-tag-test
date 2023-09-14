@@ -1,12 +1,12 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ETag, ITags } from "../../../interfaces/tags.interface";
 import { TagsService } from "../../../services/tags/tags.service";
-import { QuestionOrderService } from "../../../services/question-order.service";
-import { QuestionNumberService } from "../../../services/question-number.service";
-import { AnswerService } from "../../../services/answer.service";
+import { QuestionOrderService } from "../../../services/questions/question-order/question-order.service";
+import { QuestionNumberService } from "../../../services/questions/question-number/question-number.service";
+import { AnswerService } from "../../../services/answers/answer/answer.service";
 import { SettingsService } from "../../../services/settings.service";
 import { distinctUntilChanged } from "rxjs";
-import { ScoreService } from "../../../services/score.service";
+import { ScoreService } from "../../../services/score/score.service";
 import { Router } from "@angular/router";
 import { ResetService } from "../../../services/reset.service";
 import { TestResultsService } from "../../../services/test-results.service";

@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { tags } from "../../assets/tags";
+import { tags } from "../../../assets/tags";
 import { BehaviorSubject, merge, Observable } from "rxjs";
-import { SaveService } from "./caching/save/save.service";
-import { ETag } from "../interfaces/tags.interface";
-import { RightAnswersService } from "./right-answers.service";
+import { SaveService } from "../caching/save/save.service";
+import { ETag } from "../../interfaces/tags.interface";
+import { RightAnswersService } from "../answers/right-answers/right-answers.service";
 import { UntilDestroy, untilDestroyed } from "@ngneat/until-destroy";
-import { WrongAnswersService } from "./wrong-answers.service";
-import { SkippedQuestionService } from "./skipped-question.service";
+import { WrongAnswersService } from "../answers/wrong-answers/wrong-answers.service";
+import { SkippedAnswersService } from "../answers/skipped-question/skipped-answers.service";
 
 @UntilDestroy()
 @Injectable({
@@ -19,12 +19,11 @@ export class ScoreService {
   private questionsLeft: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   private skippedQuestions: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
-
   constructor(
     private saveService: SaveService,
     private rightAnswersService: RightAnswersService,
     private wrongAnswersService: WrongAnswersService,
-    private skippedQuestionService: SkippedQuestionService,
+    private skippedAnswersService: SkippedAnswersService,
   ) {
     this.init();
   }
@@ -75,34 +74,12 @@ export class ScoreService {
   }
 
   private initSkippedQuestions(): void {
-    this.skippedQuestionService
+    this.skippedAnswersService
       .watch()
       .pipe(untilDestroyed(this))
       .subscribe((skippedQuestion: ETag[]) => {
         this.setSkippedQuestions(skippedQuestion.length);
       });
-  }
-
-  // ----------------------------------------Set----------------------------------------
-
-  private setTotalQuestions(value: number): void {
-    this.totalQuestions.next(value);
-  }
-
-  private setRightAnswers(value: number): void {
-    this.rightAnswers.next(value);
-  }
-
-  private setWrongAnswers(value: number): void {
-    this.wrongAnswers.next(value);
-  }
-
-  private setQuestionsLeft(value: number): void {
-    this.questionsLeft.next(value);
-  }
-
-  private setSkippedQuestions(value: number): void {
-    this.skippedQuestions.next(value);
   }
 
   // --------------------------------------Watch--------------------------------------
@@ -147,5 +124,27 @@ export class ScoreService {
 
   private getSkippedQuestions(): number {
     return this.skippedQuestions.getValue();
+  }
+
+  // ----------------------------------------Set----------------------------------------
+
+  private setTotalQuestions(value: number): void {
+    this.totalQuestions.next(value);
+  }
+
+  private setRightAnswers(value: number): void {
+    this.rightAnswers.next(value);
+  }
+
+  private setWrongAnswers(value: number): void {
+    this.wrongAnswers.next(value);
+  }
+
+  private setQuestionsLeft(value: number): void {
+    this.questionsLeft.next(value);
+  }
+
+  private setSkippedQuestions(value: number): void {
+    this.skippedQuestions.next(value);
   }
 }

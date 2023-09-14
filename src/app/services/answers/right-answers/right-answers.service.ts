@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { ELocalStorage, ETag } from "../interfaces/tags.interface";
-import { SaveService } from "./caching/save/save.service";
-import { LoadService } from "./caching/load/load.service";
-import { AnswersHandler } from "./answers-handler.abstract";
+import { ELocalStorage, ETag } from "../../../interfaces/tags.interface";
+import { SaveService } from "../../caching/save/save.service";
+import { LoadService } from "../../caching/load/load.service";
+import { AnswersHandler } from "../answers-handler.abstract";
 
 @Injectable({
   providedIn: 'root'

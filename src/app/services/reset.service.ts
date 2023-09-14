@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { ELocalStorage } from "../interfaces/tags.interface";
 import { LocalStorageService } from "./caching/storages/local-storage/local-storage.service";
-import { AnswerService } from "./answer.service";
-import { QuestionNumberService } from "./question-number.service";
-import { QuestionOrderService } from "./question-order.service";
-import { RightAnswersService } from "./right-answers.service";
-import { WrongAnswersService } from "./wrong-answers.service";
-import { SkippedQuestionService } from "./skipped-question.service";
+import { AnswerService } from "./answers/answer/answer.service";
+import { QuestionNumberService } from "./questions/question-number/question-number.service";
+import { QuestionOrderService } from "./questions/question-order/question-order.service";
+import { RightAnswersService } from "./answers/right-answers/right-answers.service";
+import { WrongAnswersService } from "./answers/wrong-answers/wrong-answers.service";
+import { SkippedAnswersService } from "./answers/skipped-question/skipped-answers.service";
 import { TestResultsService } from "./test-results.service";
 
 @Injectable({
@@ -21,7 +21,7 @@ export class ResetService {
     private questionOrderService: QuestionOrderService,
     private rightAnswersService: RightAnswersService,
     private wrongAnswersService: WrongAnswersService,
-    private skippedQuestionService: SkippedQuestionService,
+    private skippedAnswersService: SkippedAnswersService,
     private testResultsService: TestResultsService,
   ) {}
 
@@ -55,7 +55,7 @@ export class ResetService {
   }
 
   private resetSkippedQuestion(): void {
-    this.skippedQuestionService.set([]);
+    this.skippedAnswersService.set([]);
   }
 
   private resetQuestionNumber(): void {

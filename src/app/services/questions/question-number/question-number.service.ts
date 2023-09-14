@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { LocalStorageService } from "./caching/storages/local-storage/local-storage.service";
-import { ELocalStorage } from "../interfaces/tags.interface";
+import { LocalStorageService } from "../../caching/storages/local-storage/local-storage.service";
+import { ELocalStorage } from "../../../interfaces/tags.interface";
 import { BehaviorSubject, Observable } from "rxjs";
-import { SaveService } from "./caching/save/save.service";
+import { SaveService } from "../../caching/save/save.service";
 
 @Injectable({
   providedIn: 'root'
@@ -30,16 +30,16 @@ export class QuestionNumberService {
     this.set(this.questionNumber.value + 1);
   }
 
+  private init(): void {
+    const questionNumber = this.getSaving();
+    this.set(questionNumber || 0);
+  }
+
   private getSaving(): number | null {
     let questionNumber: number | string | null = this.localStorageService.getItem(ELocalStorage.QuestionNumber);
     if (questionNumber) {
       return Number(JSON.parse(this.localStorageService.getItem(ELocalStorage.QuestionNumber) as string));
     }
     return null;
-  }
-
-  private init(): void {
-    const questionNumber = this.getSaving();
-    this.set(questionNumber || 0);
   }
 }

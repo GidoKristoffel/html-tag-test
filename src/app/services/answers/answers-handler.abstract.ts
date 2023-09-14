@@ -1,7 +1,7 @@
 import { BehaviorSubject, Observable } from "rxjs";
-import { ELocalStorage, ETag } from "../interfaces/tags.interface";
-import { SaveService } from "./caching/save/save.service";
-import { LoadService } from "./caching/load/load.service";
+import { ELocalStorage, ETag } from "../../interfaces/tags.interface";
+import { SaveService } from "../caching/save/save.service";
+import { LoadService } from "../caching/load/load.service";
 
 export abstract class AnswersHandler {
   private answers: BehaviorSubject<ETag[]> = new BehaviorSubject<ETag[]>([]);

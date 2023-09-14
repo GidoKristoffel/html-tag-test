@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { DialogComponent } from "../components/dialog/dialog.component";
-import { dialogs } from "../../assets/tags";
-import { EDialog, TDialogs } from "../interfaces/tags.interface";
+import { DialogComponent } from "../../../components/dialog/dialog.component";
+import { dialogs } from "../../../../assets/tags";
+import { EDialog, TDialogs } from "../../../interfaces/tags.interface";
 import { UntilDestroy, untilDestroyed } from "@ngneat/until-destroy";
-import { ModalService } from "./modal.service";
+import { ModalService } from "../modal.service";
 
 @UntilDestroy()
 @Injectable({
@@ -14,7 +14,6 @@ export class DialogService {
 
   constructor(
     private modal: ModalService,
-
   ) {}
 
   public openReload(agree: () => void): void {

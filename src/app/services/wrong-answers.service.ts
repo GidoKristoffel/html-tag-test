@@ -1,45 +1,18 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from "rxjs";
-import { ELocalStorage, ETag } from "../interfaces/tags.interface";
-import { SaveService } from "./save.service";
-import { LoadService } from "./load/load.service";
+import { ELocalStorage } from "../interfaces/tags.interface";
+import { SaveService } from "./caching/save/save.service";
+import { LoadService } from "./caching/load/load.service";
+import { AnswersHandler } from "./answers-handler.abstract";
 
 @Injectable({
   providedIn: 'root'
 })
-export class WrongAnswersService {
-  private wrongAnswers: BehaviorSubject<ETag[]> = new BehaviorSubject<ETag[]>([]);
+export class WrongAnswersService extends AnswersHandler {
 
   constructor(
-    private saveService: SaveService,
-    private loadService: LoadService,
+    protected override saveService: SaveService,
+    protected override loadService: LoadService,
   ) {
-    this.init();
-  }
-
-  private init(): void {
-    const saving: ETag[] | null = this.getSaving();
-    this.set(saving || []);
-  }
-
-  public get(): ETag[] {
-    return this.wrongAnswers.getValue();
-  }
-
-  public watch(): Observable<ETag[]> {
-    return this.wrongAnswers;
-  }
-
-  public set(value: ETag[]): void {
-    this.wrongAnswers.next(value);
-    this.saveService.saveLocalStorage(ELocalStorage.WrongAnswers, value);
-  }
-
-  private getSaving(): ETag[] | null {
-    let questionOrder: ETag[] | string | null = this.loadService.loadLocalStorage(ELocalStorage.WrongAnswers);
-    if (questionOrder) {
-      return JSON.parse(questionOrder as string) as ETag[];
-    }
-    return null;
+    super(ELocalStorage.WrongAnswers, saveService, loadService);
   }
 }

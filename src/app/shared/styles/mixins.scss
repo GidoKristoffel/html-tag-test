@@ -1,5 +1,12 @@
 @import "colors";
 
+// background
+
+@mixin default-background {
+  background: $black;
+}
+
+// border
 @mixin default-border {
   border: 2px solid $lotion;
 }
@@ -8,12 +15,41 @@
   border: 2px dashed $lotion;
 }
 
-@mixin card-padding {
+// padding
+@mixin padding__small {
+  padding: 4px;
+}
+
+@mixin padding__medium {
   padding: 8px;
 }
 
+@mixin padding__large {
+  padding: 16px;
+}
+
+// position
 @mixin flex-center {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@mixin flex-gap {
+  gap: 16px;
+}
+
+//buttons
+@mixin btn-cursor {
+  cursor: pointer;
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
+//size
+@mixin fullscreen {
+  width: 100vw;
+  height: 100vh;
 }

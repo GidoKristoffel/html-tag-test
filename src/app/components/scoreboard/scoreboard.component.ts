@@ -1,18 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AnswerService } from "../../services/answer.service";
 import { UntilDestroy, untilDestroyed } from "@ngneat/until-destroy";
-import { ScoreService } from "../../services/score/score.service";
-import { ICounter } from "../../interfaces/tags.interface";
+import { ScoreService } from "../../services/score.service";
 import { Observable } from "rxjs";
-
-
-interface ICounters {
-  totalQuestions: ICounter;
-  questionsLeft: ICounter;
-  correctAnswer: ICounter;
-  incorrectAnswer: ICounter;
-  skippedQuestions: ICounter;
-}
+import { ICounters } from "../../interfaces/tags.interface";
+import { counters } from "../../data-structures/scoreboard.structure";
 
 @UntilDestroy()
 @Component({
@@ -21,34 +13,8 @@ interface ICounters {
   styleUrls: ['./scoreboard.component.scss']
 })
 export class ScoreboardComponent implements OnInit {
-  public counters: ICounters = {
-    totalQuestions: {
-      name: 'Всего вопросов',
-      value: 0,
-      className: '',
-    },
-    questionsLeft: {
-      name: 'Осталось вопросов',
-      value: 0,
-      className: '',
-    },
-    correctAnswer: {
-      name: 'Верно',
-      value: 0,
-      className: 'correct',
-    },
-    incorrectAnswer: {
-      name: 'Не верно',
-      value: 0,
-      className: 'incorrect',
-    },
-    skippedQuestions: {
-      name: 'Пропущено',
-      value: 0,
-      className: '',
-    }
-  };
-  public readonly counterKeys: (keyof ICounters)[] = Object.keys(this.counters) as (keyof ICounters)[];
+  public readonly counterKeys: (keyof ICounters)[] = Object.keys(counters) as (keyof ICounters)[];
+  public counters: ICounters = counters;
 
   constructor(
     private answerService: AnswerService,

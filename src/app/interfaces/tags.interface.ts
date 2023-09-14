@@ -206,3 +206,11 @@ export interface ICounter {
   value: number;
   className: string;
 };
+
+export interface ICounters {
+  totalQuestions: ICounter;
+  questionsLeft: ICounter;
+  correctAnswer: ICounter;
+  incorrectAnswer: ICounter;
+  skippedQuestions: ICounter;
+}

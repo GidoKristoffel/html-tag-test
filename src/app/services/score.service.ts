@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { tags } from "../../../assets/tags";
+import { tags } from "../../assets/tags";
 import { BehaviorSubject, merge, Observable } from "rxjs";
-import { SaveService } from "../save.service";
-import { ETag } from "../../interfaces/tags.interface";
-import { RightAnswersService } from "../right-answers.service";
+import { SaveService } from "./caching/save/save.service";
+import { ETag } from "../interfaces/tags.interface";
+import { RightAnswersService } from "./right-answers.service";
 import { UntilDestroy, untilDestroyed } from "@ngneat/until-destroy";
-import { WrongAnswersService } from "../wrong-answers.service";
-import { SkippedQuestionService } from "../skipped-question.service";
+import { WrongAnswersService } from "./wrong-answers.service";
+import { SkippedQuestionService } from "./skipped-question.service";
 
 @UntilDestroy()
 @Injectable({

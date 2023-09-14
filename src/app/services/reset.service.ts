@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { ELocalStorage } from "../../interfaces/tags.interface";
-import { LocalStorageService } from "../local-storage.service";
-import { AnswerService } from "../answer.service";
-import { QuestionNumberService } from "../question-number.service";
-import { QuestionOrderService } from "../question-order.service";
-import { RightAnswersService } from "../right-answers.service";
-import { WrongAnswersService } from "../wrong-answers.service";
-import { SkippedQuestionService } from "../skipped-question.service";
-import { TestResultsService } from "../test-results.service";
+import { ELocalStorage } from "../interfaces/tags.interface";
+import { LocalStorageService } from "./caching/storages/local-storage/local-storage.service";
+import { AnswerService } from "./answer.service";
+import { QuestionNumberService } from "./question-number.service";
+import { QuestionOrderService } from "./question-order.service";
+import { RightAnswersService } from "./right-answers.service";
+import { WrongAnswersService } from "./wrong-answers.service";
+import { SkippedQuestionService } from "./skipped-question.service";
+import { TestResultsService } from "./test-results.service";
 
 @Injectable({
   providedIn: 'root'

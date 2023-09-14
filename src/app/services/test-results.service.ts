@@ -14,8 +14,8 @@ import { SkippedQuestionService } from "./skipped-question.service";
 import { TagsService } from "./tags/tags.service";
 import { QuestionOrderService } from "./question-order.service";
 import { UserAnswerService } from "./user-answer.service";
-import { SaveService } from "./save.service";
-import { LocalStorageService } from "./local-storage.service";
+import { SaveService } from "./caching/save/save.service";
+import { LocalStorageService } from "./caching/storages/local-storage/local-storage.service";
 
 @Injectable({
   providedIn: 'root'

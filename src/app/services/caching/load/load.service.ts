@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { LocalStorageService } from "../local-storage.service";
-import { ELocalStorage } from "../../interfaces/tags.interface";
+import { LocalStorageService } from "../storages/local-storage/local-storage.service";
+import { ELocalStorage } from "../../../interfaces/tags.interface";
 
 @Injectable({
   providedIn: 'root'

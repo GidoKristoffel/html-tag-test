@@ -1,8 +1,8 @@
 @import "../../../shared/styles/mixins";
 
 .test {
+  @include flex-gap;
   flex-direction: column;
-  gap: 16px;
   display: flex;
 
   & .question {

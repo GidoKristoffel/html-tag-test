@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ELocalStorage, ETag } from "../interfaces/tags.interface";
 import { ShuffleService } from "./shuffle/shuffle.service";
-import { LocalStorageService } from "./local-storage.service";
+import { LocalStorageService } from "./caching/storages/local-storage/local-storage.service";
 
 @Injectable({
   providedIn: 'root'

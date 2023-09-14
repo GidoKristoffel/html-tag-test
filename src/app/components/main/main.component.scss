@@ -2,9 +2,8 @@
 
 .main {
   @include flex-center;
+  @include fullscreen;
+  @include flex-gap;
 
-  width: 100vw;
-  height: 100vh;
   flex-direction: column;
-  gap: 16px;
 }

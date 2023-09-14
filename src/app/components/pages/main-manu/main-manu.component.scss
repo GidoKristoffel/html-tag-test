@@ -1,9 +1,9 @@
 @import "../../../shared/styles/mixins";
 
 .menu {
+  @include flex-gap;
   display: flex;
   flex-direction: column;
-  gap: 16px;
   width: 300px;
 
   & .item {

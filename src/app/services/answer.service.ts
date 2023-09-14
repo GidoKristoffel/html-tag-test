@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ETag } from "../interfaces/tags.interface";
 import { TagsService } from "./tags/tags.service";
-import { LocalStorageService } from "./local-storage.service";
-import { SaveService } from "./save.service";
+import { LocalStorageService } from "./caching/storages/local-storage/local-storage.service";
+import { SaveService } from "./caching/save/save.service";
 import { RightAnswersService } from "./right-answers.service";
 import { WrongAnswersService } from "./wrong-answers.service";
 import { SkippedQuestionService } from "./skipped-question.service";

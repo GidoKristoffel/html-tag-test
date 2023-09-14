@@ -2,10 +2,10 @@
 
 .scoreboard {
   @include default-border;
+  @include padding__medium;
 
   width: 435px;
   box-sizing: border-box;
-  padding: 8px;
 
   & .correct {
     color: lightgreen;

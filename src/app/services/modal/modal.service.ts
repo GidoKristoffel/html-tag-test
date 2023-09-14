@@ -14,7 +14,7 @@ export class ModalService {
   constructor(
     private environmentInjector: EnvironmentInjector,
     private appRef: ApplicationRef,
-    ) {}
+  ) {}
 
   public open<C>(component: ComponentType<C>): ComponentRef<C> {
     const componentRef = createComponent(component, {

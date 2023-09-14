@@ -2,23 +2,21 @@
 
 .wrapper {
   @include flex-center;
+  @include default-background;
+  @include fullscreen;
 
   position: absolute;
-  left: 0;
   top: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: black;
 
   & .dialog {
     @include default-border;
+    @include padding__large;
+    @include flex-gap;
 
     width: 300px;
-    padding: 16px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    gap: 16px;
 
     & .answer {
       @include flex-center;
@@ -34,11 +32,9 @@
 
       & button {
         @include default-border;
+        @include padding__small;
 
-        background: black;
-        padding: 4px;
         width: 100px;
-        cursor: pointer;
       }
     }
   }

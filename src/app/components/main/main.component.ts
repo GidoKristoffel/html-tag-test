@@ -1,12 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { EDialog, ETag, IDialog, ITags } from "../../interfaces/tags.interface";
-import { TagsService } from "../../services/tags/tags.service";
-import { QuestionOrderService } from "../../services/question-order.service";
-import { QuestionNumberService } from "../../services/question-number.service";
-import { distinctUntilChanged } from "rxjs";
-import { AnswerService } from "../../services/answer.service";
-import { SettingsService } from "../../services/settings.service";
-import { dialogs } from "../../../assets/tags";
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'htt-main',

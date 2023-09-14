@@ -2,9 +2,9 @@
 @import "../../../shared/styles/colors";
 
 .dictionary {
+  @include flex-gap;
   display: flex;
   flex-direction: column;
-  gap: 16px;
 
   & .search {
     display: flex;

@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 
 import { LoadService } from './load.service';
-import { ELocalStorage, ETag } from "../../interfaces/tags.interface";
-import { ShuffleService } from "../shuffle/shuffle.service";
+import { ELocalStorage, ETag } from "../../../interfaces/tags.interface";
+import { ShuffleService } from "../../shuffle/shuffle.service";
 
 describe('LoadService', () => {
   let service: LoadService;

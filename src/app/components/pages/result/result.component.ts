@@ -7,7 +7,7 @@ import {
   ITestResultStatistics
 } from "../../../interfaces/tags.interface";
 import { Router } from "@angular/router";
-import { ResetService } from "../../../services/reset/reset.service";
+import { ResetService } from "../../../services/reset.service";
 
 @Component({
   selector: 'htt-result',

@@ -5,6 +5,7 @@
       <htt-icon-btn src="./assets/images/close.svg" [hover]="true" (click)="clear()"></htt-icon-btn>
     </htt-toolbar>
   </div>
+
   <div class="tags" [httNotFound]="!tagNames.length">
     <div class="tag"
          [class.selected]="tagName === selectedTag"
@@ -13,5 +14,6 @@
       {{ tagName }}
     </div>
   </div>
+
   <div class="description"><span>{{ selectedTag }}</span>{{ description ? ' — ' : '' }}{{ description }}</div>
 </div>

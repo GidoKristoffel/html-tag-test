@@ -27,6 +27,6 @@ export class NotFoundDirective  implements OnChanges {
     this.renderer.setStyle(this.element, 'align-items', 'center');
     this.renderer.setStyle(this.element, 'justify-content', 'center');
     this.renderer.setStyle(this.element, 'width', '100%');
-    this.renderer.setStyle(this.element, 'height', '26.4px');
+    this.renderer.setStyle(this.element, 'height', '27px');
   }
 }

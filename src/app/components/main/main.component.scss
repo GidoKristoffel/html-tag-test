@@ -2,8 +2,6 @@
 
 .main {
   @include flex-center;
-  @include fullscreen;
-  @include flex-gap;
 
-  flex-direction: column;
+  height: 100vh;
 }

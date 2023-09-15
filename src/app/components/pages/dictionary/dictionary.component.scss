@@ -7,11 +7,6 @@
   flex-direction: column;
 
   & .search {
-    display: flex;
-    width: 100%;
-    background-color: $black;
-    gap: 8px;
-
     & .back {
       @include default-border;
       @include flex-center;
@@ -64,16 +59,18 @@
   & .tags {
     display: flex;
     max-width: 435px;
-    box-sizing: border-box;
     gap: 8px;
     flex-wrap: wrap;
 
     & .tag {
+      @include flex-center;
       @include default-border;
 
       padding: 4px;
       width: auto;
       cursor: pointer;
+      height: 27px;
+      box-sizing: border-box;
 
       &:hover, &.selected {
         border-color: $crayola;

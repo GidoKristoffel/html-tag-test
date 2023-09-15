@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { ELocalStorage, ETag, TUserAnswers } from "../interfaces/tags.interface";
-import { SaveService } from "./caching/save/save.service";
-import { LoadService } from "./caching/load/load.service";
+import { ELocalStorage, ETag, TUserAnswers } from "../../../interfaces/tags.interface";
+import { SaveService } from "../../caching/save/save.service";
+import { LoadService } from "../../caching/load/load.service";
+import { UtilityService } from "../../utility/utility.service";
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ export class UserAnswerService {
   constructor(
     private saveService: SaveService,
     private loadService: LoadService,
+    private utilityService: UtilityService,
   ) {
     this.init();
   }
@@ -22,7 +24,7 @@ export class UserAnswerService {
     if (saving) {
       this.set(saving);
     } else {
-      const userAnswers = this.initializeObjectWithEmptyStrings<TUserAnswers>(Object.keys(ETag))
+      const userAnswers = this.utilityService.initializeObjectWithEmptyStrings<TUserAnswers>(Object.keys(ETag))
       this.set(userAnswers);
     }
   }
@@ -47,15 +49,5 @@ export class UserAnswerService {
       return JSON.parse(userAnswers as string) as TUserAnswers;
     }
     return null;
-  }
-
-  private initializeObjectWithEmptyStrings<T>(keys: string[]): T {
-    const obj: any = {};
-
-    keys.forEach((key: string) => {
-      obj[key] = '';
-    });
-
-    return obj as T;
   }
 }

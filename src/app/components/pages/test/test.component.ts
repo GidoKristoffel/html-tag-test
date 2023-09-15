@@ -8,7 +8,7 @@ import { SettingsService } from "../../../services/settings.service";
 import { distinctUntilChanged } from "rxjs";
 import { ScoreService } from "../../../services/score/score.service";
 import { Router } from "@angular/router";
-import { ResetService } from "../../../services/reset.service";
+import { ResetService } from "../../../services/reset/reset.service";
 import { TestResultsService } from "../../../services/test-results.service";
 import { DialogService } from "../../../services/modal/dialog/dialog.service";
 

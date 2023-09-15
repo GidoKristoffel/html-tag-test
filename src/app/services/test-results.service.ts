@@ -13,7 +13,7 @@ import { WrongAnswersService } from "./answers/wrong-answers/wrong-answers.servi
 import { SkippedAnswersService } from "./answers/skipped-question/skipped-answers.service";
 import { TagsService } from "./tags/tags.service";
 import { QuestionOrderService } from "./questions/question-order/question-order.service";
-import { UserAnswerService } from "./user-answer.service";
+import { UserAnswerService } from "./answers/user-answer/user-answer.service";
 import { SaveService } from "./caching/save/save.service";
 import { LocalStorageService } from "./caching/storages/local-storage/local-storage.service";
 

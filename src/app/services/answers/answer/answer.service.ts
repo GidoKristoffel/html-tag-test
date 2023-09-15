@@ -6,7 +6,7 @@ import { SaveService } from "../../caching/save/save.service";
 import { RightAnswersService } from "../right-answers/right-answers.service";
 import { WrongAnswersService } from "../wrong-answers/wrong-answers.service";
 import { SkippedAnswersService } from "../skipped-question/skipped-answers.service";
-import { UserAnswerService } from "../../user-answer.service";
+import { UserAnswerService } from "../user-answer/user-answer.service";
 
 @Injectable({
   providedIn: 'root'

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { SettingsService } from "../../services/settings.service";
-import { ResetService } from "../../services/reset.service";
+import { ResetService } from "../../services/reset/reset.service";
 import { DialogService } from "../../services/modal/dialog/dialog.service";
 import { Router } from "@angular/router";
 

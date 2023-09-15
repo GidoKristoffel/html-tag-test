@@ -41,30 +41,30 @@ export const tags: ITags = {
     },
     answer: ETag.Address,
   },
-  // [ETag.Applet]: {
-  //   question: {
-  //     en: 'Specify the awakening applet',
-  //     ua: 'Визначає вбудований аплет',
-  //     ru: 'Визначае вбудований аплет',
-  //   },
-  //   answer: ETag.Applet,
-  // },
-  // [ETag.Area]: {
-  //   question: {
-  //     en: 'A tag that designates an interactive area in the image map (the <map> element), so that when you click on the name, the image area is shown',
-  //     ua: 'Тег, який визначає інтерактивну область в зображенні-карті (елемент <map>), тобто при кліці на певну область зображення відбуваються',
-  //     ru: 'Тег, определяющий интерактивную область в изображении-карте (элемент <map>), то есть при клике на определенную область изображения происходят',
-  //   },
-  //   answer: ETag.Area,
-  // },
-  // [ETag.Article]: {
-  //   question: {
-  //     en: 'Defines independent, self-sufficient content from the rest of the site',
-  //     ua: 'Визначає незалежний, самодостатній зміст від іншої частини сайту',
-  //     ru: 'Определение независимого, самодостаточного содержания от другой части сайта',
-  //   },
-  //   answer: ETag.Article,
-  // },
+  [ETag.Applet]: {
+    question: {
+      en: 'Specify the awakening applet',
+      ua: 'Визначає вбудований аплет',
+      ru: 'Визначае вбудований аплет',
+    },
+    answer: ETag.Applet,
+  },
+  [ETag.Area]: {
+    question: {
+      en: 'A tag that designates an interactive area in the image map (the <map> element), so that when you click on the name, the image area is shown',
+      ua: 'Тег, який визначає інтерактивну область в зображенні-карті (елемент <map>), тобто при кліці на певну область зображення відбуваються',
+      ru: 'Тег, определяющий интерактивную область в изображении-карте (элемент <map>), то есть при клике на определенную область изображения происходят',
+    },
+    answer: ETag.Area,
+  },
+  [ETag.Article]: {
+    question: {
+      en: 'Defines independent, self-sufficient content from the rest of the site',
+      ua: 'Визначає незалежний, самодостатній зміст від іншої частини сайту',
+      ru: 'Определение независимого, самодостаточного содержания от другой части сайта',
+    },
+    answer: ETag.Article,
+  },
   // [ETag.Aside]: {
   //   question: {
   //     en: 'Block with additional information',

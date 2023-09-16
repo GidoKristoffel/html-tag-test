@@ -1,18 +1,15 @@
 import { Injectable } from '@angular/core';
 import { ELocalStorage } from "../../../interfaces/tags.interface";
-import { SaveService } from "../../caching/save/save.service";
-import { LoadService } from "../../caching/load/load.service";
 import { AnswersHandler } from "../answers-handler.abstract";
+import { CachingService } from "../../caching/caching.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class SkippedAnswersService extends AnswersHandler {
-
   constructor(
-    protected override saveService: SaveService,
-    protected override loadService: LoadService,
+    protected override cachingService: CachingService,
   ) {
-    super(ELocalStorage.SkippedQuestions, saveService, loadService);
+    super(ELocalStorage.SkippedQuestions, cachingService);
   }
 }

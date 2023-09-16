@@ -1,21 +1,23 @@
 import { BehaviorSubject, Observable } from "rxjs";
 import { ELocalStorage, ETag } from "../../interfaces/tags.interface";
-import { SaveService } from "../caching/save/save.service";
-import { LoadService } from "../caching/load/load.service";
+import { CachingService } from "../caching/caching.service";
 
 export abstract class AnswersHandler {
   private answers: BehaviorSubject<ETag[]> = new BehaviorSubject<ETag[]>([]);
   protected constructor(
     protected localStorageKey: ELocalStorage,
-    protected saveService: SaveService,
-    protected loadService: LoadService,
+    protected cachingService: CachingService,
   ) {
-    this.init();
+    this.initCaching();
   }
 
-  private init(): void {
-    const saving: ETag[] | null = this.getSaving();
-    this.set(saving || []);
+  private initCaching(): void {
+    this.cachingService
+      .init(
+        () => this.watch(),
+        (saving: ETag[]) => this.set(saving),
+        this.localStorageKey
+      );
   }
 
   public get(): ETag[] {
@@ -28,14 +30,5 @@ export abstract class AnswersHandler {
 
   public set(value: ETag[]): void {
     this.answers.next(value);
-    this.saveService.saveLocalStorage(this.localStorageKey, value);
-  }
-
-  private getSaving(): ETag[] | null {
-    let questionOrder: ETag[] | string | null = this.loadService.loadLocalStorage(this.localStorageKey);
-    if (questionOrder) {
-      return JSON.parse(questionOrder as string) as ETag[];
-    }
-    return null;
   }
 }

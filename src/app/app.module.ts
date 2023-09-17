@@ -17,6 +17,8 @@ import { AngularSvgIconModule } from "angular-svg-icon";
 import { NotFoundDirective } from './directives/not-found.directive';
 import { BackButtonDisableModule } from "angular-disable-browser-back-button";
 import { IconBtnComponent } from './shared/components/buttons/icon-btn/icon-btn.component';
+import { SearchComponent } from './components/pages/dictionary/search/search.component';
+import { TagsDescriptionComponent } from './components/pages/dictionary/tags-description/tags-description.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { IconBtnComponent } from './shared/components/buttons/icon-btn/icon-btn.
     TestComponent,
     ResultComponent,
     NotFoundDirective,
-    IconBtnComponent
+    IconBtnComponent,
+    SearchComponent,
+    TagsDescriptionComponent
   ],
   imports: [
     BrowserModule,

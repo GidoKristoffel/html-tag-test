@@ -1,0 +1,9 @@
+<div class="statistics" *ngIf="statistics">
+  <div *ngFor="let tab of tabs" [class]="tab.name"
+       [class.selected]="selected === tab.name"
+       (click)="select(tab.name)"
+  >
+    <div class="count">{{ statistics[tab.statKey] }}</div>
+    <div class="label">{{ tab.label }}</div>
+  </div>
+</div>

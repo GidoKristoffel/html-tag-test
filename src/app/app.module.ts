@@ -19,6 +19,7 @@ import { BackButtonDisableModule } from "angular-disable-browser-back-button";
 import { IconBtnComponent } from './shared/components/buttons/icon-btn/icon-btn.component';
 import { SearchComponent } from './components/pages/dictionary/search/search.component';
 import { TagsDescriptionComponent } from './components/pages/dictionary/tags-description/tags-description.component';
+import { StatisticTabsComponent } from './components/pages/result/statistic-tabs/statistic-tabs.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { TagsDescriptionComponent } from './components/pages/dictionary/tags-des
     NotFoundDirective,
     IconBtnComponent,
     SearchComponent,
-    TagsDescriptionComponent
+    TagsDescriptionComponent,
+    StatisticTabsComponent
   ],
   imports: [
     BrowserModule,

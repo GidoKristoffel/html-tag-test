@@ -2,40 +2,9 @@
   <div class="toolbar">
     <htt-toolbar (back)="backToMainMenu()"></htt-toolbar>
   </div>
-  <div class="statistics" *ngIf="statistics">
-    <div class="right-answers"
-         [class.selected]="selected === testResultCategories.RightAnswers"
-         (click)="select(testResultCategories.RightAnswers)"
-    >
-      <div class="count">{{ statistics.rightAnswers }}</div>
-      <div class="label">Правильные ответы</div>
-    </div>
-    <div class="wrong-answers"
-         [class.selected]="selected === testResultCategories.WrongAnswers"
-         (click)="select(testResultCategories.WrongAnswers)"
-    >
-      <div class="count">{{ statistics.wrongAnswers }}</div>
-      <div class="label">Не правильные ответы</div>
-    </div>
-    <div class="skipped-answers"
-         [class.selected]="selected === testResultCategories.SkippedAnswers"
-         (click)="select(testResultCategories.SkippedAnswers)"
-    >
-      <div class="count">{{ statistics.skippedQuestions }}</div>
-      <div class="label">Пропущенные вопросы</div>
-    </div>
-    <div class="total-questions"
-         [class.selected]="selected === testResultCategories.TotalQuestions"
-         (click)="select(testResultCategories.TotalQuestions)"
-    >
-      <div class="count">{{ statistics.totalQuestions }}</div>
-      <div class="label">Всего вопросов</div>
-    </div>
-  </div>
+  <htt-statistic-tabs (changeTab)="changeTab($event)"></htt-statistic-tabs>
   <div class="answers">
-    <div class="answer"
-         *ngFor="let answer of answers"
-         [class]="answer.status">
+    <div class="answer" *ngFor="let answer of answers" [class]="answer.status">
       <div class="question">
         <span>Вопрос:</span><br/>
         {{ answer.question['ru'] }}

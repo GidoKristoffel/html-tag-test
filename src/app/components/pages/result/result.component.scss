@@ -11,54 +11,6 @@
     width: 100%;
   }
 
-  & .statistics {
-    @include flex-center;
-
-    gap: 8px;
-
-    & .right-answers, & .wrong-answers, & .skipped-answers, & .total-questions {
-      @include default-border;
-      @include padding__medium;
-
-      cursor: pointer;
-      user-select: none;
-
-      & .count {
-        text-align: center;
-      }
-
-      & .label {
-        text-align: center;
-      }
-
-      &:hover {
-        border-color: $crayola;
-      }
-    }
-
-    & .right-answers {
-      & .count {
-        color: lightgreen;
-      }
-    }
-
-    & .wrong-answers {
-      & .count {
-        color: coral;
-      }
-    }
-
-    & .skipped-answers {
-      & .count {
-        color: mediumturquoise;
-      }
-    }
-
-    & .selected {
-      border-color: $crayola;
-    }
-  }
-
   & .answers {
     @include flex-gap;
     border: 2px solid white;

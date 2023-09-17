@@ -1,1 +1,0 @@
-body{width:100vw;height:100vh;background-color:#000;margin:0}body,button,span,input{font-family:monospace;color:#fff}input,button{cursor:pointer;background:#000000}input:disabled,button:disabled{cursor:default}input:focus,input:focus-visible,button:focus,button:focus-visible{outline:none}

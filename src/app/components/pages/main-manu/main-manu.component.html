@@ -1,18 +1,10 @@
 <div class="menu">
-  <div class="item" (click)="startTest()">
+  <div class="item" *ngFor="let item of menu" (click)="item.action()">
     <div class="icon">
-      <svg-icon src="./assets/images/test.svg" [class]="'svg'"></svg-icon>
+      <svg-icon [src]="item.icon" [class]="'svg'"></svg-icon>
     </div>
     <div class="text">
-      Начать тест
-    </div>
-  </div>
-  <div class="item" (click)="openDictionary()">
-    <div class="icon">
-      <svg-icon src="./assets/images/dictionary.svg" [class]="'svg'"></svg-icon>
-    </div>
-    <div class="text">
-      Словарь тэгов
+      {{ item.label }}
     </div>
   </div>
 </div>

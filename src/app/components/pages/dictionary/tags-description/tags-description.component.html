@@ -1,0 +1,14 @@
+<div class="tags-description">
+  <div class="tags" [httNotFound]="!tagNames.length">
+    <div class="tag"
+         [class.selected]="tagName === selectedTag"
+         *ngFor="let tagName of tagNames"
+         (click)="selectTag(tagName)">
+      {{ tagName }}
+    </div>
+  </div>
+
+  <div class="description">
+    <span>{{ selectedTag }}</span>{{ description ? ' — ' : '' }}{{ description }}
+  </div>
+</div>

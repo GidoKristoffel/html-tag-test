@@ -1,0 +1,31 @@
+@import "./src/app/shared/styles/mixins";
+@import "./src/app/shared/styles/colors";
+
+.tags-description {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  & .tags {
+    display: flex;
+    max-width: 435px;
+    gap: 8px;
+    flex-wrap: wrap;
+
+    & .tag {
+      @include flex-center;
+      @include default-border;
+
+      padding: 4px;
+      width: auto;
+      cursor: pointer;
+      height: 27px;
+      box-sizing: border-box;
+
+      &:hover, &.selected {
+        border-color: $crayola;
+        color: $crayola;
+      }
+    }
+  }
+}

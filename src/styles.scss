@@ -21,3 +21,23 @@ input, button {
     outline: none;
   }
 }
+
+input[type="text"] {
+  @include default-border;
+
+  width: 100%;
+  padding: 0 4px;
+}
+
+.description {
+  @include dashed-border;
+
+  width: 435px;
+  height: 125px;
+  padding: 16px;
+  box-sizing: border-box;
+
+  & span {
+    color: $crayola;
+  }
+}

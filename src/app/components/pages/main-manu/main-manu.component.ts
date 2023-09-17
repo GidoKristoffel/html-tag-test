@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from "@angular/router";
+import { IMenu } from "../../../interfaces/tags.interface";
 
 @Component({
   selector: 'htt-main-manu',
@@ -7,6 +8,18 @@ import { Router } from "@angular/router";
   styleUrls: ['./main-manu.component.scss']
 })
 export class MainManuComponent {
+  public readonly menu: IMenu[] = [
+    {
+      label: 'Начать тест',
+      icon: './assets/images/test.svg',
+      action: () => this.startTest(),
+    },
+    {
+      label: 'Словарь тэгов',
+      icon: './assets/images/dictionary.svg',
+      action: () => this.openDictionary(),
+    }
+  ];
 
   constructor(
     private router: Router,

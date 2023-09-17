@@ -214,3 +214,9 @@ export interface ICounters {
   incorrectAnswer: ICounter;
   skippedQuestions: ICounter;
 }
+
+export interface IMenu {
+  label: string;
+  icon: string;
+  action: () => void;
+}

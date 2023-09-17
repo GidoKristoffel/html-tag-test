@@ -5,14 +5,10 @@
   flex-direction: column;
   display: flex;
 
-  & .question {
-    @include dashed-border;
-
-    padding: 16px;
-    width: 435px;
-    height: 135px;
-    margin-bottom: 16px;
-    box-sizing: border-box;
+  & .card {
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
   }
 
   & .answer {

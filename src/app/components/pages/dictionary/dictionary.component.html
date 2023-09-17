@@ -1,19 +1,7 @@
 <div class="dictionary">
-  <div class="search">
-    <htt-toolbar (back)="backToMainMenu()">
-      <input type="text" placeholder="Filter" #filter [(ngModel)]="searchTag" (ngModelChange)="search()">
-      <htt-icon-btn src="./assets/images/close.svg" [hover]="true" (click)="clear()"></htt-icon-btn>
-    </htt-toolbar>
-  </div>
+  <htt-toolbar (back)="backToMainMenu()">
+    <htt-search [(tagNames)]="tagNames"></htt-search>
+  </htt-toolbar>
 
-  <div class="tags" [httNotFound]="!tagNames.length">
-    <div class="tag"
-         [class.selected]="tagName === selectedTag"
-         *ngFor="let tagName of tagNames"
-         (click)="selectTag(tagName)">
-      {{ tagName }}
-    </div>
-  </div>
-
-  <div class="description"><span>{{ selectedTag }}</span>{{ description ? ' — ' : '' }}{{ description }}</div>
+  <htt-tags-description [tagNames]="tagNames"></htt-tags-description>
 </div>

@@ -2,7 +2,7 @@
   <htt-toolbar [showStatisticsBtn]="true" [resetTestBtn]="true" (back)="backToMainMenu()"></htt-toolbar>
   <htt-scoreboard *ngIf="showStatistics"></htt-scoreboard>
   <div class="card">
-    <div class="question">
+    <div class="description">
       {{ tags[questionOrder[questionNumber]].question.ru }}
     </div>
     <div class="answer">

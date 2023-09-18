@@ -4,7 +4,6 @@ import { TagsService } from "../../../services/tags/tags.service";
 import { QuestionOrderService } from "../../../services/questions/question-order/question-order.service";
 import { QuestionNumberService } from "../../../services/questions/question-number/question-number.service";
 import { AnswerService } from "../../../services/answers/answer/answer.service";
-import { SettingsService } from "../../../services/settings.service";
 import { distinctUntilChanged } from "rxjs";
 import { ScoreService } from "../../../services/score/score.service";
 import { Router } from "@angular/router";
@@ -24,14 +23,12 @@ export class TestComponent implements OnInit, AfterViewInit  {
   public questionOrder: ArrayLike<ETag> = [];
   public questionNumber: number = 0;
   public answerInput: string = '';
-  public showStatistics: boolean = false;
 
   constructor(
     private tagsService: TagsService,
     private questionOrderService: QuestionOrderService,
     private questionNumberService: QuestionNumberService,
     private answerService: AnswerService,
-    private settingService: SettingsService,
     private scoreService: ScoreService,
     private router: Router,
     private resetService: ResetService,
@@ -59,7 +56,6 @@ export class TestComponent implements OnInit, AfterViewInit  {
     this.initTags();
     this.initQuestionOrder();
     this.initQuestionNumber();
-    this.initShowStatistics();
   }
 
   private initTags(): void {
@@ -92,15 +88,6 @@ export class TestComponent implements OnInit, AfterViewInit  {
 
   private clearAnswerInput(): void {
     this.answerInput = '';
-  }
-
-  private initShowStatistics(): void {
-    this.settingService
-      .watchShowStatistics()
-      .pipe(distinctUntilChanged())
-      .subscribe((showStatistics: boolean) => {
-        this.showStatistics = showStatistics;
-      });
   }
 
   private inputFocus(): void {

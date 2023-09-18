@@ -1,0 +1,21 @@
+<div class="answers">
+  <div class="answer" *ngFor="let answer of answers" [class]="answer.status">
+    <div class="question">
+      <span>Вопрос:</span><br/>
+      {{ answer.question['ru'] }}
+    </div>
+    <div class="user-answer">
+      <span>Ваш ответ:</span><br/>
+      {{ answer.userAnswer }}
+    </div>
+    <div class="true-answer">
+      <span>Правильный ответ:</span><br/>
+      {{ answer.trueAnswer }}
+    </div>
+    <div class="indicator icon-btn">
+      <svg-icon src="./assets/images/check.svg" *ngIf="answer.status === testResultStatus.RightAnswer"></svg-icon>
+      <svg-icon src="./assets/images/close.svg" *ngIf="answer.status === testResultStatus.WrongAnswer"></svg-icon>
+      <svg-icon src="./assets/images/skip.svg" *ngIf="answer.status === testResultStatus.SkippedAnswer"></svg-icon>
+    </div>
+  </div>
+</div>

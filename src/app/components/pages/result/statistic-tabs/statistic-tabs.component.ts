@@ -12,8 +12,9 @@ import { TestResultsService } from "../../../../services/test-results.service";
   styleUrls: ['./statistic-tabs.component.scss']
 })
 export class StatisticTabsComponent implements OnInit {
-  public statistics!: ITestResultStatistics;
   @Output() changeTab: EventEmitter<ETestResultStatus[]> = new EventEmitter<ETestResultStatus[]>();
+
+  public statistics!: ITestResultStatistics;
   public readonly testResultCategories = ETestResultCategories;
   public selected: ETestResultCategories = ETestResultCategories.TotalQuestions;
   public tabs: {name: ETestResultCategories, label: string, statKey: keyof ITestResultStatistics}[] = [

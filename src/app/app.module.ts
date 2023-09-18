@@ -20,6 +20,7 @@ import { IconBtnComponent } from './shared/components/buttons/icon-btn/icon-btn.
 import { SearchComponent } from './components/pages/dictionary/search/search.component';
 import { TagsDescriptionComponent } from './components/pages/dictionary/tags-description/tags-description.component';
 import { StatisticTabsComponent } from './components/pages/result/statistic-tabs/statistic-tabs.component';
+import { AnswerListComponent } from './components/pages/result/answer-list/answer-list.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { StatisticTabsComponent } from './components/pages/result/statistic-tabs
     IconBtnComponent,
     SearchComponent,
     TagsDescriptionComponent,
-    StatisticTabsComponent
+    StatisticTabsComponent,
+    AnswerListComponent
   ],
   imports: [
     BrowserModule,

@@ -14,8 +14,9 @@ import { ResetService } from "../../../services/reset/reset.service";
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.scss']
 })
-export class ResultComponent implements OnInit {
-  public answers: ITestResultsAnswers[] = [];
+export class ResultComponent {
+  public filter: ETestResultStatus[] = [];
+
   public readonly testResultStatus = ETestResultStatus;
   constructor(
     private testResultsService: TestResultsService,
@@ -23,23 +24,11 @@ export class ResultComponent implements OnInit {
     private resetService: ResetService,
   ) {}
 
-  ngOnInit() {
-    this.init();
-  }
-
-  private init(): void {
-    this.initAnswers();
-  }
-
-  private initAnswers(): void {
-    this.answers = this.testResultsService.getAnswers();
-  }
-
   public backToMainMenu(): void {
     this.router.navigate(['main-menu']).then(() => this.resetService.resetTestResult());
   }
 
-  public changeTab(filterStatus: ETestResultStatus[]): void {
-    this.answers = this.testResultsService.getAnswers().filter((answer: ITestResultsAnswers) => filterStatus.includes(answer.status));
+  public changeTab(filter: ETestResultStatus[]): void {
+    this.filter = filter;
   }
 }

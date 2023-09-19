@@ -10,6 +10,7 @@ import { Router } from "@angular/router";
 import { ResetService } from "../../../services/reset/reset.service";
 import { TestResultsService } from "../../../services/test-results.service";
 import { DialogService } from "../../../services/modal/dialog/dialog.service";
+import { NavigationService } from "../../../services/navigation/navigation.service";
 
 @Component({
   selector: 'htt-test',
@@ -34,6 +35,7 @@ export class TestComponent implements OnInit, AfterViewInit  {
     private resetService: ResetService,
     private testResultsService: TestResultsService,
     private dialogService: DialogService,
+    private navigationService: NavigationService,
   ) {}
 
   ngOnInit() {
@@ -103,6 +105,9 @@ export class TestComponent implements OnInit, AfterViewInit  {
   }
 
   public backToMainMenu(): void {
-    this.dialogService.openBackToMainMenu(() => this.router.navigate(['main-menu']).then(() => this.resetService.run()));
+    this.dialogService.openBackToMainMenu(() => {
+      this.navigationService.toMainMenu();
+      this.resetService.run();
+    });
   }
 }

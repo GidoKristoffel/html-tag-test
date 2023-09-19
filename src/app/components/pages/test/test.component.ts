@@ -4,13 +4,13 @@ import { TagsService } from "../../../services/tags/tags.service";
 import { QuestionOrderService } from "../../../services/questions/question-order/question-order.service";
 import { QuestionNumberService } from "../../../services/questions/question-number/question-number.service";
 import { AnswerService } from "../../../services/answers/answer/answer.service";
-import { SettingsService } from "../../../services/settings.service";
 import { distinctUntilChanged } from "rxjs";
 import { ScoreService } from "../../../services/score/score.service";
 import { Router } from "@angular/router";
 import { ResetService } from "../../../services/reset/reset.service";
 import { TestResultsService } from "../../../services/test-results.service";
 import { DialogService } from "../../../services/modal/dialog/dialog.service";
+import { NavigationService } from "../../../services/navigation/navigation.service";
 
 @Component({
   selector: 'htt-test',
@@ -24,19 +24,18 @@ export class TestComponent implements OnInit, AfterViewInit  {
   public questionOrder: ArrayLike<ETag> = [];
   public questionNumber: number = 0;
   public answerInput: string = '';
-  public showStatistics: boolean = false;
 
   constructor(
     private tagsService: TagsService,
     private questionOrderService: QuestionOrderService,
     private questionNumberService: QuestionNumberService,
     private answerService: AnswerService,
-    private settingService: SettingsService,
     private scoreService: ScoreService,
     private router: Router,
     private resetService: ResetService,
     private testResultsService: TestResultsService,
     private dialogService: DialogService,
+    private navigationService: NavigationService,
   ) {}
 
   ngOnInit() {
@@ -59,7 +58,6 @@ export class TestComponent implements OnInit, AfterViewInit  {
     this.initTags();
     this.initQuestionOrder();
     this.initQuestionNumber();
-    this.initShowStatistics();
   }
 
   private initTags(): void {
@@ -94,15 +92,6 @@ export class TestComponent implements OnInit, AfterViewInit  {
     this.answerInput = '';
   }
 
-  private initShowStatistics(): void {
-    this.settingService
-      .watchShowStatistics()
-      .pipe(distinctUntilChanged())
-      .subscribe((showStatistics: boolean) => {
-        this.showStatistics = showStatistics;
-      });
-  }
-
   private inputFocus(): void {
     if (this.input) {
       this.input.nativeElement.focus();
@@ -116,6 +105,9 @@ export class TestComponent implements OnInit, AfterViewInit  {
   }
 
   public backToMainMenu(): void {
-    this.dialogService.openBackToMainMenu(() => this.router.navigate(['main-menu']).then(() => this.resetService.run()));
+    this.dialogService.openBackToMainMenu(() => {
+      this.navigationService.toMainMenu();
+      this.resetService.run();
+    });
   }
 }

@@ -8,6 +8,7 @@ import {
 } from "../../../interfaces/tags.interface";
 import { Router } from "@angular/router";
 import { ResetService } from "../../../services/reset/reset.service";
+import { NavigationService } from "../../../services/navigation/navigation.service";
 
 @Component({
   selector: 'htt-result',
@@ -22,10 +23,12 @@ export class ResultComponent {
     private testResultsService: TestResultsService,
     private router: Router,
     private resetService: ResetService,
+    private navigationService: NavigationService,
   ) {}
 
   public backToMainMenu(): void {
-    this.router.navigate(['main-menu']).then(() => this.resetService.resetTestResult());
+    this.navigationService.toMainMenu();
+    this.resetService.resetTestResult();
   }
 
   public changeTab(filter: ETestResultStatus[]): void {

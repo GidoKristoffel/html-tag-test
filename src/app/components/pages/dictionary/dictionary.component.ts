@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ETag, ITags } from "../../../interfaces/tags.interface";
 import { TagsService } from "../../../services/tags/tags.service";
 import { Router } from "@angular/router";
+import { NavigationService } from "../../../services/navigation/navigation.service";
 
 @Component({
   selector: 'htt-dictionary',
@@ -14,6 +15,7 @@ export class DictionaryComponent implements OnInit {
   constructor(
     private tagsService: TagsService,
     private router: Router,
+    private navigationService: NavigationService,
   ) {}
 
   ngOnInit() {
@@ -25,6 +27,6 @@ export class DictionaryComponent implements OnInit {
   }
 
   public backToMainMenu(): void {
-    this.router.navigate(['main-menu']).then();
+    this.navigationService.toMainMenu();
   }
 }

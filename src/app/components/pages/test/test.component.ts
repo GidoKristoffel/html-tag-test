@@ -84,7 +84,8 @@ export class TestComponent implements OnInit, AfterViewInit  {
       this.questionNumberService.nextQuestion();
     } else {
       this.testResultsService.generate();
-      this.router.navigate(['result']).then(() => this.resetService.run());
+      this.navigationService.toResult();
+      this.resetService.run();
     }
   }
 

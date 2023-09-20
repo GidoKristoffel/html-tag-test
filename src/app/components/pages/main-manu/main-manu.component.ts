@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from "@angular/router";
 import { IMenu } from "../../../interfaces/tags.interface";
+import { NavigationService } from "../../../services/navigation/navigation.service";
 
 @Component({
   selector: 'htt-main-manu',
@@ -23,13 +24,14 @@ export class MainManuComponent {
 
   constructor(
     private router: Router,
+    private navigationService: NavigationService,
   ) {}
 
   public startTest(): void {
-    this.router.navigate(['test']).then();
+    this.navigationService.toTest();
   }
 
   public openDictionary(): void {
-    this.router.navigate(['dictionary']).then();
+    this.navigationService.toDictionary();
   }
 }

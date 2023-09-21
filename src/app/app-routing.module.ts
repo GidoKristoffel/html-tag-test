@@ -4,23 +4,28 @@ import { MainManuComponent } from "./components/pages/main-manu/main-manu.compon
 import { ResultComponent } from "./components/pages/result/result.component";
 import { TestComponent } from "./components/pages/test/test.component";
 import { DictionaryComponent } from "./components/pages/dictionary/dictionary.component";
+import { GoToAddressGuard } from "./guards/go-to-address.guard";
 
 const routes: Routes = [
   {
     path: 'main-menu',
     component: MainManuComponent,
+    canActivate: [GoToAddressGuard],
   },
   {
     path: 'test',
     component: TestComponent,
+    canActivate: [GoToAddressGuard],
   },
   {
     path: 'result',
     component: ResultComponent,
+    canActivate: [GoToAddressGuard],
   },
   {
     path: 'dictionary',
     component: DictionaryComponent,
+    canActivate: [GoToAddressGuard],
   },
   {
     path: '',

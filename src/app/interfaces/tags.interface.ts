@@ -144,6 +144,7 @@ export enum ELocalStorage {
   ShowStatistics = 'show-statistics',
   SkippedQuestions = 'skipped-questions',
   TestResult = 'test-result',
+  CurrentPage = 'current-page',
 }
 
 export enum EDialog {
@@ -219,4 +220,11 @@ export interface IMenu {
   label: string;
   icon: string;
   action: () => void;
+}
+
+export enum EPages {
+  MainMenu = 'main-menu',
+  Dictionary = 'dictionary',
+  Test = 'test',
+  Result = 'result',
 }

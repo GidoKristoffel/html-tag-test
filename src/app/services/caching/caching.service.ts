@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ELocalStorage, ETag } from "../../interfaces/tags.interface";
+import { ELocalStorage } from "../../interfaces/tags.interface";
 import { Observable } from "rxjs";
 import { UntilDestroy, untilDestroyed } from "@ngneat/until-destroy";
 import { SaveService } from "./save/save.service";
@@ -16,21 +16,21 @@ export class CachingService {
     protected loadService: LoadService,
   ) {}
 
-  public init(watchFunction: () => Observable<ETag[]>, setFunction: (value: ETag[]) => void, key: ELocalStorage): void {
-    const saving: ETag[] | null = this.getSaving(key);
-    setFunction(saving || []);
+  public init<T>(watchFunction: () => Observable<T>, setFunction: (value: T | null) => void, key: ELocalStorage): void {
+    const saving: T | null = this.getSaving<T>(key);
+    setFunction(saving);
 
     watchFunction()
       .pipe(untilDestroyed(this))
-      .subscribe((value: ETag[]) => {
+      .subscribe((value: T) => {
         this.saveService.saveLocalStorage(key, value);
       });
   }
 
-  private getSaving(key: ELocalStorage): ETag[] | null {
-    let questionOrder: ETag[] | string | null = this.loadService.loadLocalStorage(key);
+  private getSaving<T>(key: ELocalStorage): T | null {
+    let questionOrder: T | string | null = this.loadService.loadLocalStorage(key);
     if (questionOrder) {
-      return JSON.parse(questionOrder as string) as ETag[];
+      return JSON.parse(questionOrder as string) as T;
     }
     return null;
   }

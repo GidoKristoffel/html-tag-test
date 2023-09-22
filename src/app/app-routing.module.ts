@@ -5,35 +5,36 @@ import { ResultComponent } from "./components/pages/result/result.component";
 import { TestComponent } from "./components/pages/test/test.component";
 import { DictionaryComponent } from "./components/pages/dictionary/dictionary.component";
 import { GoToAddressGuard } from "./guards/go-to-address.guard";
+import { EPages } from "./interfaces/tags.interface";
 
 const routes: Routes = [
   {
-    path: 'main-menu',
+    path: EPages.MainMenu,
     component: MainManuComponent,
     canActivate: [GoToAddressGuard],
   },
   {
-    path: 'test',
+    path: EPages.Test,
     component: TestComponent,
     canActivate: [GoToAddressGuard],
   },
   {
-    path: 'result',
+    path: EPages.Result,
     component: ResultComponent,
     canActivate: [GoToAddressGuard],
   },
   {
-    path: 'dictionary',
+    path: EPages.Dictionary,
     component: DictionaryComponent,
     canActivate: [GoToAddressGuard],
   },
   {
     path: '',
-    redirectTo: 'main-menu',
+    redirectTo: EPages.MainMenu,
     pathMatch: 'full'
   },
   { path: '**',
-    redirectTo: '/main-menu',
+    redirectTo: '/' + EPages.MainMenu,
     pathMatch: 'full'
   },
 ];

@@ -13,9 +13,13 @@ export abstract class AnswersHandler {
 
   private initCaching(): void {
     this.cachingService
-      .init(
+      .init<ETag[]>(
         () => this.watch(),
-        (saving: ETag[]) => this.set(saving),
+        (saving: ETag[] | null) => {
+          if (saving) {
+            this.set(saving)
+          }
+        },
         this.localStorageKey
       );
   }

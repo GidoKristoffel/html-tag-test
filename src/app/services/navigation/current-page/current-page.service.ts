@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ELocalStorage, EPages, ETag } from "../../../interfaces/tags.interface";
+import { ELocalStorage, EPages } from "../../../interfaces/tags.interface";
 import { CachingService } from "../../caching/caching.service";
 import { BehaviorSubject, Observable } from "rxjs";
 

@@ -16,6 +16,12 @@ MIT
 @ngneat/until-destroy
 MIT
 
+@ngx-translate/core
+MIT
+
+@ngx-translate/http-loader
+MIT
+
 angular-disable-browser-back-button
 MIT
 MIT License

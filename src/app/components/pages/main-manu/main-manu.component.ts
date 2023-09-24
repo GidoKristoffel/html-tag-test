@@ -11,12 +11,12 @@ import { NavigationService } from "../../../services/navigation/navigation.servi
 export class MainManuComponent {
   public readonly menu: IMenu[] = [
     {
-      label: 'Начать тест',
+      label: 'main-menu.test',
       icon: './assets/images/test.svg',
       action: () => this.startTest(),
     },
     {
-      label: 'Словарь тэгов',
+      label: 'main-menu.dictionary',
       icon: './assets/images/dictionary.svg',
       action: () => this.openDictionary(),
     }

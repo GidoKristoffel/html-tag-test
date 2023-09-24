@@ -12,7 +12,7 @@ import { MainManuComponent } from './components/pages/main-manu/main-manu.compon
 import { DictionaryComponent } from './components/pages/dictionary/dictionary.component';
 import { TestComponent } from './components/pages/test/test.component';
 import { ResultComponent } from './components/pages/result/result.component';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { AngularSvgIconModule } from "angular-svg-icon";
 import { NotFoundDirective } from './directives/not-found.directive';
 import { BackButtonDisableModule } from "angular-disable-browser-back-button";
@@ -21,6 +21,12 @@ import { SearchComponent } from './components/pages/dictionary/search/search.com
 import { TagsDescriptionComponent } from './components/pages/dictionary/tags-description/tags-description.component';
 import { StatisticTabsComponent } from './components/pages/result/statistic-tabs/statistic-tabs.component';
 import { AnswerListComponent } from './components/pages/result/answer-list/answer-list.component';
+import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+
+export function httpTranslateLoader(http: HttpClient):any {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -47,6 +53,14 @@ import { AnswerListComponent } from './components/pages/result/answer-list/answe
     HttpClientModule,
     AngularSvgIconModule.forRoot(),
     BackButtonDisableModule.forRoot(),
+    TranslateModule.forRoot({
+      defaultLanguage: 'en',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpTranslateLoader,
+        deps: [HttpClient]
+      }
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

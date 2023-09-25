@@ -228,3 +228,9 @@ export enum EPages {
   Test = 'test',
   Result = 'result',
 }
+
+export enum ELang {
+  English = 'en',
+  Ukrainian = 'ua',
+  Russian = 'ru',
+}

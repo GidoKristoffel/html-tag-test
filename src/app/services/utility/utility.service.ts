@@ -13,4 +13,12 @@ export class UtilityService {
 
     return obj as T;
   }
+
+  public isEnumContains<T extends Record<string, string>>(value: string, enumType: T): value is T[keyof T] {
+    const enumValues = Object.keys(enumType)
+      .filter((key: string) => typeof enumType[key] === 'string')
+      .map((key: string) => enumType[key]);
+
+    return enumValues.includes(value);
+  }
 }

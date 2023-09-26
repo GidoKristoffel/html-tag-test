@@ -1,0 +1,41 @@
+@import "./src/app/shared/styles/mixins";
+@import "./src/app/shared/styles/colors";
+
+.languages {
+  @include flex-gap__small;
+
+  display: flex;
+  flex-direction: column;
+
+  & .language {
+    @include btn-cursor;
+    @include default-border;
+    @include flex-gap__small;
+
+    display: flex;
+    align-items: center;
+    padding: 4px 8px;
+    width: 140px;
+    box-sizing: border-box;
+
+    & .flag {
+      width: 24px;
+      height: 24px;
+
+      & img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &:hover {
+      border-color: $crayola;
+      color: $crayola;
+    }
+  }
+
+  & .selected {
+    border-color: $crayola;
+    color: $crayola;
+  }
+}

@@ -1,6 +1,7 @@
 <div class="toolbar">
   <htt-icon-btn src="./assets/images/back.svg" (click)="backToMainMenu()"></htt-icon-btn>
   <ng-content></ng-content>
+  <htt-icon-btn src="./assets/images/language.svg" *ngIf="showStatisticsBtn" (click)="changeLanguage()"></htt-icon-btn>
   <htt-icon-btn src="./assets/images/statistics.svg" *ngIf="showStatisticsBtn" (click)="toggleShowStatistics()"></htt-icon-btn>
   <htt-icon-btn src="./assets/images/reboot.svg" *ngIf="resetTestBtn" (click)="resetTest()"></htt-icon-btn>
 </div>

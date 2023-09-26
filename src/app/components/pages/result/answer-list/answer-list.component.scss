@@ -2,7 +2,7 @@
 @import "./src/app/shared/styles/colors";
 
 .answers {
-  @include flex-gap;
+  @include flex-gap__medium;
   border: 2px solid white;
   width: 435px;
   overflow: auto;

@@ -23,6 +23,7 @@ import { StatisticTabsComponent } from './components/pages/result/statistic-tabs
 import { AnswerListComponent } from './components/pages/result/answer-list/answer-list.component';
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { LanguageComponent } from './components/pages/language/language.component';
 
 export function httpTranslateLoader(http: HttpClient):any {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -44,7 +45,8 @@ export function httpTranslateLoader(http: HttpClient):any {
     SearchComponent,
     TagsDescriptionComponent,
     StatisticTabsComponent,
-    AnswerListComponent
+    AnswerListComponent,
+    LanguageComponent
   ],
   imports: [
     BrowserModule,

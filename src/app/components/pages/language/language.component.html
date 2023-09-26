@@ -1,0 +1,13 @@
+<div class="languages">
+  <htt-toolbar (back)="back()"></htt-toolbar>
+  <div class="language"
+       *ngFor="let language of languages"
+       (click)="changeLanguage(language)"
+       [class.selected]="language === currentLanguage"
+  >
+    <div class="flag">
+      <img [src]="'./assets/images/' + language + '.svg'">
+    </div>
+    {{ 'language.' + language | translate }}
+  </div>
+</div>

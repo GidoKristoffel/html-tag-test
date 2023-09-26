@@ -227,10 +227,16 @@ export enum EPages {
   Dictionary = 'dictionary',
   Test = 'test',
   Result = 'result',
+  Language = 'language',
 }
 
 export enum ELang {
   English = 'en',
   Ukrainian = 'ua',
   Russian = 'ru',
+}
+
+export interface ILanguage {
+  id: ELang;
+  title: string;
 }

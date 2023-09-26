@@ -35,8 +35,16 @@
   justify-content: center;
 }
 
-@mixin flex-gap {
+@mixin flex-gap__small {
+  gap: 8px;
+}
+
+@mixin flex-gap__medium {
   gap: 16px;
+}
+
+@mixin flex-gap__large {
+  gap: 32px;
 }
 
 //buttons

@@ -6,6 +6,7 @@ import { TestComponent } from "./components/pages/test/test.component";
 import { DictionaryComponent } from "./components/pages/dictionary/dictionary.component";
 import { GoToAddressGuard } from "./guards/go-to-address.guard";
 import { EPages } from "./interfaces/tags.interface";
+import { LanguageComponent } from "./components/pages/language/language.component";
 
 const routes: Routes = [
   {
@@ -26,6 +27,11 @@ const routes: Routes = [
   {
     path: EPages.Dictionary,
     component: DictionaryComponent,
+    canActivate: [GoToAddressGuard],
+  },
+  {
+    path: EPages.Language,
+    component: LanguageComponent,
     canActivate: [GoToAddressGuard],
   },
   {

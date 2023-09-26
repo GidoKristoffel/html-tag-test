@@ -1,7 +1,7 @@
 @import "../../../shared/styles/mixins";
 
 .test {
-  @include flex-gap;
+  @include flex-gap__medium;
   flex-direction: column;
   display: flex;
 

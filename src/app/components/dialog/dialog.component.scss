@@ -11,7 +11,7 @@
   & .dialog {
     @include default-border;
     @include padding__large;
-    @include flex-gap;
+    @include flex-gap__medium;
 
     width: 300px;
     box-sizing: border-box;

@@ -2,5 +2,10 @@
   "main-menu": {
     "test": "Start test",
     "dictionary": "Tag dictionary"
+  },
+  "language": {
+    "en": "English",
+    "ua": "Ukrainian",
+    "ru": "Russian"
   }
 }

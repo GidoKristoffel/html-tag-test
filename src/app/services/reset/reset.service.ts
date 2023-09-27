@@ -13,7 +13,7 @@ import { TestResultsService } from "../test-results.service";
   providedIn: 'root'
 })
 export class ResetService {
-  private localStorageExceptions: ELocalStorage[] = [ELocalStorage.ShowStatistics, ELocalStorage.TestResult];
+  private localStorageExceptions: ELocalStorage[] = [ELocalStorage.ShowStatistics, ELocalStorage.TestResult, ELocalStorage.Language];
   constructor(
     private localStorageService: LocalStorageService,
     private answerService: AnswerService,

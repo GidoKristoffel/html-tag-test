@@ -4,4 +4,10 @@
   @include flex-center;
 
   height: 100vh;
+
+  & htt-icon-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
 }

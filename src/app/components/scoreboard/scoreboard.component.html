@@ -1,4 +1,4 @@
-<div class="scoreboard" *ngIf="showStatistics">
+<div class="scoreboard">
   <div class="score {{ counters[key].className }}" *ngFor="let key of counterKeys">
     <span>{{ counters[key].name }}: </span>
     {{ counters[key].value }}

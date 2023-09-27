@@ -4,6 +4,7 @@ import { dialogs } from "../../../../assets/tags";
 import { EDialog, TDialogs } from "../../../interfaces/tags.interface";
 import { UntilDestroy, untilDestroyed } from "@ngneat/until-destroy";
 import { ModalService } from "../modal.service";
+import { LanguageComponent } from "../../../components/language/language.component";
 
 @UntilDestroy()
 @Injectable({
@@ -50,6 +51,15 @@ export class DialogService {
         this.modal.close(dialogRef);
       });
     instance.disagree
+      .pipe(untilDestroyed(this))
+      .subscribe(() => this.modal.close(dialogRef));
+  }
+
+  public openLanguages(): void {
+    const dialogRef = this.modal.open(LanguageComponent);
+    const instance = dialogRef.instance;
+
+    instance.close
       .pipe(untilDestroyed(this))
       .subscribe(() => this.modal.close(dialogRef));
   }

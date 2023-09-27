@@ -18,7 +18,6 @@ export class ToolbarComponent {
     private settingService: SettingsService,
     private resetService: ResetService,
     private dialogService: DialogService,
-    private navidationService: NavigationService,
   ) {}
 
   public toggleShowStatistics(): void {
@@ -31,9 +30,5 @@ export class ToolbarComponent {
 
   public backToMainMenu(): void {
     this.back.emit();
-  }
-
-  public changeLanguage(): void {
-    this.navidationService.toLanguages();
   }
 }

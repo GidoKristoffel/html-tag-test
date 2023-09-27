@@ -145,6 +145,7 @@ export enum ELocalStorage {
   SkippedQuestions = 'skipped-questions',
   TestResult = 'test-result',
   CurrentPage = 'current-page',
+  Language = 'language',
 }
 
 export enum EDialog {
@@ -227,7 +228,6 @@ export enum EPages {
   Dictionary = 'dictionary',
   Test = 'test',
   Result = 'result',
-  Language = 'language',
 }
 
 export enum ELang {

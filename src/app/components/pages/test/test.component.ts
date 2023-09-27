@@ -11,6 +11,7 @@ import { ResetService } from "../../../services/reset/reset.service";
 import { TestResultsService } from "../../../services/test-results.service";
 import { DialogService } from "../../../services/modal/dialog/dialog.service";
 import { NavigationService } from "../../../services/navigation/navigation.service";
+import { SettingsService } from "../../../services/settings.service";
 
 @Component({
   selector: 'htt-test',
@@ -24,6 +25,7 @@ export class TestComponent implements OnInit, AfterViewInit  {
   public questionOrder: ArrayLike<ETag> = [];
   public questionNumber: number = 0;
   public answerInput: string = '';
+  public showStatistics: boolean = false;
 
   constructor(
     private tagsService: TagsService,
@@ -36,6 +38,7 @@ export class TestComponent implements OnInit, AfterViewInit  {
     private testResultsService: TestResultsService,
     private dialogService: DialogService,
     private navigationService: NavigationService,
+    private settingService: SettingsService,
   ) {}
 
   ngOnInit() {
@@ -58,6 +61,7 @@ export class TestComponent implements OnInit, AfterViewInit  {
     this.initTags();
     this.initQuestionOrder();
     this.initQuestionNumber();
+    this.initShowStatistics();
   }
 
   private initTags(): void {
@@ -110,5 +114,14 @@ export class TestComponent implements OnInit, AfterViewInit  {
       this.navigationService.toMainMenu();
       this.resetService.run();
     });
+  }
+
+  private initShowStatistics(): void {
+    this.settingService
+      .watchShowStatistics()
+      .pipe(distinctUntilChanged())
+      .subscribe((showStatistics: boolean) => {
+        this.showStatistics = showStatistics;
+      });
   }
 }

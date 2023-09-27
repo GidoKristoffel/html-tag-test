@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from "@ngx-translate/core";
-import { ELang } from "./interfaces/tags.interface";
+import { ELang, ELocalStorage } from "./interfaces/tags.interface";
+import { LoadService } from "./services/caching/load/load.service";
 
 @Component({
   selector: 'htt-root',
@@ -10,8 +11,19 @@ import { ELang } from "./interfaces/tags.interface";
 export class AppComponent {
   title = 'html-tag-test';
 
-  constructor(private translate: TranslateService) {
+  constructor(
+    private translate: TranslateService,
+    private loadService: LoadService,
+  ) {
     translate.setDefaultLang(ELang.English);
-    translate.use(ELang.English);
+    translate.use(this.getSaving());
+  }
+
+  private getSaving(): ELang {
+    let language: ELang | string | null = this.loadService.loadLocalStorage(ELocalStorage.Language);
+    if (language) {
+      return JSON.parse(language as string) as ELang;
+    }
+    return ELang.English;
   }
 }

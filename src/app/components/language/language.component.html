@@ -1,5 +1,7 @@
 <div class="languages">
-  <htt-toolbar (back)="back()"></htt-toolbar>
+  <div class="toolbar">
+    <htt-icon-btn src="./assets/images/close.svg" [hover]="true" (click)="runClose()"></htt-icon-btn>
+  </div>
   <div class="language"
        *ngFor="let language of languages"
        (click)="changeLanguage(language)"

@@ -46,12 +46,4 @@ export class NavigationService {
       this.currentPageService.set(EPages.Result);
     });
   }
-
-  public toLanguages(): void {
-    this.navigationAccessService.allowAccess();
-    this.router.navigate([EPages.Language]).then(() => {
-      this.navigationAccessService.denyAccess();
-      this.currentPageService.set(EPages.Language);
-    });
-  }
 }

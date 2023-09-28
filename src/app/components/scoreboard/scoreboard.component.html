@@ -1,6 +1,6 @@
 <div class="scoreboard">
   <div class="score {{ counters[key].className }}" *ngFor="let key of counterKeys">
-    <span>{{ counters[key].name }}: </span>
+    <span>{{ counters[key].name | translate }}: </span>
     {{ counters[key].value }}
   </div>
 </div>

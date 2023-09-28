@@ -1,4 +1,4 @@
 <div class="search">
-  <input type="text" placeholder="Filter" #filter [(ngModel)]="searchTag" (ngModelChange)="search()">
+  <input type="text" [placeholder]="'input.filter' | translate" #filter [(ngModel)]="searchTag" (ngModelChange)="search()">
   <htt-icon-btn src="./assets/images/close.svg" [hover]="true" (click)="clear()"></htt-icon-btn>
 </div>

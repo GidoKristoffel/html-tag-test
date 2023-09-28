@@ -20,22 +20,22 @@ export class StatisticTabsComponent implements OnInit {
   public tabs: {name: ETestResultCategories, label: string, statKey: keyof ITestResultStatistics}[] = [
     {
       name: this.testResultCategories.RightAnswers,
-      label: 'Правильные ответы',
+      label: 'result-statistics.right-answers',
       statKey: 'rightAnswers',
     },
     {
       name: this.testResultCategories.WrongAnswers,
-      label: 'Не правильные ответы',
+      label: 'result-statistics.wrong-answers',
       statKey: 'wrongAnswers',
     },
     {
       name: this.testResultCategories.SkippedAnswers,
-      label: 'Пропущенные вопросы',
+      label: 'result-statistics.skipped-questions',
       statKey: 'skippedQuestions',
     },
     {
       name: this.testResultCategories.TotalQuestions,
-      label: 'Всего вопросов',
+      label: 'result-statistics.total-questions',
       statKey: 'totalQuestions',
     },
   ];

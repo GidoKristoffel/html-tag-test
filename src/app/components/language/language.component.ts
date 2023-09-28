@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { ELang, ELocalStorage, TUserAnswers } from "../../interfaces/tags.interface";
+import { ELang, ELocalStorage } from "../../interfaces/tags.interface";
 import { UtilityService } from "../../services/utility/utility.service";
 import { LangChangeEvent, TranslateService } from "@ngx-translate/core";
 import { LoadService } from "../../services/caching/load/load.service";

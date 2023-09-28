@@ -7,5 +7,25 @@
     "en": "Английский",
     "ua": "Украинский",
     "ru": "Русский"
+  },
+  "input": {
+    "filter": "Фильтр",
+    "write-answer": "Напишите ответ"
+  },
+  "btn": {
+    "answer": "Ответить"
+  },
+  "result-statistics": {
+    "right-answers": "Правильные ответы",
+    "wrong-answers": "Не правильные ответы",
+    "skipped-questions": "Пропущенные вопросы",
+    "total-questions": "Всего вопросов"
+  },
+  "statistics": {
+    "total-questions": "Всего вопросов",
+    "questions-left": "Осталось вопросов",
+    "correct-answer": "Верно",
+    "incorrect-answer": "Не верно",
+    "skipped-questions": "Пропущено"
   }
 }

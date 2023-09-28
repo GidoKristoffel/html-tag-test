@@ -7,5 +7,25 @@
     "en": "English",
     "ua": "Ukrainian",
     "ru": "Russian"
+  },
+  "input": {
+    "filter": "Filter",
+    "write-answer": "Write answer"
+  },
+  "btn": {
+    "answer": "Answer"
+  },
+  "result-statistics": {
+    "right-answers": "Right answers",
+    "wrong-answers": "Wrong answers",
+    "skipped-questions": "Missed questions",
+    "total-questions": "Total questions"
+  },
+  "statistics": {
+    "total-questions": "Total questions",
+    "questions-left": "Questions left",
+    "correct-answer": "Right",
+    "incorrect-answer": "Wrong",
+    "skipped-questions": "Missed"
   }
 }

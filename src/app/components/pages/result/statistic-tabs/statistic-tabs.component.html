@@ -4,6 +4,6 @@
        (click)="select(tab.name)"
   >
     <div class="count">{{ statistics[tab.statKey] }}</div>
-    <div class="label">{{ tab.label }}</div>
+    <div class="label">{{ tab.label | translate }}</div>
   </div>
 </div>

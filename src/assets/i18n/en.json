@@ -27,5 +27,10 @@
     "correct-answer": "Right",
     "incorrect-answer": "Wrong",
     "skipped-questions": "Missed"
+  },
+  "result": {
+    "question": "Question",
+    "your-answer": "Your answer",
+    "correct-answer": "Correct answer"
   }
 }

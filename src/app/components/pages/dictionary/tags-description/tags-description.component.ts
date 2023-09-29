@@ -13,7 +13,7 @@ export class TagsDescriptionComponent implements OnInit {
   public selectedTag!: ETag;
   public description: string = '';
   public tags!: ITags;
-  private currentLang: ELang = ELang.English;
+  private currentLang: ELang = this.translateService.currentLang as ELang || ELang.English;
 
   constructor(
     private tagsService: TagsService,

@@ -27,5 +27,10 @@
     "correct-answer": "Верно",
     "incorrect-answer": "Не верно",
     "skipped-questions": "Пропущено"
+  },
+  "result": {
+    "question": "Вопрос",
+    "your-answer": "Ваш ответ",
+    "correct-answer": "Правильный ответ"
   }
 }

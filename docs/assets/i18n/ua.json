@@ -27,5 +27,10 @@
     "correct-answer": "Правильно",
     "incorrect-answer": "Не правильно",
     "skipped-questions": "Пропущено "
+  },
+  "result": {
+    "question": "Питання",
+    "your-answer": "Ваша відповідь",
+    "correct-answer": "Правильну відповідь"
   }
 }

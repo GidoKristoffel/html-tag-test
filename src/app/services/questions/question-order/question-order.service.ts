@@ -7,7 +7,7 @@ import { LocalStorageService } from "../../caching/storages/local-storage/local-
   providedIn: 'root'
 })
 export class QuestionOrderService {
-  private questionOrder: ETag[]= [];
+  private questionOrder: ETag[] = [];
 
   constructor(
     private shuffleService: ShuffleService,

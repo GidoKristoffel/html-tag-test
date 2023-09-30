@@ -1,5 +1,5 @@
-@import "../../shared/styles/mixins";
-@import "../../shared/styles/colors";
+@import "./src/app/shared/styles/mixins";
+@import "./src/app/shared/styles/colors";
 
 .languages {
   @include flex-center;

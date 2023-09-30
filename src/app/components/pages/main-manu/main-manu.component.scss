@@ -1,7 +1,8 @@
-@import "../../../shared/styles/mixins";
+@import "./src/app/shared/styles/mixins";
 
 .menu {
   @include flex-gap__medium;
+
   display: flex;
   flex-direction: column;
   width: 300px;

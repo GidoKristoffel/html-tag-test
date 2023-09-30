@@ -2,7 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ELang, ETag, ITags } from "../../../../interfaces/tags.interface";
 import { TagsService } from "../../../../services/tags/tags.service";
 import { LangChangeEvent, TranslateService } from "@ngx-translate/core";
+import { UntilDestroy, untilDestroyed } from "@ngneat/until-destroy";
 
+@UntilDestroy()
 @Component({
   selector: 'htt-tags-description',
   templateUrl: './tags-description.component.html',
@@ -10,6 +12,7 @@ import { LangChangeEvent, TranslateService } from "@ngx-translate/core";
 })
 export class TagsDescriptionComponent implements OnInit {
   @Input() tagNames: ETag[] = [];
+
   public selectedTag!: ETag;
   public description: string = '';
   public tags!: ITags;
@@ -34,15 +37,18 @@ export class TagsDescriptionComponent implements OnInit {
   }
 
   private initTranslate(): void {
-    this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
-      if ((<any>Object).values(ELang).includes(event.lang)) {
-        this.currentLang = event.lang as ELang;
-      }
+    this.translateService
+      .onLangChange
+      .pipe(untilDestroyed(this))
+      .subscribe((event: LangChangeEvent) => {
+        if ((<any>Object).values(ELang).includes(event.lang)) {
+          this.currentLang = event.lang as ELang;
+        }
 
-      if (this.selectedTag) {
-        this.selectTag(this.selectedTag);
-      }
-    });
+        if (this.selectedTag) {
+          this.selectTag(this.selectedTag);
+        }
+      });
   }
 
   public selectTag(tagName: ETag): void {

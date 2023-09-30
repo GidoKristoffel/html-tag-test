@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {
   ETestResultCategories,
-  ETestResultStatus,
+  ETestResultStatus, IStatisticTab,
   ITestResultStatistics
 } from "../../../../interfaces/tags.interface";
 import { TestResultsService } from "../../../../services/test-results.service";
@@ -17,7 +17,7 @@ export class StatisticTabsComponent implements OnInit {
   public statistics!: ITestResultStatistics;
   public readonly testResultCategories = ETestResultCategories;
   public selected: ETestResultCategories = ETestResultCategories.TotalQuestions;
-  public tabs: {name: ETestResultCategories, label: string, statKey: keyof ITestResultStatistics}[] = [
+  public tabs: IStatisticTab[] = [
     {
       name: this.testResultCategories.RightAnswers,
       label: 'result-statistics.right-answers',

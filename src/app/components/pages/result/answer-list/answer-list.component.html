@@ -1,15 +1,18 @@
 <div class="answers">
   <div class="answer" *ngFor="let answer of answers" [class]="answer.status">
     <div class="question">
-      <span>{{ "result.question" | translate }}:</span><br/>
+      <span>{{ "result.question" | translate }}:</span>
+      <br/>
       {{ answer.question[currentLang] }}
     </div>
     <div class="user-answer">
-      <span>{{ "result.your-answer" | translate }}:</span><br/>
+      <span>{{ "result.your-answer" | translate }}:</span>
+      <br/>
       {{ answer.userAnswer }}
     </div>
     <div class="true-answer">
-      <span>{{ "result.correct-answer" | translate }}:</span><br/>
+      <span>{{ "result.correct-answer" | translate }}:</span>
+      <br/>
       {{ answer.trueAnswer }}
     </div>
     <div class="indicator icon-btn">

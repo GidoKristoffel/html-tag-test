@@ -2,7 +2,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { SettingsService } from "../../services/settings.service";
 import { ResetService } from "../../services/reset/reset.service";
 import { DialogService } from "../../services/modal/dialog/dialog.service";
-import { NavigationService } from "../../services/navigation/navigation.service";
 
 @Component({
   selector: 'htt-toolbar',

@@ -1,3 +1,5 @@
+import { StatisticTabsComponent } from "../components/pages/result/statistic-tabs/statistic-tabs.component";
+
 export enum ETag {
   Comment = '<!--...-->',
   Doctype = '<!DOCTYPE>',
@@ -207,7 +209,7 @@ export interface ICounter {
   name: string;
   value: number;
   className: string;
-};
+}
 
 export interface ICounters {
   totalQuestions: ICounter;
@@ -236,7 +238,8 @@ export enum ELang {
   Russian = 'ru',
 }
 
-export interface ILanguage {
-  id: ELang;
-  title: string;
+export interface IStatisticTab {
+  name: ETestResultCategories;
+  label: string;
+  statKey: keyof ITestResultStatistics;
 }

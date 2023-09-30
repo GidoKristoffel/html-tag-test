@@ -1,10 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TestResultsService } from "../../../services/test-results.service";
 import {
-  ETestResultCategories,
   ETestResultStatus,
-  ITestResultsAnswers,
-  ITestResultStatistics
 } from "../../../interfaces/tags.interface";
 import { Router } from "@angular/router";
 import { ResetService } from "../../../services/reset/reset.service";

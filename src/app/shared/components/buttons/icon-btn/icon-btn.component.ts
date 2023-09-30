@@ -7,7 +7,6 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IconBtnComponent {
-
   @Input() src: string = '';
   @Input() hover: boolean = false;
 }

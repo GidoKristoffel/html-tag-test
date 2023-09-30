@@ -3,6 +3,7 @@
 
 .answers {
   @include flex-gap__medium;
+
   border: 2px solid white;
   width: 435px;
   overflow: auto;

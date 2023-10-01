@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { LocalStorageService } from "../storages/local-storage/local-storage.service";
 import { ELocalStorage } from "../../../interfaces/tags.interface";
+import { CryptoService } from "../../crypto/crypto.service";
 
 @Injectable({
   providedIn: 'root'
@@ -8,9 +9,11 @@ import { ELocalStorage } from "../../../interfaces/tags.interface";
 export class LoadService {
   constructor(
     private localStorageService: LocalStorageService,
+    private cryptoService: CryptoService,
   ) {}
 
   public loadLocalStorage(key: ELocalStorage): string | null {
-    return this.localStorageService.getItem(key);
+    const data = this.localStorageService.getItem(key);
+    return data ? this.cryptoService.decryptData(data) : null;
   }
 }

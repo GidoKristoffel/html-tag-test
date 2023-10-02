@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import * as CryptoJS from 'crypto-js';
+import { AES, enc } from 'crypto-js';
 
 @Injectable({
   providedIn: 'root'
@@ -9,14 +9,29 @@ export class CryptoService {
 
   constructor() { }
 
-  public encryptData(data: any): string {
-    const encryptedData = CryptoJS.AES.encrypt(JSON.stringify(data), this.secretKey).toString();
-    return encryptedData;
+  // public encrypt(data: any): string {
+  //   const encryptedData = AES.encrypt(JSON.stringify(data), this.secretKey).toString();
+  //   return encryptedData;
+  // }
+
+  public encrypt(txt: string): string {
+    return AES.encrypt(txt, this.secretKey).toString();
   }
 
-  public decryptData(encryptedData: string): any {
-    const decryptedBytes = CryptoJS.AES.decrypt(encryptedData, this.secretKey);
-    const decryptedData = JSON.parse(decryptedBytes.toString(CryptoJS.enc.Utf8));
-    return decryptedData;
+  public decrypt(txtToDecrypt: string) {
+    return AES.decrypt(txtToDecrypt, this.secretKey).toString(enc.Utf8);
   }
+
+  // public decrypt(encryptedData: string): any {
+  //   debugger;
+  //   const decryptedBytes = AES.decrypt(encryptedData, this.secretKey);
+  //   const decryptedBytes2 = decryptedBytes.toString(enc.Utf8);
+  //   if (decryptedBytes2) {
+  //     return JSON.parse(decryptedBytes2);
+  //   }
+  //   // if (decryptedBytes) {
+  //   //   return JSON.parse(decryptedBytes);
+  //   // }
+  //   return '';
+  // }
 }

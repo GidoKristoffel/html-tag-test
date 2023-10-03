@@ -10,12 +10,11 @@ export class LocalStorageService {
   ) {}
 
   public getItem(key: string): string | null {
-    let data = localStorage.getItem(key) || "";
-    return this.cryptoService.decrypt(data);
+    return this.cryptoService.decrypt(localStorage.getItem(key) || "");
   }
 
   public setItem(key: string, value: any): void {
-    localStorage.setItem(key, this.cryptoService.encrypt(value));
+    localStorage.setItem(key, this.cryptoService.encrypt(JSON.stringify(value)));
   }
 
   public removeItem(key: string): void {

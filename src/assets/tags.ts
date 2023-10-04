@@ -1,4 +1,4 @@
-import { EDialog, ETag, ITags, TDialogs } from "../app/interfaces/tags.interface";
+import { ETag, ITags } from "../app/interfaces/tags.interface";
 
 export const tags: ITags = {
   [ETag.Comment]: {
@@ -28,7 +28,7 @@ export const tags: ITags = {
   [ETag.Abbr]: {
     question: {
       en: 'Defines text as an abbreviation',
-      ua: 'Посилання, гіперпосилання, якір',
+      ua: 'Визначає текст як абревіатуру',
       ru: 'Определяет текст как аббревиатуру',
     },
     answer: ETag.Abbr,
@@ -45,7 +45,7 @@ export const tags: ITags = {
     question: {
       en: 'Specify the awakening applet',
       ua: 'Визначає вбудований аплет',
-      ru: 'Визначае вбудований аплет',
+      ru: 'Определяет встроенный апплет',
     },
     answer: ETag.Applet,
   },

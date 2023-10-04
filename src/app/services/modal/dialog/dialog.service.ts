@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { DialogComponent } from "../../../components/dialog/dialog.component";
-import { dialogs } from "../../../../assets/tags";
 import { EDialog, TDialogs } from "../../../interfaces/tags.interface";
 import { UntilDestroy, untilDestroyed } from "@ngneat/until-destroy";
 import { ModalService } from "../modal.service";
 import { LanguageComponent } from "../../../components/language/language.component";
+import { dialogs } from "../../../../assets/dialogs";
 
 @UntilDestroy()
 @Injectable({

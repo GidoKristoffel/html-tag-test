@@ -65,30 +65,30 @@ export const tags: ITags = {
     },
     answer: ETag.Article,
   },
-  // [ETag.Aside]: {
-  //   question: {
-  //     en: 'Block with additional information',
-  //     ua: 'Блок з додатковою інформацією',
-  //     ru: 'Блок с дополнительной информацией',
-  //   },
-  //   answer: ETag.Aside,
-  // },
-  // [ETag.Audio]: {
-  //   question: {
-  //     en: 'Allows you to insert a playable audio file',
-  //     ua: 'Дозволяє вставити аудіо файл, що відтворюється',
-  //     ru: 'Позволяет вставить воспроизводимый аудио файл',
-  //   },
-  //   answer: ETag.Audio,
-  // },
-  // [ETag.B]: {
-  //   question: {
-  //     en: 'Makes the text bold',
-  //     ua: 'Робить текст жирним',
-  //     ru: 'Делает текст жирным',
-  //   },
-  //   answer: ETag.B,
-  // },
+  [ETag.Aside]: {
+    question: {
+      en: 'Block with additional information',
+      ua: 'Блок з додатковою інформацією',
+      ru: 'Блок с дополнительной информацией',
+    },
+    answer: ETag.Aside,
+  },
+  [ETag.Audio]: {
+    question: {
+      en: 'Allows you to insert a playable audio file',
+      ua: 'Дозволяє вставити аудіо файл, що відтворюється',
+      ru: 'Позволяет вставить воспроизводимый аудио файл',
+    },
+    answer: ETag.Audio,
+  },
+  [ETag.B]: {
+    question: {
+      en: 'Makes the text bold',
+      ua: 'Робить текст жирним',
+      ru: 'Делает текст жирным',
+    },
+    answer: ETag.B,
+  },
   // [ETag.Base]: {
   //   question: {
   //     en: 'Changes the absolute path of the page',

@@ -1,5 +1,3 @@
-import { StatisticTabsComponent } from "../components/pages/result/statistic-tabs/statistic-tabs.component";
-
 export enum ETag {
   Comment = '<!--...-->',
   Doctype = '<!DOCTYPE>',
@@ -9,9 +7,9 @@ export enum ETag {
   Applet = '<applet>',
   Area = '<area>',
   Article = '<article>',
-  // Aside = '<aside>',
-  // Audio = '<audio>',
-  // B = '<b>',
+  Aside = '<aside>',
+  Audio = '<audio>',
+  B = '<b>',
   // Base = '<base>',
   // Basefont = '<basefont>',
   // Bdo = '<bdo>',

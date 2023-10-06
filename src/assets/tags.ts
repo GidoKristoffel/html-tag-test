@@ -89,30 +89,30 @@ export const tags: ITags = {
     },
     answer: ETag.B,
   },
-  // [ETag.Base]: {
-  //   question: {
-  //     en: 'Changes the absolute path of the page',
-  //     ua: 'Змінює абсолютний шлях сторінки',
-  //     ru: 'Изменяет абсолютный путь страницы',
-  //   },
-  //   answer: ETag.Base,
-  // },
-  // [ETag.Basefont]: {
-  //   question: {
-  //     en: 'Sets the default font',
-  //     ua: 'Задає шрифт за замовчуванням',
-  //     ru: 'Задает шрифт по умолчанию',
-  //   },
-  //   answer: ETag.Basefont,
-  // },
-  // [ETag.Bdo]: {
-  //   question: {
-  //     en: 'Changes the direction of the text',
-  //     ua: 'Змінює напрямок тексту',
-  //     ru: 'Изменет направление текста',
-  //   },
-  //   answer: ETag.Bdo,
-  // },
+  [ETag.Base]: {
+    question: {
+      en: 'Changes the absolute path of the page',
+      ua: 'Змінює абсолютний шлях сторінки',
+      ru: 'Изменяет абсолютный путь страницы',
+    },
+    answer: ETag.Base,
+  },
+  [ETag.Basefont]: {
+    question: {
+      en: 'Sets the default font',
+      ua: 'Задає шрифт за замовчуванням',
+      ru: 'Задает шрифт по умолчанию',
+    },
+    answer: ETag.Basefont,
+  },
+  [ETag.Bdo]: {
+    question: {
+      en: 'Changes the direction of the text',
+      ua: 'Змінює напрямок тексту',
+      ru: 'Изменет направление текста',
+    },
+    answer: ETag.Bdo,
+  },
   // [ETag.Big]: {
   //   question: {
   //     en: 'Makes the text bigger',

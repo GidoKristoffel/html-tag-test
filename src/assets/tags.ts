@@ -113,30 +113,30 @@ export const tags: ITags = {
     },
     answer: ETag.Bdo,
   },
-  // [ETag.Big]: {
-  //   question: {
-  //     en: 'Makes the text bigger',
-  //     ua: 'Робить текст більшим',
-  //     ru: 'Делает текст больше',
-  //   },
-  //   answer: ETag.Big,
-  // },
-  // [ETag.Blockquote]: {
-  //   question: {
-  //     en: 'A long quote',
-  //     ua: 'Довга цитата',
-  //     ru: 'Длинная цитата',
-  //   },
-  //   answer: ETag.Blockquote,
-  // },
-  // [ETag.Body]: {
-  //   question: {
-  //     en: 'Defines the boundaries of the body of the web page',
-  //     ua: 'Визначає кордоти тіла веб-сторінки',
-  //     ru: 'Определение границ тела веб-страницы',
-  //   },
-  //   answer: ETag.Body,
-  // },
+  [ETag.Big]: {
+    question: {
+      en: 'Makes the text bigger',
+      ua: 'Робить текст більшим',
+      ru: 'Делает текст больше',
+    },
+    answer: ETag.Big,
+  },
+  [ETag.Blockquote]: {
+    question: {
+      en: 'A long quote',
+      ua: 'Довга цитата',
+      ru: 'Длинная цитата',
+    },
+    answer: ETag.Blockquote,
+  },
+  [ETag.Body]: {
+    question: {
+      en: 'Defines the boundaries of the body of the web page',
+      ua: 'Визначає кордоти тіла веб-сторінки',
+      ru: 'Определение границ тела веб-страницы',
+    },
+    answer: ETag.Body,
+  },
   // [ETag.Br]: {
   //   question: {
   //     en: 'Creates a new line break',

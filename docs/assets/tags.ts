@@ -137,30 +137,30 @@ export const tags: ITags = {
     },
     answer: ETag.Body,
   },
-  // [ETag.Br]: {
-  //   question: {
-  //     en: 'Creates a new line break',
-  //     ua: 'Створює перехід на новий рядок',
-  //     ru: 'Создает переход на новую строчку',
-  //   },
-  //   answer: ETag.Br,
-  // },
-  // [ETag.Button]: {
-  //   question: {
-  //     en: 'Defines a button',
-  //     ua: 'Визначає кнопку',
-  //     ru: 'Определяет кнопку',
-  //   },
-  //   answer: ETag.Button,
-  // },
-  // [ETag.Canvas]: {
-  //   question: {
-  //     en: 'Used as a container for graphics',
-  //     ua: 'Використовується як контейнер для графіки',
-  //     ru: 'Используется в качестве контейнера для графики',
-  //   },
-  //   answer: ETag.Canvas,
-  // },
+  [ETag.Br]: {
+    question: {
+      en: 'Creates a new line break',
+      ua: 'Створює перехід на новий рядок',
+      ru: 'Создает переход на новую строчку',
+    },
+    answer: ETag.Br,
+  },
+  [ETag.Button]: {
+    question: {
+      en: 'Defines a button',
+      ua: 'Визначає кнопку',
+      ru: 'Определяет кнопку',
+    },
+    answer: ETag.Button,
+  },
+  [ETag.Canvas]: {
+    question: {
+      en: 'Used as a container for graphics',
+      ua: 'Використовується як контейнер для графіки',
+      ru: 'Используется в качестве контейнера для графики',
+    },
+    answer: ETag.Canvas,
+  },
   // [ETag.Caption]: {
   //   question: {
   //     en: 'Defines the name of the table',

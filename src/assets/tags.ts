@@ -161,30 +161,30 @@ export const tags: ITags = {
     },
     answer: ETag.Canvas,
   },
-  // [ETag.Caption]: {
-  //   question: {
-  //     en: 'Defines the name of the table',
-  //     ua: 'Визначає назву таблиці',
-  //     ru: 'Определяет название таблицы',
-  //   },
-  //   answer: ETag.Caption,
-  // },
-  // [ETag.Center]: {
-  //   question: {
-  //     en: 'Aligns the text to the center',
-  //     ua: 'Вирівнює текст по центру',
-  //     ru: 'Выравнивает текст по центру',
-  //   },
-  //   answer: ETag.Center,
-  // },
-  // [ETag.Cite]: {
-  //   question: {
-  //     en: 'Defines the title of the work',
-  //     ua: 'Визначає назву твору',
-  //     ru: 'Определяет название произведения',
-  //   },
-  //   answer: ETag.Cite,
-  // },
+  [ETag.Caption]: {
+    question: {
+      en: 'Defines the name of the table',
+      ua: 'Визначає назву таблиці',
+      ru: 'Определяет название таблицы',
+    },
+    answer: ETag.Caption,
+  },
+  [ETag.Center]: {
+    question: {
+      en: 'Aligns the text to the center',
+      ua: 'Вирівнює текст по центру',
+      ru: 'Выравнивает текст по центру',
+    },
+    answer: ETag.Center,
+  },
+  [ETag.Cite]: {
+    question: {
+      en: 'Defines the title of the work',
+      ua: 'Визначає назву твору',
+      ru: 'Определяет название произведения',
+    },
+    answer: ETag.Cite,
+  },
   // [ETag.Code]: {
   //   question: {
   //     en: 'Indicates that the content of the tag is program code',

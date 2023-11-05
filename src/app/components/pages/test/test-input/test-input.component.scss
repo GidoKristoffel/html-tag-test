@@ -1,0 +1,64 @@
+@import "./src/app/shared/styles/mixins";
+@import "./src/app/shared/styles/colors";
+
+.test-input {
+  @include default-border;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 4px;
+
+  & .input-wrapper {
+    position: relative;
+
+    & input {
+      padding: 0 8px;
+    }
+  }
+
+  & .left-bracket, & .right-bracket {
+    color: $crayola;
+    position: absolute;
+  }
+
+  & .left-bracket {
+    left: 0;
+  }
+
+  & .right-bracket {
+    right: 0;
+  }
+
+  & .input-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  & .content {
+    visibility: hidden;
+    height: 0;
+    width: min-content;
+    padding: 0 8px;
+  }
+}
+
+input {
+  background: black;
+  box-sizing: border-box;
+  border: 0;
+  padding: 0;
+  width: auto;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.empty {
+  width: 100%;
+
+  & input {
+    width: 100%;
+  }
+}

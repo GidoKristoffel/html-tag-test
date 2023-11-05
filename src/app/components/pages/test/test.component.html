@@ -6,11 +6,7 @@
       {{ tags[questionOrder[questionNumber]].question.ru }}
     </div>
     <div class="answer">
-      <input type="text"
-             #input
-             [(ngModel)]="answerInput"
-             (keyup.enter)="answer(answerInput)"
-             [placeholder]="'input.write-answer' | translate">
+      <htt-test-input [(value)]="answerInput" (keyupEnter)="answer(answerInput)" placeholder="input.write-answer"></htt-test-input>
       <button (click)="answer(answerInput)" [disabled]="!answerInput">{{ 'btn.answer' | translate }}</button>
       <htt-icon-btn src="./assets/images/skip.svg" (click)="skipQuestion()"></htt-icon-btn>
     </div>

@@ -15,16 +15,8 @@
     display: flex;
     gap: 8px;
 
-    & input {
-      @include default-border;
-
-      flex: 1;
-      background: black;
-      padding: 4px;
-
-      &:focus {
-        outline: none;
-      }
+    & htt-test-input {
+      width: 100%;
     }
 
     & button {

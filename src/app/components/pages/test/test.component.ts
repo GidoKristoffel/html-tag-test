@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ETag, ITags } from "../../../interfaces/tags.interface";
 import { TagsService } from "../../../services/tags/tags.service";
 import { QuestionOrderService } from "../../../services/questions/question-order/question-order.service";
@@ -51,7 +51,7 @@ export class TestComponent implements OnInit, AfterViewInit {
 
   public answer(answer: string): void {
     if (answer) {
-      this.answerService.giveAnswer(answer, this.questionOrder[this.questionNumber]);
+      this.answerService.giveAnswer(`<${answer}>`, this.questionOrder[this.questionNumber]);
       this.nextQuestion();
       this.inputFocus();
     }

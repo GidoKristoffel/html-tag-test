@@ -11,9 +11,20 @@
 
   & .input-wrapper {
     position: relative;
+    width: min-content;
 
     & input {
       padding: 0 8px;
+      width: 100%;
+    }
+  }
+
+  & .empty {
+    width: 100%;
+
+    & input {
+      width: 100%;
+      padding: 0;
     }
   }
 
@@ -40,6 +51,7 @@
     height: 0;
     width: min-content;
     padding: 0 8px;
+    white-space: nowrap;
   }
 }
 
@@ -55,10 +67,3 @@ input {
   }
 }
 
-.empty {
-  width: 100%;
-
-  & input {
-    width: 100%;
-  }
-}

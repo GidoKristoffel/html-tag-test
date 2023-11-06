@@ -1,15 +1,14 @@
-<div #testInput class="test-input" (resize)="resizeMaxInputSize()">
+<div class="test-input">
   <div class="input-wrapper" [class.empty]="!value">
     <input type="text"
            #input
-           [style.width]="minInputSize < inputWidth && maxInputSize > inputWidth ? (inputWidth + 'px') : ''"
            [(ngModel)]="value"
-           (input)="onInputChange($event)"
+           [maxlength]="maxInputLength"
            (ngModelChange)="emitValue($event)"
            (keyup.enter)="emitKeyupEnter()"
            [placeholder]="placeholder | translate">
     <span class="left-bracket" *ngIf="value"><</span>
     <span class="right-bracket" *ngIf="value">></span>
-    <span #content class="content">{{ value }}</span>
+    <span class="content">{{ value }}</span>
   </div>
 </div>

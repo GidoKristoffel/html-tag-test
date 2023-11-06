@@ -26,23 +26,10 @@ import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { LanguageComponent } from './components/language/language.component';
 import { BracketTextDirective } from './directives/bracket-text.directive';
 import { TestInputComponent } from './components/pages/test/test-input/test-input.component';
-import { MaxInputSizeDirective } from './directives/max-input-size.directive';
-import {AUTO_SIZE_INPUT_OPTIONS, AutoSizeInputModule, AutoSizeInputOptions} from 'ngx-autosize-input';
 
 export function httpTranslateLoader(http: HttpClient):any {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
-
-// const CUSTOM_AUTO_SIZE_INPUT_OPTIONS: AutoSizeInputOptions = {
-//   extraWidth: 0,
-//   includeBorders: false,
-//   includePadding: true,
-//   includePlaceholder: true,
-//   maxWidth: -1,
-//   minWidth: -1,
-//   setParentWidth: false,
-//   usePlaceHolderWhenEmpty: false,
-// }
 
 @NgModule({
   declarations: [
@@ -64,7 +51,6 @@ export function httpTranslateLoader(http: HttpClient):any {
     LanguageComponent,
     BracketTextDirective,
     TestInputComponent,
-    MaxInputSizeDirective
   ],
   imports: [
     BrowserModule,
@@ -81,14 +67,8 @@ export function httpTranslateLoader(http: HttpClient):any {
         deps: [HttpClient]
       }
     }),
-    AutoSizeInputModule,
   ],
-  providers: [
-    // {
-    //   provide: AUTO_SIZE_INPUT_OPTIONS,
-    //   useValue: CUSTOM_AUTO_SIZE_INPUT_OPTIONS
-    // }
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

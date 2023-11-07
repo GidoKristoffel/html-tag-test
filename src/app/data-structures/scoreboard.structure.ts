@@ -24,6 +24,6 @@ export const counters: ICounters = {
   skippedQuestions: {
     name: 'statistics.skipped-questions',
     value: 0,
-    className: '',
+    className: 'skipped',
   }
 };

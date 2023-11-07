@@ -8,7 +8,7 @@
        [class.selected]="language === currentLanguage"
   >
     <div class="flag">
-      <img [src]="'./assets/images/' + language + '.svg'">
+      <img [src]="'./assets/images/' + language + '.svg'" alt="">
     </div>
     {{ 'language.' + language | translate }}
   </div>

@@ -49,5 +49,6 @@
   & .selected {
     border-color: $crayola;
     color: $crayola;
+    cursor: default;
   }
 }

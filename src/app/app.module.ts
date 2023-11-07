@@ -24,7 +24,6 @@ import { AnswerListComponent } from './components/pages/result/answer-list/answe
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { LanguageComponent } from './components/language/language.component';
-import { BracketTextDirective } from './directives/bracket-text.directive';
 import { TestInputComponent } from './components/pages/test/test-input/test-input.component';
 
 export function httpTranslateLoader(http: HttpClient):any {
@@ -49,7 +48,6 @@ export function httpTranslateLoader(http: HttpClient):any {
     StatisticTabsComponent,
     AnswerListComponent,
     LanguageComponent,
-    BracketTextDirective,
     TestInputComponent,
   ],
   imports: [

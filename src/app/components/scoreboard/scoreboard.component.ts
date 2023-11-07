@@ -18,11 +18,10 @@ export class ScoreboardComponent implements OnInit {
   public counters: ICounters = counters;
 
   constructor(
-    private answerService: AnswerService,
     private scoreService: ScoreService,
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.init();
   }
 

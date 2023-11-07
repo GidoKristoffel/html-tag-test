@@ -1,0 +1,42 @@
+{
+  "main-menu": {
+    "test": "Start test",
+    "dictionary": "Tag dictionary"
+  },
+  "language": {
+    "en": "English",
+    "ua": "Ukrainian",
+    "ru": "Russian"
+  },
+  "input": {
+    "filter": "Filter",
+    "write-answer": "Write answer"
+  },
+  "btn": {
+    "answer": "Answer",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "result-statistics": {
+    "right-answers": "Right answers",
+    "wrong-answers": "Wrong answers",
+    "skipped-questions": "Missed questions",
+    "total-questions": "Total questions"
+  },
+  "statistics": {
+    "total-questions": "Total questions",
+    "questions-left": "Questions left",
+    "correct-answer": "Right",
+    "incorrect-answer": "Wrong",
+    "skipped-questions": "Missed"
+  },
+  "result": {
+    "question": "Question",
+    "your-answer": "Your answer",
+    "correct-answer": "Correct answer"
+  },
+  "dialog": {
+    "reset": "Are you sure you want to start the test again?",
+    "back-to-main-menu": "Are you sure you want to return to the main menu? \nThe current result will be reset"
+  }
+}

@@ -185,30 +185,30 @@ export const tags: ITags = {
     },
     answer: ETag.Cite,
   },
-  // [ETag.Code]: {
-  //   question: {
-  //     en: 'Indicates that the content of the tag is program code',
-  //     ua: 'Вказує, що зміст теґа - програмний код',
-  //     ru: 'Указывает, что содержание тэга – программный код',
-  //   },
-  //   answer: ETag.Code,
-  // },
-  // [ETag.Col]: {
-  //   question: {
-  //     en: 'Sets general properties for one or more columns',
-  //     ua: 'Задає загальні властивості для однієї чи декількох колонок',
-  //     ru: 'Задает общие свойства для одной или нескольких колонок',
-  //   },
-  //   answer: ETag.Col,
-  // },
-  // [ETag.Colgroup]: {
-  //   question: {
-  //     en: 'Sets general properties for one or more columns',
-  //     ua: 'Задає загальні властивості для однієї чи декількох колонок',
-  //     ru: 'Задает общие свойства для одной или нескольких колонок',
-  //   },
-  //   answer: ETag.Colgroup,
-  // },
+  [ETag.Code]: {
+    question: {
+      en: 'Indicates that the content of the tag is program code',
+      ua: 'Вказує, що зміст теґа - програмний код',
+      ru: 'Указывает, что содержание тэга – программный код',
+    },
+    answer: ETag.Code,
+  },
+  [ETag.Col]: {
+    question: {
+      en: 'Sets general properties for one or more columns',
+      ua: 'Задає загальні властивості для однієї чи декількох колонок',
+      ru: 'Задает общие свойства для одной или нескольких колонок',
+    },
+    answer: ETag.Col,
+  },
+  [ETag.Colgroup]: {
+    question: {
+      en: 'Sets general properties for one or more columns',
+      ua: 'Задає загальні властивості для однієї чи декількох колонок',
+      ru: 'Задает общие свойства для одной или нескольких колонок',
+    },
+    answer: ETag.Colgroup,
+  },
   // [ETag.]: {
   //   question: {
   //     en: '',

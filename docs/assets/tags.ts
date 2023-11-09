@@ -209,6 +209,30 @@ export const tags: ITags = {
     },
     answer: ETag.Colgroup,
   },
+  [ETag.Datalist]: {
+    question: {
+      en: 'Used to define predefined options to choose from when you type in a text field',
+      ua: 'Використовується для визначення наперед визначених варіантів на вибір при введенні в текстовому полі',
+      ru: 'Используется для определения предопределенных вариантов на выбор при вводе в текстовом поле',
+    },
+    answer: ETag.Datalist,
+  },
+  [ETag.Dd]: {
+    question: {
+      en: 'Defines the description of a term from a <dt> tag in a list of <dl> terms',
+      ua: 'Визначає опис терміна з тега <dt> у списку термінів <dl>',
+      ru: 'Определяет описание термина из тега <dt> в списке терминов <dl>',
+    },
+    answer: ETag.Dd,
+  },
+  [ETag.Del]: {
+    question: {
+      en: 'Text that has been removed in the new version of the document',
+      ua: 'Текст видалений у новій версії документ',
+      ru: 'Текст, который удален в новой версии документ',
+    },
+    answer: ETag.Del,
+  },
   // [ETag.]: {
   //   question: {
   //     en: '',

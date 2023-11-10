@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from "@angular/router";
 import { IMenu } from "../../../interfaces/tags.interface";
 import { NavigationService } from "../../../services/navigation/navigation.service";
 
@@ -23,7 +22,6 @@ export class MainManuComponent {
   ];
 
   constructor(
-    private router: Router,
     private navigationService: NavigationService,
   ) {}
 

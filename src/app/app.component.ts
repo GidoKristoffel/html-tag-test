@@ -9,7 +9,7 @@ import { LoadService } from "./services/caching/load/load.service";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'html-tag-test';
+  title: string = 'html-tag-test';
 
   constructor(
     private translate: TranslateService,
@@ -21,9 +21,6 @@ export class AppComponent {
 
   private getSaving(): ELang {
     let language: ELang | string | null = this.loadService.loadLocalStorage(ELocalStorage.Language);
-    if (language) {
-      return JSON.parse(language as string) as ELang;
-    }
-    return ELang.English;
+    return language ? JSON.parse(language as string) as ELang : ELang.English;
   }
 }

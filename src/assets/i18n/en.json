@@ -38,5 +38,8 @@
   "dialog": {
     "reset": "Are you sure you want to start the test again?",
     "back-to-main-menu": "Are you sure you want to return to the main menu? \nThe current result will be reset"
+  },
+  "directive": {
+    "not-found": "Not found"
   }
 }

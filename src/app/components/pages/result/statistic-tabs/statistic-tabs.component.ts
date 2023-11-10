@@ -44,7 +44,7 @@ export class StatisticTabsComponent implements OnInit {
     private testResultsService: TestResultsService,
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.initStatistics();
   }
 

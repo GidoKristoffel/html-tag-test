@@ -25,6 +25,7 @@ import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { LanguageComponent } from './components/language/language.component';
 import { TestInputComponent } from './components/pages/test/test-input/test-input.component';
+import { NgOptimizedImage } from "@angular/common";
 
 export function httpTranslateLoader(http: HttpClient):any {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -50,22 +51,23 @@ export function httpTranslateLoader(http: HttpClient):any {
     LanguageComponent,
     TestInputComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    AngularSvgIconModule.forRoot(),
-    BackButtonDisableModule.forRoot(),
-    TranslateModule.forRoot({
-      defaultLanguage: 'en',
-      loader: {
-        provide: TranslateLoader,
-        useFactory: httpTranslateLoader,
-        deps: [HttpClient]
-      }
-    }),
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        AngularSvgIconModule.forRoot(),
+        BackButtonDisableModule.forRoot(),
+        TranslateModule.forRoot({
+            defaultLanguage: 'en',
+            loader: {
+                provide: TranslateLoader,
+                useFactory: httpTranslateLoader,
+                deps: [HttpClient]
+            }
+        }),
+        NgOptimizedImage,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

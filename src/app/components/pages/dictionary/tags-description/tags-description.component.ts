@@ -23,7 +23,7 @@ export class TagsDescriptionComponent implements OnInit {
     private translateService: TranslateService,
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.init();
   }
 
@@ -40,7 +40,7 @@ export class TagsDescriptionComponent implements OnInit {
     this.translateService
       .onLangChange
       .pipe(untilDestroyed(this))
-      .subscribe((event: LangChangeEvent) => {
+      .subscribe((event: LangChangeEvent): void => {
         if ((<any>Object).values(ELang).includes(event.lang)) {
           this.currentLang = event.lang as ELang;
         }

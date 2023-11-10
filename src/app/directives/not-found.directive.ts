@@ -1,16 +1,29 @@
-import { Directive, ElementRef, Input, OnChanges, Renderer2, SimpleChanges } from '@angular/core';
+import { Directive, ElementRef, Input, OnChanges, OnInit, Renderer2, SimpleChanges } from '@angular/core';
+import { LangChangeEvent, TranslateService } from "@ngx-translate/core";
+import { UntilDestroy, untilDestroyed } from "@ngneat/until-destroy";
+import { take } from "rxjs";
 
+@UntilDestroy()
 @Directive({
   selector: '[httNotFound]'
 })
-export class NotFoundDirective  implements OnChanges {
+export class NotFoundDirective  implements OnInit, OnChanges {
   @Input('httNotFound') httNotFound: boolean = false;
   private element!: ElementRef;
-  constructor(private el: ElementRef, private renderer: Renderer2) {
+
+  constructor(
+    private el: ElementRef,
+    private renderer: Renderer2,
+    private translateService: TranslateService
+  ) {
     this.initElement();
   }
 
-  ngOnChanges(changes: SimpleChanges) {
+  ngOnInit(): void  {
+    this.watchLanguage();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
     if (changes['httNotFound'].currentValue) {
       this.renderer.appendChild(this.el.nativeElement, this.element);
     } else if (changes['httNotFound'].previousValue) {
@@ -19,14 +32,25 @@ export class NotFoundDirective  implements OnChanges {
   }
 
   private initElement(): void {
-    this.element = this.renderer.createElement('div');
-    const text = this.renderer.createText('Not found');
-    this.renderer.appendChild(this.element, text);
+    this.translateService
+      .get('directive.not-found')
+      .pipe(take(1))
+      .subscribe((translate: string): void => {
+        this.element = this.renderer.createElement('div');
+        const text: Renderer2 = this.renderer.createText(translate);
+        this.renderer.appendChild(this.element, text);
 
-    this.renderer.setStyle(this.element, 'display', 'flex');
-    this.renderer.setStyle(this.element, 'align-items', 'center');
-    this.renderer.setStyle(this.element, 'justify-content', 'center');
-    this.renderer.setStyle(this.element, 'width', '100%');
-    this.renderer.setStyle(this.element, 'height', '27px');
+        this.renderer.setStyle(this.element, 'display', 'flex');
+        this.renderer.setStyle(this.element, 'align-items', 'center');
+        this.renderer.setStyle(this.element, 'justify-content', 'center');
+        this.renderer.setStyle(this.element, 'width', '100%');
+        this.renderer.setStyle(this.element, 'height', '27px');
+      });
+  }
+
+  private watchLanguage(): void {
+    this.translateService.onLangChange.pipe(untilDestroyed(this)).subscribe((event: LangChangeEvent): void => {
+      this.renderer.setProperty(this.element, 'textContent', event.translations.directive['not-found']);
+    });
   }
 }

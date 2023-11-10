@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-import { TestResultsService } from "../../../services/test-results.service";
 import {
   ETestResultStatus,
 } from "../../../interfaces/tags.interface";
-import { Router } from "@angular/router";
 import { ResetService } from "../../../services/reset/reset.service";
 import { NavigationService } from "../../../services/navigation/navigation.service";
 
@@ -17,8 +15,6 @@ export class ResultComponent {
 
   public readonly testResultStatus = ETestResultStatus;
   constructor(
-    private testResultsService: TestResultsService,
-    private router: Router,
     private resetService: ResetService,
     private navigationService: NavigationService,
   ) {}

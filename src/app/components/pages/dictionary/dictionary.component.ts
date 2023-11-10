@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ETag } from "../../../interfaces/tags.interface";
-import { TagsService } from "../../../services/tags/tags.service";
-import { Router } from "@angular/router";
 import { NavigationService } from "../../../services/navigation/navigation.service";
 
 @Component({
@@ -13,12 +11,10 @@ export class DictionaryComponent implements OnInit {
   public tagNames: ETag[] = [];
 
   constructor(
-    private tagsService: TagsService,
-    private router: Router,
     private navigationService: NavigationService,
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.init();
   }
 

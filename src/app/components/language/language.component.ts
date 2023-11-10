@@ -43,7 +43,7 @@ export class LanguageComponent {
   }
 
   private watchChange(): void {
-    this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
+    this.translateService.onLangChange.subscribe((event: LangChangeEvent): void => {
       if (this.utilityService.isEnumContains(event.lang, ELang)) {
         this.currentLanguage = this.translateService.currentLang as ELang;
         this.saveService.saveLocalStorage(ELocalStorage.Language, this.currentLanguage);

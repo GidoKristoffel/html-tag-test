@@ -41,11 +41,11 @@ export class TestComponent implements OnInit, AfterViewInit {
   ) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.init();
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.inputFocus();
   }
 
@@ -110,7 +110,7 @@ export class TestComponent implements OnInit, AfterViewInit {
   }
 
   public backToMainMenu(): void {
-    this.dialogService.openBackToMainMenu(() => {
+    this.dialogService.openBackToMainMenu((): void => {
       this.navigationService.toMainMenu();
       this.resetService.run();
     });
@@ -120,7 +120,7 @@ export class TestComponent implements OnInit, AfterViewInit {
     this.settingService
       .watchShowStatistics()
       .pipe(distinctUntilChanged())
-      .subscribe((showStatistics: boolean) => {
+      .subscribe((showStatistics: boolean): void => {
         this.showStatistics = showStatistics;
       });
   }

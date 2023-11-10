@@ -56,7 +56,7 @@ export class ScoreboardComponent implements OnInit {
   private initCounter(watchFunction: () => Observable<number>, counterName: keyof ICounters): void {
     watchFunction()
       .pipe(untilDestroyed(this))
-      .subscribe((questionsLeftCounter: number) => {
+      .subscribe((questionsLeftCounter: number): void => {
         this.counters[counterName].value =  questionsLeftCounter;
       });
   }

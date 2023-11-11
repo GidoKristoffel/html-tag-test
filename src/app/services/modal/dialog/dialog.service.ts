@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { ComponentRef, Injectable } from '@angular/core';
 import { DialogComponent } from "../../../components/dialog/dialog.component";
 import { EDialog, TDialogs } from "../../../interfaces/tags.interface";
 import { UntilDestroy, untilDestroyed } from "@ngneat/until-destroy";
@@ -18,8 +18,8 @@ export class DialogService {
   ) {}
 
   public openReload(agree: () => void): void {
-    const dialogRef = this.modal.open(DialogComponent);
-    const instance = dialogRef.instance;
+    const dialogRef: ComponentRef<DialogComponent> = this.modal.open(DialogComponent);
+    const instance: DialogComponent = dialogRef.instance;
 
     instance.answer = this.params[EDialog.Reset].answer;
     instance.agreeLabel = this.params[EDialog.Reset].agreeLabel;
@@ -27,7 +27,7 @@ export class DialogService {
 
     instance.agree
       .pipe(untilDestroyed(this))
-      .subscribe(() => {
+      .subscribe((): void => {
         agree();
         this.modal.close(dialogRef);
       });
@@ -37,8 +37,8 @@ export class DialogService {
   }
 
   public openBackToMainMenu(agree: () => void): void {
-    const dialogRef = this.modal.open(DialogComponent);
-    const instance = dialogRef.instance;
+    const dialogRef: ComponentRef<DialogComponent> = this.modal.open(DialogComponent);
+    const instance: DialogComponent = dialogRef.instance;
 
     instance.answer = this.params[EDialog.BackToMainMenu].answer;
     instance.agreeLabel = this.params[EDialog.BackToMainMenu].agreeLabel;
@@ -46,7 +46,7 @@ export class DialogService {
 
     instance.agree
       .pipe(untilDestroyed(this))
-      .subscribe(() => {
+      .subscribe((): void => {
         agree();
         this.modal.close(dialogRef);
       });
@@ -56,8 +56,8 @@ export class DialogService {
   }
 
   public openLanguages(): void {
-    const dialogRef = this.modal.open(LanguageComponent);
-    const instance = dialogRef.instance;
+    const dialogRef: ComponentRef<LanguageComponent> = this.modal.open(LanguageComponent);
+    const instance: LanguageComponent = dialogRef.instance;
 
     instance.close
       .pipe(untilDestroyed(this))

@@ -17,12 +17,14 @@ export class ModalService {
   ) {}
 
   public open<C>(component: ComponentType<C>): ComponentRef<C> {
-    const componentRef = createComponent(component, {
+    const componentRef: ComponentRef<C> = createComponent(component, {
       environmentInjector: this.environmentInjector
     });
+    const domElement: HTMLElement = (componentRef.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement;
+
     this.appRef.attachView(componentRef.hostView);
-    const domElement = (componentRef.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement;
     document.body.appendChild(domElement)
+
     return componentRef;
   }
 

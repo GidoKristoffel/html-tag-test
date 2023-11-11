@@ -1,15 +1,17 @@
-import { Directive, ElementRef, Input, OnChanges, OnInit, Renderer2, SimpleChanges } from '@angular/core';
+import { Directive, ElementRef, HostBinding, Input, OnChanges, OnInit, Renderer2, SimpleChanges } from '@angular/core';
 import { LangChangeEvent, TranslateService } from "@ngx-translate/core";
 import { UntilDestroy, untilDestroyed } from "@ngneat/until-destroy";
 import { take } from "rxjs";
 
 @UntilDestroy()
 @Directive({
-  selector: '[httNotFound]'
+  selector: '[httNotFound]',
 })
 export class NotFoundDirective  implements OnInit, OnChanges {
   @Input('httNotFound') httNotFound: boolean = false;
   private element!: ElementRef;
+
+  @HostBinding('class.directive-not-found-flex') isFlex: boolean = false;
 
   constructor(
     private el: ElementRef,

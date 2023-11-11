@@ -7,7 +7,7 @@ export class UtilityService {
   public initializeObjectWithEmptyStrings<T>(keys: string[]): T {
     const obj: any = {};
 
-    keys.forEach((key: string) => {
+    keys.forEach((key: string): void => {
       obj[key] = '';
     });
 
@@ -15,8 +15,8 @@ export class UtilityService {
   }
 
   public isEnumContains<T extends Record<string, string>>(value: string, enumType: T): value is T[keyof T] {
-    const enumValues = Object.keys(enumType)
-      .filter((key: string) => typeof enumType[key] === 'string')
+    const enumValues: string[] = Object.keys(enumType)
+      .filter((key: string): boolean => typeof enumType[key] === 'string')
       .map((key: string) => enumType[key]);
 
     return enumValues.includes(value);

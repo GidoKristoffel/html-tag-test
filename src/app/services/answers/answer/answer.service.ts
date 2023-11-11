@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ETag } from "../../../interfaces/tags.interface";
+import { ETag, ITag } from "../../../interfaces/tags.interface";
 import { TagsService } from "../../tags/tags.service";
-import { LocalStorageService } from "../../caching/storages/local-storage/local-storage.service";
-import { SaveService } from "../../caching/save/save.service";
 import { RightAnswersService } from "../right-answers/right-answers.service";
 import { WrongAnswersService } from "../wrong-answers/wrong-answers.service";
 import { SkippedAnswersService } from "../skipped-question/skipped-answers.service";
@@ -15,8 +13,6 @@ export class AnswerService {
 
   constructor(
     private tagsService: TagsService,
-    private localStorageService: LocalStorageService,
-    private saveService: SaveService,
     private rightAnswersService: RightAnswersService,
     private wrongAnswersService: WrongAnswersService,
     private skippedAnswersService: SkippedAnswersService,
@@ -24,7 +20,7 @@ export class AnswerService {
   ) {}
 
   public giveAnswer(answer: string, questionIndex: ETag): void {
-    const question = this.tagsService.get()[questionIndex];
+    const question: ITag = this.tagsService.get()[questionIndex];
 
     if (question.answer === answer) {
       const rightAnswers: ETag[] = [...this.rightAnswersService.get(), questionIndex];
@@ -33,6 +29,7 @@ export class AnswerService {
       const wrongAnswers: ETag[] = [...this.wrongAnswersService.get(), questionIndex];
       this.wrongAnswersService.set(wrongAnswers);
     }
+
     this.userAnswerService.setByKey(questionIndex, answer);
   }
 

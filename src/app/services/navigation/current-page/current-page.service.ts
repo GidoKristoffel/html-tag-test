@@ -19,7 +19,7 @@ export class CurrentPageService {
     this.cachingService
       .init<EPages>(
         () => this.watch(),
-        (saving: EPages | null) => {
+        (saving: EPages | null): void => {
           if (saving) {
             this.set(saving);
           }

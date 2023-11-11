@@ -31,7 +31,7 @@ export class QuestionNumberService {
   }
 
   private init(): void {
-    const questionNumber = this.getSaving();
+    const questionNumber: number | null = this.getSaving();
     this.set(questionNumber || 0);
   }
 

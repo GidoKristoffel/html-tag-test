@@ -64,7 +64,7 @@ export class TestResultsService {
   }
 
   private generateAnswers(): void {
-    this.questionOrder.forEach((trueAnswer: ETag) => {
+    this.questionOrder.forEach((trueAnswer: ETag): void => {
       const answer: ITestResultsAnswers = {
         question: this.tags[trueAnswer].question,
         trueAnswer,

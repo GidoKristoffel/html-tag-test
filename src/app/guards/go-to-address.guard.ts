@@ -17,8 +17,7 @@ export class GoToAddressGuard implements CanActivate {
   ) {}
 
   canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
+    route: ActivatedRouteSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (route.routeConfig?.path === this.currentPageService.get() || this.navigationAccessService.get()) {
       return true;

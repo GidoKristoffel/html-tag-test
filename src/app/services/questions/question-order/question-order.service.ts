@@ -38,13 +38,13 @@ export class QuestionOrderService {
   }
 
   public generate(): void {
-    const tagIds = Object.values(ETag);
-    const shuffledTagIds = this.shuffleService.runArray(tagIds);
+    const tagIds: ETag[] = Object.values(ETag);
+    const shuffledTagIds: ETag[] = this.shuffleService.runArray<ETag>(tagIds);
     this.set(shuffledTagIds);
   }
 
   private init(): void {
-    const saving = this.getSaving();
+    const saving: ETag[] | null = this.getSaving();
 
     if (saving) {
       this.set(saving);

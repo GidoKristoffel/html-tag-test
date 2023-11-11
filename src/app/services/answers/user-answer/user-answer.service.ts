@@ -24,7 +24,7 @@ export class UserAnswerService {
     if (saving) {
       this.set(saving);
     } else {
-      const userAnswers = this.utilityService.initializeObjectWithEmptyStrings<TUserAnswers>(Object.keys(ETag))
+      const userAnswers: TUserAnswers = this.utilityService.initializeObjectWithEmptyStrings<TUserAnswers>(Object.keys(ETag))
       this.set(userAnswers);
     }
   }

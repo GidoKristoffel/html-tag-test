@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { tags } from "../../../assets/tags";
 import { BehaviorSubject, merge, Observable } from "rxjs";
-import { SaveService } from "../caching/save/save.service";
 import { ETag } from "../../interfaces/tags.interface";
 import { RightAnswersService } from "../answers/right-answers/right-answers.service";
 import { UntilDestroy, untilDestroyed } from "@ngneat/until-destroy";
@@ -20,7 +19,6 @@ export class ScoreService {
   private skippedQuestions: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
   constructor(
-    private saveService: SaveService,
     private rightAnswersService: RightAnswersService,
     private wrongAnswersService: WrongAnswersService,
     private skippedAnswersService: SkippedAnswersService,
@@ -46,7 +44,7 @@ export class ScoreService {
     this.rightAnswersService
       .watch()
       .pipe(untilDestroyed(this))
-      .subscribe((rightAnswers: ETag[]) => {
+      .subscribe((rightAnswers: ETag[]): void => {
         this.setRightAnswers(rightAnswers.length);
       });
   }
@@ -55,7 +53,7 @@ export class ScoreService {
     this.wrongAnswersService
       .watch()
       .pipe(untilDestroyed(this))
-      .subscribe((wrongAnswers: ETag[]) => {
+      .subscribe((wrongAnswers: ETag[]): void => {
         this.setWrongAnswers(wrongAnswers.length);
       });
   }
@@ -66,8 +64,8 @@ export class ScoreService {
       this.watchRightAnswers().pipe(untilDestroyed(this)),
       this.watchWrongAnswers().pipe(untilDestroyed(this)),
       this.watchSkippedQuestions().pipe(untilDestroyed(this)),
-    ).subscribe(() => {
-      const questionsLeft =
+    ).subscribe((): void => {
+      const questionsLeft: number =
         this.getTotalQuestions() - this.getRightAnswers() - this.getWrongAnswers() - this.getSkippedQuestions();
       this.setQuestionsLeft(questionsLeft);
     });

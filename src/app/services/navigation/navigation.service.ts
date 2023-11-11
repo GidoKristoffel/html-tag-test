@@ -13,11 +13,11 @@ export class NavigationService {
     private router: Router,
     private navigationAccessService: NavigationAccessService,
     private currentPageService: CurrentPageService,
-  ) { }
+  ) {}
 
   public toMainMenu(): void {
     this.navigationAccessService.allowAccess();
-    this.router.navigate([EPages.MainMenu]).then(() => {
+    this.router.navigate([EPages.MainMenu]).then((): void => {
       this.navigationAccessService.denyAccess();
       this.currentPageService.set(EPages.MainMenu);
     });
@@ -25,7 +25,7 @@ export class NavigationService {
 
   public toTest(): void {
     this.navigationAccessService.allowAccess();
-    this.router.navigate([EPages.Test]).then(() => {
+    this.router.navigate([EPages.Test]).then((): void => {
       this.navigationAccessService.denyAccess();
       this.currentPageService.set(EPages.Test);
     });
@@ -33,7 +33,7 @@ export class NavigationService {
 
   public toDictionary(): void {
     this.navigationAccessService.allowAccess();
-    this.router.navigate([EPages.Dictionary]).then(() => {
+    this.router.navigate([EPages.Dictionary]).then((): void => {
       this.navigationAccessService.denyAccess();
       this.currentPageService.set(EPages.Dictionary);
     });
@@ -41,7 +41,7 @@ export class NavigationService {
 
   public toResult(): void {
     this.navigationAccessService.allowAccess();
-    this.router.navigate([EPages.Result]).then(() => {
+    this.router.navigate([EPages.Result]).then((): void => {
       this.navigationAccessService.denyAccess();
       this.currentPageService.set(EPages.Result);
     });

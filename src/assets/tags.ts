@@ -233,6 +233,30 @@ export const tags: ITags = {
     },
     answer: ETag.Del,
   },
+  [ETag.Details]: {
+    question: {
+      en: 'Defines the content that the user can hide or display',
+      ua: 'Визначає контент котрий користувач може приховати чи відобразити',
+      ru: 'Определяет контент, который пользователь может скрыть или отобразить',
+    },
+    answer: ETag.Details,
+  },
+  [ETag.Dfn]: {
+    question: {
+      en: 'Indicates a term in the text',
+      ua: 'Позначає термін в тексті',
+      ru: 'Указывает термин в тексте',
+    },
+    answer: ETag.Dfn,
+  },
+  [ETag.Dialog]: {
+    question: {
+      en: 'Створює діалогове вікно',
+      ua: 'Створює діалогове вікно',
+      ru: 'Создает диалоговое окно',
+    },
+    answer: ETag.Dialog,
+  },
   // [ETag.]: {
   //   question: {
   //     en: '',

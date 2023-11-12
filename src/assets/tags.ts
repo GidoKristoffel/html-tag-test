@@ -257,6 +257,30 @@ export const tags: ITags = {
     },
     answer: ETag.Dialog,
   },
+  [ETag.Dir]: {
+    question: {
+      en: 'List of directory names',
+      ua: 'Список з назв директорій',
+      ru: 'Список названий директорий',
+    },
+    answer: ETag.Dir,
+  },
+  [ETag.Div]: {
+    question: {
+      en: 'Block',
+      ua: 'Блок',
+      ru: 'Блок',
+    },
+    answer: ETag.Div,
+  },
+  [ETag.Dl]: {
+    question: {
+      en: 'List of terms/definitions',
+      ua: 'Список термінів/визначень',
+      ru: 'Список терминов/определений',
+    },
+    answer: ETag.Dl,
+  },
   // [ETag.]: {
   //   question: {
   //     en: '',

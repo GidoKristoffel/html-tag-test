@@ -281,6 +281,30 @@ export const tags: ITags = {
     },
     answer: ETag.Dl,
   },
+  [ETag.Dt]: {
+    question: {
+      en: 'Specifies the name of the term',
+      ua: 'Задає назву терміна',
+      ru: 'Задает название термина',
+    },
+    answer: ETag.Dt,
+  },
+  [ETag.Em]: {
+    question: {
+      en: 'Emphasizes respect in the text',
+      ua: 'Акцентує увагу на тексті',
+      ru: 'Акцентирует внимание на тексте',
+    },
+    answer: ETag.Em,
+  },
+  [ETag.Embed]: {
+    question: {
+      en: 'Inserts an external object into an HTML document',
+      ua: 'Вставляє в html-документ зовнішній об\'єкт',
+      ru: 'Вставляет в html-документ внешний объект',
+    },
+    answer: ETag.Embed,
+  },
   // [ETag.]: {
   //   question: {
   //     en: '',

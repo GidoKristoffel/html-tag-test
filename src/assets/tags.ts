@@ -305,6 +305,30 @@ export const tags: ITags = {
     },
     answer: ETag.Embed,
   },
+  [ETag.Fieldset]: {
+    question: {
+      en: 'Groups related form fields',
+      ua: 'Групує пов\'язані поля форми',
+      ru: 'Группирует связанные поля формы',
+    },
+    answer: ETag.Fieldset,
+  },
+  [ETag.Figcaption]: {
+    question: {
+      en: 'Caption for the picture',
+      ua: 'Підпис до малюнка',
+      ru: 'Подпись к рисунку',
+    },
+    answer: ETag.Figcaption,
+  },
+  [ETag.Figure]: {
+    question: {
+      en: 'Grouping of elements',
+      ua: 'Групування елементів',
+      ru: 'Группировка элементов',
+    },
+    answer: ETag.Figure,
+  },
   // [ETag.]: {
   //   question: {
   //     en: '',

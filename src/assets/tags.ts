@@ -329,6 +329,30 @@ export const tags: ITags = {
     },
     answer: ETag.Figure,
   },
+  [ETag.Font]: {
+    question: {
+      en: 'Sets the color, size and type of the font',
+      ua: 'Задає колір, розмір і тип шрифту',
+      ru: 'Задает цвет, размер и тип шрифта',
+    },
+    answer: ETag.Font,
+  },
+  [ETag.Footer]: {
+    question: {
+      en: 'Defines the footer (basement) of a web page',
+      ua: 'Визначає футер (підвал) веб-сторінки',
+      ru: 'Определяет футер (подвал) веб-страницы',
+    },
+    answer: ETag.Footer,
+  },
+  [ETag.Form]: {
+    question: {
+      en: 'Defines the form',
+      ua: 'Визначає форму',
+      ru: 'Определение формы',
+    },
+    answer: ETag.Form,
+  },
   // [ETag.]: {
   //   question: {
   //     en: '',

@@ -353,6 +353,30 @@ export const tags: ITags = {
     },
     answer: ETag.Form,
   },
+  [ETag.Frame]: {
+    question: {
+      en: 'Defines a frame on a web page',
+      ua: 'Визначає фрейм на веб-сторінці',
+      ru: 'Определяет фрейм на веб-странице',
+    },
+    answer: ETag.Frame,
+  },
+  [ETag.Frameset]: {
+    question: {
+      en: 'Defines the frame structure',
+      ua: 'Визначає структуру фреймів',
+      ru: 'Определение структуры кадров',
+    },
+    answer: ETag.Frameset,
+  },
+  [ETag.H1]: {
+    question: {
+      en: 'First level header',
+      ua: 'Заголовок першого рівня',
+      ru: 'Заголовок первого уровня',
+    },
+    answer: ETag.H1,
+  },
   // [ETag.]: {
   //   question: {
   //     en: '',

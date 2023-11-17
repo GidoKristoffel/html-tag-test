@@ -1,12 +1,11 @@
-import { ComponentRef, Injectable } from '@angular/core';
+import { ComponentRef, DestroyRef, Injectable } from '@angular/core';
 import { DialogComponent } from "../../../components/dialog/dialog.component";
 import { EDialog, TDialogs } from "../../../interfaces/tags.interface";
-import { UntilDestroy, untilDestroyed } from "@ngneat/until-destroy";
 import { ModalService } from "../modal.service";
 import { LanguageComponent } from "../../../components/language/language.component";
 import { dialogs } from "../../../../assets/dialogs";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 
-@UntilDestroy()
 @Injectable({
   providedIn: 'root'
 })
@@ -15,6 +14,7 @@ export class DialogService {
 
   constructor(
     private modal: ModalService,
+    private destroyRef: DestroyRef
   ) {}
 
   public openReload(agree: () => void): void {
@@ -26,13 +26,13 @@ export class DialogService {
     instance.disagreeLabel = this.params[EDialog.Reset].disagreeLabel;
 
     instance.agree
-      .pipe(untilDestroyed(this))
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((): void => {
         agree();
         this.modal.close(dialogRef);
       });
     instance.disagree
-      .pipe(untilDestroyed(this))
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(() => this.modal.close(dialogRef));
   }
 
@@ -45,13 +45,13 @@ export class DialogService {
     instance.disagreeLabel = this.params[EDialog.BackToMainMenu].disagreeLabel;
 
     instance.agree
-      .pipe(untilDestroyed(this))
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((): void => {
         agree();
         this.modal.close(dialogRef);
       });
     instance.disagree
-      .pipe(untilDestroyed(this))
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(() => this.modal.close(dialogRef));
   }
 
@@ -60,7 +60,7 @@ export class DialogService {
     const instance: LanguageComponent = dialogRef.instance;
 
     instance.close
-      .pipe(untilDestroyed(this))
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(() => this.modal.close(dialogRef));
   }
 }

@@ -1,10 +1,9 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, DestroyRef, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ELang, ETestResultStatus, ITestResultsAnswers } from "../../../../interfaces/tags.interface";
 import { TestResultsService } from "../../../../services/test-results.service";
 import { LangChangeEvent, TranslateService } from "@ngx-translate/core";
-import { UntilDestroy, untilDestroyed } from "@ngneat/until-destroy";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 
-@UntilDestroy()
 @Component({
   selector: 'htt-answer-list',
   templateUrl: './answer-list.component.html',
@@ -20,6 +19,7 @@ export class AnswerListComponent implements OnInit, OnChanges {
   constructor(
     private testResultsService: TestResultsService,
     private translateService: TranslateService,
+    private destroyRef: DestroyRef
   ) {}
 
   ngOnInit() {
@@ -50,7 +50,7 @@ export class AnswerListComponent implements OnInit, OnChanges {
   private initTranslate(): void {
     this.translateService
       .onLangChange
-      .pipe(untilDestroyed(this))
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((event: LangChangeEvent) => {
         if ((<any>Object).values(ELang).includes(event.lang)) {
           this.currentLang = event.lang as ELang;

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { NavigationAccessService } from "../services/navigation/navigation-access/navigation-access.service";
 import { CurrentPageService } from "../services/navigation/current-page/current-page.service";
@@ -8,7 +8,7 @@ import { EPages } from "../interfaces/tags.interface";
 @Injectable({
   providedIn: 'root'
 })
-export class GoToAddressGuard implements CanActivate {
+export class GoToAddressGuard  {
 
   constructor(
     private navigationAccessService: NavigationAccessService,

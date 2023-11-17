@@ -1,11 +1,10 @@
-import { Injectable } from '@angular/core';
+import { DestroyRef, Injectable } from '@angular/core';
 import { ELocalStorage } from "../../interfaces/tags.interface";
 import { Observable } from "rxjs";
-import { UntilDestroy, untilDestroyed } from "@ngneat/until-destroy";
 import { SaveService } from "./save/save.service";
 import { LoadService } from "./load/load.service";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 
-@UntilDestroy()
 @Injectable({
   providedIn: 'root'
 })
@@ -14,6 +13,7 @@ export class CachingService {
   constructor(
     private saveService: SaveService,
     protected loadService: LoadService,
+    private destroyRef: DestroyRef
   ) {}
 
   public init<T>(watchFunction: () => Observable<T>, setFunction: (value: T | null) => void, key: ELocalStorage): void {
@@ -21,7 +21,7 @@ export class CachingService {
     setFunction(saving);
 
     watchFunction()
-      .pipe(untilDestroyed(this))
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((value: T) => {
         this.saveService.saveLocalStorage(key, value);
       });

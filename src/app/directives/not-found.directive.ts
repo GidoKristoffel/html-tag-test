@@ -1,9 +1,18 @@
-import { Directive, ElementRef, HostBinding, Input, OnChanges, OnInit, Renderer2, SimpleChanges } from '@angular/core';
+import {
+  DestroyRef,
+  Directive,
+  ElementRef,
+  HostBinding,
+  Input,
+  OnChanges,
+  OnInit,
+  Renderer2,
+  SimpleChanges
+} from '@angular/core';
 import { LangChangeEvent, TranslateService } from "@ngx-translate/core";
-import { UntilDestroy, untilDestroyed } from "@ngneat/until-destroy";
 import { take } from "rxjs";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 
-@UntilDestroy()
 @Directive({
   selector: '[httNotFound]',
 })
@@ -16,7 +25,8 @@ export class NotFoundDirective  implements OnInit, OnChanges {
   constructor(
     private el: ElementRef,
     private renderer: Renderer2,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private destroyRef: DestroyRef
   ) {
     this.initElement();
   }
@@ -51,7 +61,7 @@ export class NotFoundDirective  implements OnInit, OnChanges {
   }
 
   private watchLanguage(): void {
-    this.translateService.onLangChange.pipe(untilDestroyed(this)).subscribe((event: LangChangeEvent): void => {
+    this.translateService.onLangChange.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((event: LangChangeEvent): void => {
       this.renderer.setProperty(this.element, 'textContent', event.translations.directive['not-found']);
     });
   }

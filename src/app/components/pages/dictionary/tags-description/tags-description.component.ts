@@ -1,10 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, DestroyRef, Input, OnInit } from '@angular/core';
 import { ELang, ETag, ITags } from "../../../../interfaces/tags.interface";
 import { TagsService } from "../../../../services/tags/tags.service";
 import { LangChangeEvent, TranslateService } from "@ngx-translate/core";
-import { UntilDestroy, untilDestroyed } from "@ngneat/until-destroy";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 
-@UntilDestroy()
 @Component({
   selector: 'htt-tags-description',
   templateUrl: './tags-description.component.html',
@@ -21,6 +20,7 @@ export class TagsDescriptionComponent implements OnInit {
   constructor(
     private tagsService: TagsService,
     private translateService: TranslateService,
+    private destroyRef: DestroyRef
   ) {}
 
   ngOnInit(): void {
@@ -39,7 +39,7 @@ export class TagsDescriptionComponent implements OnInit {
   private initTranslate(): void {
     this.translateService
       .onLangChange
-      .pipe(untilDestroyed(this))
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((event: LangChangeEvent): void => {
         if ((<any>Object).values(ELang).includes(event.lang)) {
           this.currentLang = event.lang as ELang;

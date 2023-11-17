@@ -1,13 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { AnswerService } from "../../services/answers/answer/answer.service";
-import { UntilDestroy, untilDestroyed } from "@ngneat/until-destroy";
+import { Component, DestroyRef, OnInit } from '@angular/core';
 import { ScoreService } from "../../services/score/score.service";
-import { distinctUntilChanged, Observable } from "rxjs";
+import { Observable } from "rxjs";
 import { ICounters } from "../../interfaces/tags.interface";
 import { counters } from "../../data-structures/scoreboard.structure";
-import { SettingsService } from "../../services/settings.service";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 
-@UntilDestroy()
 @Component({
   selector: 'htt-scoreboard',
   templateUrl: './scoreboard.component.html',
@@ -19,6 +16,7 @@ export class ScoreboardComponent implements OnInit {
 
   constructor(
     private scoreService: ScoreService,
+    private destroyRef: DestroyRef
   ) {}
 
   ngOnInit(): void {
@@ -55,7 +53,7 @@ export class ScoreboardComponent implements OnInit {
 
   private initCounter(watchFunction: () => Observable<number>, counterName: keyof ICounters): void {
     watchFunction()
-      .pipe(untilDestroyed(this))
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((questionsLeftCounter: number): void => {
         this.counters[counterName].value =  questionsLeftCounter;
       });

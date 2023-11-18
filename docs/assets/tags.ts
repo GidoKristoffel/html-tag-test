@@ -377,6 +377,30 @@ export const tags: ITags = {
     },
     answer: ETag.H1,
   },
+  [ETag.H2]: {
+    question: {
+      en: 'Second level header',
+      ua: 'Заголовок другого рівня',
+      ru: 'Заголовок второго уровня',
+    },
+    answer: ETag.H2,
+  },
+  [ETag.H3]: {
+    question: {
+      en: 'Third level header',
+      ua: 'Заголовок третього рівня',
+      ru: 'Заголовок третьего уровня',
+    },
+    answer: ETag.H3,
+  },
+  [ETag.H4]: {
+    question: {
+      en: 'Fourth level title',
+      ua: 'Заголовок четвертого рівня',
+      ru: 'Заголовок четвертого уровня',
+    },
+    answer: ETag.H4,
+  },
   // [ETag.]: {
   //   question: {
   //     en: '',
